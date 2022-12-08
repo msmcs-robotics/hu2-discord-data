@@ -1,0 +1,1224 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128218;｜copywriting-faqs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">&#128196;Copywriting&#128196; / &#128218;｜copywriting-faqs</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-914688550568591420" class="chatlog__message-container " data-message-id="914688550568591420">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/867547974627229696/a912d10e9cdc35788801463bb33d831c.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="AndrewCopywriting#7509" data-user-id="867547974627229696">Andrew - Copywriting</span>
+
+
+                        <span class="chatlog__timestamp">28-Nov-21 08:25 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>COPYWRITING FAQs</strong>
+
+<strong>To access the copywriting chats and resources you have to confirm reading by pressing the Thumb’s up emoji</strong>
+
+<em>Godfrey showed some serious initiative and put together this list of FAQs. Take some time and review these questions to save yourself and everyone else  time and allow us to focus on the big money making questions</em>
+<em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u>_</u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em>
+
+<strong>What do you guys use to get clients?</strong>
+
+Literally any social media site. YouTube, Instagram and Linkedin are the best. Watch Andrew’s videos to find out how in the selling copywriting services room.
+
+<strong>How often should you follow up on a prospect after sending them free value?</strong>
+
+How often is irrelevant. If you’ve sent the free value and they haven’t responded, send them a quick reminder. If they don’t respond to that, wait a little more then send them another email with a little intrigue. It isn’t rocket science. If they don’t respond at all, move on.
+
+<strong>Where can I find one of Andrew’s recorded calls?</strong>
+
+They can be found in <span class="chatlog__markdown-mention">#deleted-channel</span> . New recordings will take some time to get uploaded so be patient, they will all be available.
+
+<strong>
+When writing copy, should you write from the reader’s perspective?</strong>
+
+Obviously.
+
+<strong>My prospect left me on seen, what should I do?</strong>
+
+Be prepared to move on. If you want some inspiration, just go into the freelancing daily room and read Dylan’s latest post. There are MILLIONS of prospects out there, don’t be a needy bitch.
+
+<strong>HELP I have a call with a prospect, how should I price my copy?</strong>
+
+You need to make it dumb for the prospect to reject you. Be so valuable that they need you. Don’t be greedy, the money is on the way. Start low ($200 for 10 emails for example) and then upsell them. Most of you guys don’t even have clients yet, so hold your horses.
+
+<strong>I’ve got an opportunity that isn’t in my niche, what do I do?</strong>
+
+DO IT! Never say no to money
+
+<strong>My prospect hasn&#39;t responded after I sent over the free value they requested, what do I do now?</strong>
+
+Make the first follow up in 24 hours  just a quick question to see if the link/attachment work. Think friendly reminder. 
+
+Second email 2-3 days later, ask a question about what they thought about the second email&#39;s SL . Basically Tease Value. 
+
+Third email 2-3 days after that, come up with &quot;Another idea&quot; and ask for the call again to discuss.
+
+If they don&#39;t respond, set them aside to reach out to in 2-3  months with another offer and move on.</span>
+
+                            <span class="chatlog__edited-timestamp" title="03-Dec-21 01:46 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-914688562522366002" class="chatlog__message-container " data-message-id="914688562522366002">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="28-Nov-21 08:25 PM">20:25</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Shit, a prospect is asking me about my company. What should I say?</strong>
+
+Tell the truth. You are a new copywriter being mentored by an experienced pro. Remove as much risk as possible and lean on the quality of the free value you have provided.
+
+<strong>How do you find email addresses on linkedin?</strong>
+
+Apollo.io, thank me later.
+
+<strong>Any tips?/Thoughts?</strong>
+
+Don’t be a retard. EVERYTHING you need to know is in the different copywriting rooms. If you’re asking dumb shit like this, I know you haven’t done any reading.
+
+<strong>What should I do if a prospect already has a copywriter?</strong>
+
+Don’t let that deter you. If your work is exceptional, the prospect WILL make an exception. You have no power over their decision making, except for the quality you produce.
+
+<strong>What should I do if the prospect didn’t like my free value?</strong>
+
+Improve your craft and do better research. Submit your copy for the Wednesday call so Andrew himself can fix it. Most of you don’t even show up to the calls, so how do you expect to improve your copy?
+
+<strong>What should I put in my subject line?</strong>
+
+Classic question from a noob who can’t be bothered to read. 21 secrets pdf (found in <span class="chatlog__markdown-mention">#deleted-channel</span> ) is the ONLY resource you need to read, if you can’t even do that you will NEVER be a copywriter.
+
+<strong>How do I increase my reply rate?</strong>
+
+Follow the guidelines in the guide. Make sure the email is personal, avoid grammar mistakes, and make sure you are hinting at real value. But at the end of the day remember that cold outreach is a numbers game, some don’t need you whereas others will. A business might now need you <em>right now</em>, but if you followup in a month, he just might need your services. 
+
+<strong>Is it a good idea to cold outreach on Sundays?</strong>
+
+Again, seriously? Cold outreach ANY day, it doesn’t matter. Do you want a client or not? Test it out.
+
+<strong>I’m only 14, does my age matter?</strong>
+
+I’m going to be brutally honest. Your age doesn&#39;t matter at ALL. What DOES matter is your maturity and competence. Most teenagers are dumb and incompetent, but maybe you’re an exception. Arno has mentioned how he paid a 14 year old $2000 for a job. He was competent, are you?
+
+<strong>How many prospects should I email everyday?</strong>
+
+Andrew says 40. Until you develop an optimised system 40 can be challenging, but the LEAST you can do is 10/20.
+
+<strong>What do you think of some external guru’s course?</strong>
+
+HU2 has EVERYTHING you need to start generating money via copywriting as soon as possible.
+Any other product won’t just be a waste of time and money, but will also confuse you and hinder your progress. Remember MONEY IN.
+
+Stick to the Copywriting tutorial’s PROVEN system and you’ll make money soon enough. 
+
+<strong>What should my email name be?</strong>
+
+Don’t overthink this. Don’t have a retarded name like pussyslayer420@yahoo.com and you’ll be fine. Use your own name, you should be proud of the work you produce and own it.
+
+<strong>When sending my free value, should it be as an email or in a doc?</strong>
+
+Once they&#39;ve asked for the free value, send it over as either a PDF attached into your email.
+
+<strong>Should we reach out to people outside of our country?</strong>
+
+It’s the internet, of course you should.
+
+<em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u><em><u>_</u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em></u></em>
+
+Some of you know the answers to these questions because you are serious about being successful copywriters.
+
+Unfortunately, far too many of you have been asking the same retarded questions over and over again. 
+
+There are serious questions which deserve consideration, and then there are these one’s. Questions which have been answered HUNDREDS of times every single day.
+
+Next time you think you have a pressing question, go to this page. We have work to do and can’t be bothered answering 60 IQ questions.</span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Dec-21 04:04 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-935271667721195570" class="chatlog__message-container " data-message-id="935271667721195570">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/867547974627229696/a912d10e9cdc35788801463bb33d831c.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="AndrewCopywriting#7509" data-user-id="867547974627229696">Andrew - Copywriting</span>
+
+
+                        <span class="chatlog__timestamp">24-Jan-22 03:35 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>BONUS - COPYWRITING / MARKETING BASIC TERMS</strong>
+
+COPY
+-refers to any piece of copywriting
+
+SUBJECT LINE
+-what do you read before you open an email? that’s right...the subject line!
+
+PROSPECT
+-a potential buyer for your product or service that has not yet converted into a customer
+
+DIRECT RESPONSE COPY
+-designed to achieve a specific, measurable and immediate action
+
+EMAIL MARKETING
+-a form of marketing by using email to a specific list to let them know about offers
+
+EMAIL NEWSLETTER
+-a regular newsletter put out by organizations that let readers keep up to date with the company
+-essential to email marketing
+
+FOLLOW-UP EMAIL
+-emails that follow after the reader takes a specific action, or if it doesn&#39;t
+(ex. payment confirmation; or in case of no response, a second email sent to find out why)
+
+AUTORESPONDER
+-a sequence of automated emails sent to a prospect or customer
+
+PROOFREADING
+-the art of checking copy for spelling, grammar, typos, punctuation before it&#39;s published
+
+FUNNEL
+-a process of which a prospect turns into a customer and everything that happens in between
+
+LANDING PAGE
+-a one off page that exists on its own rather than as part of a larger website
+-usually used to make a sale or capture information
+-contains all the information a reader needs to make a buying decision
+
+SALES PAGE
+-similar to a landing page, a sales page doesn’t have to be a solo page on its own
+-can be part of a website, but it has the same characteristics of only allowing the reader to either buy or leave the page
+
+LEAD MAGNET
+-attracts leads by offering a small chunk of value that solves a very specific problem for a specific market in exchange for contact information (especially an email address)
+
+ABOVE THE FOLD
+-the area of your website that visitors can see without having to scroll down
+-you want to use it for copy and design that gets your customer’s attention
+
+TESTIMONIALS
+-an endorsement of your product or service by someone else
+-usually from previous clients and customers
+-in the form of videos, or a written testimonial
+
+SCARCITY
+-used in copywriting to develop a sense of urgency in a customer
+-means that the offer will not be available to everyone indefinitely or that the offer will no longer be available
+-as a result it encourages your reader to sharpen their focus on making a decision
+
+URGENCY
+-the act of encouraging the reader to take action now, rather than wait
+
+PROBLEM
+-the challenge your customers are facing that you can help them with
+-usually there&#39;s one major pain point, with many related pains as a result of this
+
+BENEFITS
+-the benefits are the reason your customers are interested in buying from you. 
+-they extend further than features and show how the customer’s life will improve by having the product or service in their life
+
+HOOKS
+-used to grab your customer&#39;s attention
+(ex. unusual facts, overwhelming benefits)
+
+LEAD 
+-introductory paragraph of your copy
+-it gives people a flavor of what they are about to read in a way that makes them want to continue
+-hypes up the first part of the promo, where you establish the big promise
+(ex. &quot;never seen anything like this&quot;, &quot;this will blow your mind&quot;)
+
+BIG PROMISE
+-stands for the results you&#39;re promising in the first lines of your copy
+-that they&#39;re going to experience if they buy the product or services you&#39;re promoting
+(ex. &quot;using this you&#39;ll make&quot;, &quot;you&#39;ll gain...&quot;, &quot;take my course and you&#39;ll get 500 instagram likes/ week&quot; etc.)</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-935271771962220674" class="chatlog__message-container " data-message-id="935271771962220674">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Jan-22 03:36 PM">15:36</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">CREDIBILITY
+-customers have to believe that you can deliver the promise you make, that you can be trusted, and that your copy can be believed
+-in a cynical world where people have been lied to in advertising, building credibility is a critical step in the success of your copywriting
+
+CLAIM
+-it anchors the big promise - often marked by the words &quot;because&quot; and &quot;if&quot;
+-these are the ideas you use to overcome objections about the big promise
+-claims without proof are going to fall flat
+(ex. &quot;this (X) crypto method CAN make you Y amount of money, IF you act fast&quot;)
+
+PROOF
+-hooked to claims, they are facts which strengthen the claims 
+-proof must be real facts, otherwise you&#39;ll lose credibility
+(ex. &quot;Elon Musk already put his Z amount in X, so you need to hurry&quot;)
+
+OPEN RATE
+-the number of people who open your email compared to the total number of people who received the email
+
+CONVERSION
+-every piece of copy has a goal, and to discover that goal, you have to have a measurement system
+-the measurement system shows you the percentage of people who took the action you wanted them to, compared to the total number of people who read the copy 
+(ex. if you have 1000 unique visitors to your sales page and made 70 sales, your conversion rate would be 70 out of 1000 = 7%)
+
+UPSELL
+-a technique that occurs after a customer has purchased, or is about to purchase
+-it encourages them to think about a complimentary purchase or another offer you feel they would be interested in
+
+CUSTOMER PROFILE (PERSONA)
+-an outline of an individual within your target market
+-an integral part of writing copy which connects with your ideal customer
+(their interests, problems, emotional triggers)
+
+DEMOGRAPHICS
+-used to categorize the population by statistical data
+(ex. gender, geographic location, age, job, marital status, number of children)
+
+SWIPE FILE
+-a file that you keep any promotions, sales pages, website copy that you find and like
+-a brilliant source of inspiration
+
+
+<strong>ABBREVIATIONS</strong>
+
+CTA - Call / To / Action
+-it is the whole purpose of the piece of copy you are writing
+-tells your reader what it is you want them to do
+-strong calls to action are specific, compelling and should have a sense of urgency
+(ex. buy, sign up)
+
+CTR - Click / Through / Rate
+-this is the measurement of how many people who opened your email, clicked through on a hyperlink that was included in the email
+
+ROI - Return / on / Investment
+-a ratio between the net profit and cost of investment resulting from an investment of some resources
+-a high ROI means the investment&#39;s gains favorably to its cost
+
+RR - Retention / Rate
+-the rate of which customers continue to do business with over a period of time
+-it is recorded as a percentage
+
+DIC - Disrupt / Interest / Click
+-disrupt: come up with a mindblowing hook to grab the attention
+-interest: build intrigue and speak facts
+-click: use an irresistible CTA to make your victim follow through
+
+PAS - Problem / Agitate / Solution
+-problem: identify your reader’s pain point
+-agitate: stir it up so it hurts to the point of discomfort
+-solve: deliver a solution
+
+SPIN Selling - Situation / Problem / Implication / Need-payoff
+-the approach of building a relationship with a prospect in order to explore their needs before you offer your product as the solution
+-refers to Nail Rackham’s book
+
+NESB - New / Easy / Safe / Big
+-selling technique developed by Kyle Millingan about which he speaks in his &quot;Take Their Money&quot; book
+-helps you strengthen your pitch and act against the objections made in the emotional mind of the buyer (which decides to buy or not to)
+
+P.S. - Postscript
+-used at the end of an email, sales page or sales letter
+-method of catching the reader’s attention and highlighting a specific point
+-if the reader scrolls all the way to the end of your promotion just to find out the price, the P.S can be a trigger to highlight a benefit that may then make them dive into the body copy and read more about the product</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-935271820599369728" class="chatlog__message-container " data-message-id="935271820599369728">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Jan-22 03:36 PM">15:36</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">B2C Copywriting - Business / To / Consumer
+-a style of copywriting used to sell products directly to the consumer
+
+B2B Copywriting - Business / To / Business
+-this stands for “business-to-business” copywriting
+-B2B copywriting sells a product or service to other businesses, rather than directly to consumers
+(ex. selling printing services to a publishing firm)
+
+SEO - Search / Engine / Optimization
+-the practice of making a website more likely to be found within search engines
+
+USP – Unique / Selling / Proposition
+-what sets you apart
+-what makes you different and is a reason customers want to go to you rather than a competitor</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961180924962291722" class="chatlog__message-container " data-message-id="961180924962291722">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/470723667303727125/1a872c8232349c050c48b7a59d025bd2.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(46, 204, 113)" title="Dyno#9026" data-user-id="470723667303727125">Dyno</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">06-Apr-22 04:29 AM</span>
+                    </div>
+
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(41, 200, 21, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">To get access to the entire Copywriting Category,  please press the button below!</div>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 6 message(s)</div>
+</div>
+
+</body>
+
+</html>

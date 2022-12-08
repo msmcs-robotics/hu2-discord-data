@@ -1,0 +1,2057 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128177;｜defi-tutorials</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / &#128177;｜defi-tutorials</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-925883456880263238" class="chatlog__message-container " data-message-id="925883456880263238">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">29-Dec-21 05:50 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Wallets</strong>
+
+A cryptocurrency wallet is a device, program, or a service which stores the public and/or private keys for blockchain transactions.
+
+There are 2 main groups for crypto wallets.
+
+Hot wallets are the ones that have a direct connection to the internet. This wallet can be a phone app, online provider, or desktop software program. Examples are Metamask, Phantom,Terra Station, etc.
+
+Cold wallets are portable devices that provide the capability to “carry” your crypto money. Since you interact with the assets offline, this option is more secure than hot wallets. Examples are Ledger and Trezor.
+
+Your wallets don’t hold any cryptocurrencies. All of those are on the blockchain owned by your Ethereum address. With your public and your private key you have access to that particular address through your wallet interface. This is the same both for cold and hot wallets. Even if you lose your Ledger (physical device) you can just replace it with another one and recover your account with your seed phrase. 
+
+For our demonstrations we will use the most commonly used wallet which is Metamask. It’s worth mentioning that you can also connect your hardware wallet (Ledger) and use it with the Metamask interface. You get the simplicity and flexibility of Metamask and the safety of the cold wallet.
+
+Always buy the physical device on the official site and always reset your device before using it.
+
+<a href="https://metamask.io/">https://metamask.io/</a>
+
+<a href="https://www.ledger.com/">https://www.ledger.com/</a>
+
+<a href="https://vimeo.com/690338690">https://vimeo.com/690338690</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="20-Mar-22 09:05 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(51, 51, 51, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://metamask.io/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">A crypto wallet &amp; gateway to blockchain apps | MetaMask</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">A crypto wallet &amp; gateway to blockchain apps</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/iBkXS3wFBzdqPZiO-8Amjg4HVBjCBU9ebhtYy_AbWYA/https/images.ctfassets.net/9sy2a0egs6zh/77mVisJcj8sMquYlW3iq73/1d47648a1511e1e79b5b58bba0bebf80/home_featured.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/iBkXS3wFBzdqPZiO-8Amjg4HVBjCBU9ebhtYy_AbWYA/https/images.ctfassets.net/9sy2a0egs6zh/77mVisJcj8sMquYlW3iq73/1d47648a1511e1e79b5b58bba0bebf80/home_featured.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.ledger.com/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Hardware Wallet - State-of-the-art security for crypto assets | Ledger</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Secure your crypto assets such as Bitcoin, Ethereum, XRP, Monero and more. Give yourself peace of mind by knowing that your cryptocurrencies are safe</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/r1__1Bmk_t7SypTj7N5AxZUEE0NhgpV4_c-UZy92yDo/https/www.ledger.com/wp-content/uploads/2021/11/Ledger_favicon.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/r1__1Bmk_t7SypTj7N5AxZUEE0NhgpV4_c-UZy92yDo/https/www.ledger.com/wp-content/uploads/2021/11/Ledger_favicon.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/690338690">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Wallets</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Wallets&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/xmtuTv6mS98Jh7-fDgVSijwejtVmtPvoJgyeDPDj_Cw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397860684-6a577099c022146ef8fb89051335a637a57da924c4530a697c7d75687f937036-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/xmtuTv6mS98Jh7-fDgVSijwejtVmtPvoJgyeDPDj_Cw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397860684-6a577099c022146ef8fb89051335a637a57da924c4530a697c7d75687f937036-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-926296707451457536" class="chatlog__message-container " data-message-id="926296707451457536">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">30-Dec-21 09:12 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Metamask</strong>
+
+MM is a software wallet used to interact with the EVM compatible blockchains like Ethereum, Avalanche, or Fantom. It allows users to access their wallet through a browser extension or mobile app, which can then be used to interact with decentralized applications.
+
+MM is a non-custodial wallet, you own your private key (in a form of seed phrase) unlike custodial wallets (CEX&#39;s) where the platform owns your private key. While a custodial wallet is usually considered less secure than a non-custodial wallet, many prefer them because they don’t require as much responsibility and are usually more convenient. Non-custodial wallets a double-edged sword as many people tend to fall for scams and expose their private keys. Once you expose your private key all your accounts in your MM are vulnerable.
+
+The ONLY time you have to use your seed phrase is when you login to Metamask through the MM interface.
+
+There are several ways to store your seed phrase. You have to make sure no one can get access to it besides you and you shouldn’t lose it either. Some ppl like to write it down on paper and then hide it or lock it away somewhere. I don’t like that approach personally. If you choose to do that, at least split up the words into a few chunks (if the seed phrase is 12 words then put 4-4 words on 3 different papers) and keep it in separate places. Another approach is to save it in a text file then encode it (AES 256-Bit Encryption for instance) and keep it on a USB stick or cloud storage. I prefer the latter so I never lose it. Even if someone gets his hand on your file, it’s still encrypted and protected by a strong password. One thing you shouldn’t do is keep a decrypted seed phrase on your computer. If you click on a malicious link some programs can install themselves on your computer and the hackers will gain remote control to it. If your seed phrase is not encrypted it means they have access to your private key, which means your money will be gone.</span>
+
+                            <span class="chatlog__edited-timestamp" title="02-Jan-22 07:39 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-926298973965267047" class="chatlog__message-container " data-message-id="926298973965267047">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">30-Dec-21 09:21 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Connecting Metamask to different chains</strong>
+
+To connect to different EVM compatible chains you have to manually add the configurations in the network setup. Main EVM compatible chains and their governance tokens are Avalanche (AVAX), Fantom (FTM), Binance Smart Chain aka BSC (BNB), and Polygon (MATIC).
+
+You can keep the same account if you want for the different chains, so bridging will be easier.
+
+From security perspective it&#39;s better if you keep some of your money in different accounts (addresses) within the same Metamask login . When I say same Metamask login I mean the same private key which is of course the seedphrase.
+
+You could do this by having different chains under different addresses or you just send some of your coins from the same chain to a separate address. E.g. you have 20ETH on one address and 20ETH. If you click on some malicious link but you don&#39;t expose your seedphrase, the hackers won&#39;t be able to touch your other accounts (addresses).
+
+I would personally recommend more laptops as well, with separate Metamask logins (separate seedphrases), so if you expose your seedphrase, you won&#39;t lose all of your money.
+
+<a href="https://vimeo.com/690339765">https://vimeo.com/690339765</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="20-Mar-22 09:08 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/690339765">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">metamask_network_setup</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;metamask_network_setup&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/NJsMkVnqykPNNaBI6MDZgNQl4TeoxjOXQZPE6Opo5Qc/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397862534-9bcca4525fd78d710144343ba06379da333d55c408ece097d6448913e4256429-d_1280x718%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/NJsMkVnqykPNNaBI6MDZgNQl4TeoxjOXQZPE6Opo5Qc/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397862534-9bcca4525fd78d710144343ba06379da333d55c408ece097d6448913e4256429-d_1280x718%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930368328751546378" class="chatlog__message-container " data-message-id="930368328751546378">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 02:51 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Tokenomics</strong>
+
+Coin vs token. These terms are used interchangeably which is not totally correct. 
+
+Coin is a cryptocurrency asset. Coins are not intended to serve as utility unlike crypto tokens. It is used as a store of value or medium of exchange. To put it another way the main difference between these two comes down to utility. There are things you can do with tokens and not with coins. On the other hand, some marketplaces will accept coins and not tokens.
+
+The difference is subtle, so it will be used interchangeably below to go with the convention.
+
+It’s crucial to understand the basic tokenomics before swapping any coins.
+
+The price of a coin doesn’t mean anything without knowing the number of coins. Having 1 coin of X at price $10 represents the same value as 10 coin X at price $1.
+
+Think of some foreign currencies. 1 EUR is not the same as 1 CHF. As of this writing if you express that in dollars 1 EUR is worth 1.13 USD and 1 CHF is worth 1.08 USD.
+
+What actually matters is the price multiplied by the number of coins which represents the valuations of the particular project or company. To define the number of coins we will have to look at a few more definitions first.</span>
+
+                            <span class="chatlog__edited-timestamp" title="11-Jan-22 02:53 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930371893519872000" class="chatlog__message-container " data-message-id="930371893519872000">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 03:05 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Basic definitions</strong>
+
+<em><strong>Maximum supply</strong></em>
+
+The maximum number of coins that can be ever in existence. First it gets set when the token contract is deployed on chain. It’s important to cap the supply otherwise the token value could get inflated. On top of that there are ways to take some of the coins out of circulation forever which can make the token deflationary and reduce the maximum supply.
+
+<em><strong>Total supply</strong></em>
+
+The total supply is the number of tokens that currently exists and are either in circulation or locked. It is the sum of coins that has already been mined/issued minus the total of coins that were burned.
+
+<em><strong>Circulating supply</strong></em>
+
+The circulating supply is number of coins that are available for trading in the different markets. It does not include the coins that are locked up or being held in reserve.
+
+<em><strong>Initial supply</strong></em>
+
+The number of coins that make it in circulation when the token contract is deployed.</span>
+
+                            <span class="chatlog__edited-timestamp" title="11-Jan-22 03:27 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930374791872016444" class="chatlog__message-container " data-message-id="930374791872016444">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 03:17 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Basic definitions II</strong>
+
+<em><strong>Token emission</strong></em>
+
+It is the a schedule and methods of issuing new tokens into circulation. This includes when tokens will be issued for the team/VC’s/early adopters.
+
+Preferably VC’s and the team should vest over a longer period of time, so they don’t sell the tokens or abandon the project. In case of tech startups the total length of the vesting period is usually 4 years. For crypto projects this is usually reduced to 1-2 years as the industry changes at a much higher pace.
+
+Sometimes emission, mint, and unlock used interchangeably which is not correct as only the coins that have been minted can be locked. When you hear someone saying the VC’s unlock it actually means their token is being minted based on an emission schedule.
+
+<em><strong>Burn</strong></em>
+
+This a way to reduce the token supply by removing it from circulation. The use case here is to make a token more valuable by making it more scarce.
+
+<em><strong>Mint</strong></em>
+
+Don’t confuse this with minting an NFT. In this case this is just the opposite of burning. It means the increase of number of tokens in circulation. The minting details should be encoded in the smart contracts. There can be different motivations for minting but the main ones are issuing vested team/VC tokens, rewarding early adopters, or making the coin less scarce to decrease token value. The last may sound weird at first but it is a common mechanism for stablecoins to maintain peg.
+
+<em><strong>Lock/unlock</strong></em>
+
+Coins can get locked or unlocked. In general it is a mechanism to prevent people from selling that particular coin in exchange for some kind of rewards.
+
+Locking is usually happens in the form of staking/liquidity providing. Coins can get locked forever or for a certain period of time. Locking forever actually is the same as burning.</span>
+
+                            <span class="chatlog__edited-timestamp" title="11-Jan-22 03:26 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930376620122976296" class="chatlog__message-container " data-message-id="930376620122976296">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 03:24 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Basic definitions III</strong>
+
+<em><strong>Market Cap (MC)</strong></em>
+
+Market cap applies to other markets as well not only to crypto. It represents the current market value of a particular token or project.
+
+It’s calculated by multiplying the price of the token with the circulating supply.
+
+If token A is worth $1 and the circulating supply is 100,000,000 then the MC is $100,000,000.
+
+If token B is worth $2 and the circulating supply is 20,000,000 then the MC is $40,000,000.
+
+The market value of token A is higher although its price is lower compared to token B.
+
+This why you compare the MC and/or FDV of tokens instead of the prices.
+
+<em><strong>Fully diluted valuation (FDV)</strong></em>
+
+The term &quot;diluted market cap&quot; comes from the stock market. It represents a company&#39;s valuation when all stock options are exercised and all securities are converted to stock.
+
+It’s calculated by multiplying the price of the token with the maximum supply.
+
+Let’s reuse token A and B from the previous example.
+
+If token A’s maximum supply is 200,000,000 then the FDV is $200,000,000.
+
+If token B’s maximum supply is 100,000,000 then the FDV is $200,000,000 for token B as well.</span>
+
+                            <span class="chatlog__edited-timestamp" title="11-Jan-22 03:27 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930381507300818944" class="chatlog__message-container " data-message-id="930381507300818944">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 03:43 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Finding the information</strong>
+
+The basic info like price, MC, and FDV can be found on Coingecko or CoinMarketCap.
+
+If the coin can’t be found on those sites which can happen especially with newer coins a good try would be Dextools or Dexscreener. When looking a coin up make sure to use the token’s contract not the contract of the LP token.
+
+To see more about emission schedules and future event the best thing is to check the docs of the project or talk to people in the project’s discord server.
+
+<a href="https://vimeo.com/690340248">https://vimeo.com/690340248</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="20-Mar-22 09:11 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/690340248">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">finding_token_info</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;finding_token_info&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/gdQOBjg6yD3VgrUQDTKSjx0kCPBo9IXccLIIfXKX35U/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397863744-bbb6ca6cda60fc72122a3c4874faceaa1a942ddf19921b49352f8a3df289d831-d_1280x780%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/gdQOBjg6yD3VgrUQDTKSjx0kCPBo9IXccLIIfXKX35U/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1397863744-bbb6ca6cda60fc72122a3c4874faceaa1a942ddf19921b49352f8a3df289d831-d_1280x780%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930383420444536854" class="chatlog__message-container " data-message-id="930383420444536854">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">11-Jan-22 03:51 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Putting it all together</strong>
+
+It takes time and experience to look at the numbers and understand what they actually mean.
+
+When an L1 chain reaches $3.000.000.000 MC it can be considered early. The same number for a DEX though is huge.
+
+Many coins (especially shitcoins) are priced as a small fraction of a dollar to make it seem smaller. Subconsciously (or sadly consciously) many people consider those coins cheap. They are not cheap, they just have huge total and maximum supplies.
+
+Always check emission schedules. Make sure VC’s/team can’t dump on you. If there is too many tokens being emissioned in a shorter period of time, the token price likely won’t go up thanks to the inflation. Compare the MC and FDV values to see what percentage of the tokens have yet to be minted.
+
+Launching with low token float (results in overinflated FDV) can have high potential on the short run at the cost of long term pain as the large FDV creates sell pressure.
+
+Don’t lock your coins for longer periods of times even if the rewards look juicy. In crypto everything is changing by the day.</span>
+
+                            <span class="chatlog__edited-timestamp" title="11-Jan-22 02:41 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930723505413173248" class="chatlog__message-container " data-message-id="930723505413173248">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">12-Jan-22 02:22 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Staking</strong>
+
+By staking in the section we don’t mean PoS (proof of staking) which is a consensus algorithm.
+
+Staking is a form of locking your coins in exchange for rewards. It usually happens in a decentralised way, but some of the CEX’s also allow you to stake your coins. We will focus on the former.
+
+When you stake your coins you will get confirmation in the form of staked tokens. If you for example stake $SPELL you will get $sSPELL (staked $SPELL) as a receipt which you will see showing up in your wallet. To get back your $SPELL you will have to unstake your $sSPELL. 
+
+The rewards come in several forms. The main ones are voting rights, liquidity mining programs, or revenue share.
+
+Since you get rewards after your staked tokens they are also called interest-bearing tokens. Besides earning interest, in some cases you can  sell those on secondary markets as well. Even better if you can use your staked tokens as collateral or liquidity for other projects. You could stake your $SUSHI and get $xSUSHI (staked $SUSHI) for it, then put that into abracadabra money ($SPELL) as collateral and earn more rewards. With that collateral you could also borrow some $MIM (stablecoin) and do whatever you want with it. Just remember, in order to get back your $xSUSHI, you will have to return your borrowed $MIM. 
+
+Make sure you don’t lock your coins for a longer period of time. Some projects give you juicier staking rewards if you are willing to lock your coins for months or years.</span>
+
+                            <span class="chatlog__edited-timestamp" title="12-Jan-22 02:27 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-930728608610275388" class="chatlog__message-container " data-message-id="930728608610275388">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">12-Jan-22 02:43 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Staking calculations</strong>
+
+Sometimes people use APY (annual percentage yield) and APR (annual percentage rate) interchangeably which is incorrect. Even projects mix it up from time to time, so it’s better if you always double-check what the numbers actually mean.
+
+APR stands for the yield that you get yearly based on your initial investment without compound. Let&#39;s say you stake 1 ETH for 365% APR.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">(1 + 3.65)^1 = 4.65</span>
+
+After a year you will make 3.65 ETH profit and will be able to take out 4.65 ETH. This is assuming your yield gets paid in ETH and the yield stays constant during the whole year.
+
+APY stands for compounded yield. It means the project has a mechanism in the smart contract to auto-compound your yields. If you take the previous example and your yield is auto-compounding once a day for a year then you will get more money. Let’s exclude the gas fees for the following calculation. 
+
+365% APR means 1% growth daily which is compounding once a day.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">(1 + 0.01)^365 = 37.78</span>
+
+This means you can take out 37.78 ETH (36.78 ETH profit) after a year which translates to 3678% APY.
+
+In general staking yields tend to fluctuate over time. If the staking feature is based on initial staking program to acquire new users then you can expect the yield to decrease quickly. If staking is a way of revenue distribution without any extra boost, the APR could go up if the project performs well. 3678% APY is exceptionally high. It’s very important for you to understand what the source of that money.
+
+Let’s do a calculation now from APY to APR. As of this writing there is a project called $TIME ($OHM fork on Avalanche chain) where the staking APY is around 66700% with compounding 4 times a day. Let’s see what the APR is in this case.
+
+Over the year it will compound <span class="chatlog__markdown-pre chatlog__markdown-pre--inline">4 x 365 = 1460</span> times.
+
+66700% is the profit which means if you have 1 TIME to start with, you will have 1 + 667 = 688 TIME in the end.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">(1 + x)^1460 = 668</span>
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">x = 0.0044649</span> which translates to 0.44649% every 6 hours.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-932846604417900555" class="chatlog__message-container " data-message-id="932846604417900555">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">17-Jan-22 10:59 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>AMM (Automated Market Maker)</strong>
+
+A decentralized application that provides a way to swap/trade tokens in a non-custodial way is called a DEX (decentralized exchange). The swap only executes if the conditions are met by all parties. If any of the conditions is not met the transaction is reverted and all parties retain their funds.
+
+<strong>AMM vs Order book</strong>
+
+The are 2 main mechanisms for the swaps. Order-book matching and AMM (automated market maker).
+
+In the case of order-book matching implementation all the parties have to agree on the swap exchange rate. The market makers can create bids at a certain price and allow others to fill those bids. Until the bid is taken the market maker can withdraw the offer or update the price. In some cases this can be inefficient as both parties have to agree on the price to be executed which means you won’t be able to always find buyers/sellers.
+
+An AMM is a smart contracts that holds assets in the form of liquidity pool   (LP) for both sides of the trading pair and automatically sets the price for trading based on a price curve. One of the main advantages compared to the order book mechanism is that you don’t need a counterpart to execute a trade, so you can execute your trade any time. Your funds are also in your custody until the transactions goes through which means there is no counterpart risk. There are other important benefits as well that we won’t discuss here.</span>
+
+                            <span class="chatlog__edited-timestamp" title="17-Jan-22 11:05 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-932847974424412162" class="chatlog__message-container " data-message-id="932847974424412162">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="17-Jan-22 11:04 PM">23:04</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>AMM implementations</strong>
+
+In this section we will focus only on pool2 (constant product formula) and stable swap formula.
+
+Pool2 is the original AMM mechanism by Uniswap v2. Most of the other main DEX’s (Sushi, PanckakeSwap, SpiritSwap, TraderJoe, etc.) use this mechanism as well. There is also a newer Uniswap version (v3) which is more advanced and won’t be discussed here.
+
+The other main implementation is the stableswap formula which was created by Curve finance to trade highly correlated assets.
+
+<em><strong>Constant product formula</strong></em>
+
+The Uniswap  v2 (pool2) trading price ratio is defined with the x * y = k trading curve ratio where x is the balance of token A, y is the balance of token B, and k is a constant invariant that never changes. To maintain this k invariant if you want to sell A, B must be bought by the contract and vice versa.
+
+<em><strong>Stableswap formula</strong></em>
+
+The constant product invariant doesn’t make any assumption about pricing of underlying assets and spreads liquidity across all prices evenly. The stable swap invariant enables to focus most of the liquidity around 1.0 (or any other price) which is great for creating liquidity for stablecoin pairs.</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/925880409210884196/932847972960587786/photo_2022-01-17_17.52.51.jpeg">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/925880409210884196/932847972960587786/photo_2022-01-17_17.52.51.jpeg" alt="Image attachment" title="Image: photo_2022-01-17_17.52.51.jpeg (70.04 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-932852295861956609" class="chatlog__message-container " data-message-id="932852295861956609">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">17-Jan-22 11:21 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Constant product calculation</strong>
+
+We will use ETH- USDC pool for the example and will neglect gas fees and transaction fees.
+
+The pool has 100 ETH that currently trades at $100 and 10.000 USDC that of course $1 each.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">100 * 10.000 = 1.000.000</span>
+
+ This gives us an initial state of 1.000.00 for constant k.
+
+Let’s say we wanna buy 20ETH.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">1.000.000 =  (100 -20) * x</span>
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">x = 12.500</span>
+
+This means we have to pay <span class="chatlog__markdown-pre chatlog__markdown-pre--inline">12.500 - 10.000 =  2.500</span> USDC to get 20 ETH.
+
+The price before our transaction was $100 / ETH but since we only got 20 ETH for swapping 2.500 USDC we paid $125 / ETH.
+
+Let’s try to buy 20 ETH again.
+
+Currently the pool looks like this:
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">1.000.000 = 80 * 12.500</span>
+
+After the 20 ETH buy it&#39;s gonna be:
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">1.000.000 = (80 - 20) * x</span>
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">X = 16.667</span>
+
+We have to pay <span class="chatlog__markdown-pre chatlog__markdown-pre--inline">16.667 - 12.500 = 4.167 USDC</span> to get 20 ETH.
+
+The price before our transaction was $125 / ETH but we only got 20 ETH for swapping 4.167 USDC which translates to $208 / ETH.
+
+As you can see the more one sided the pool gets the bigger the price difference will be for the swaps.</span>
+
+                            <span class="chatlog__edited-timestamp" title="17-Jan-22 11:24 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-932852388157603861" class="chatlog__message-container " data-message-id="932852388157603861">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="17-Jan-22 11:22 PM">23:22</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/925880409210884196/932852387813658684/photo_2022-01-17_17.52.47.jpeg">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/925880409210884196/932852387813658684/photo_2022-01-17_17.52.47.jpeg" alt="Image attachment" title="Image: photo_2022-01-17_17.52.47.jpeg (38.58 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-932854148028846110" class="chatlog__message-container " data-message-id="932854148028846110">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="17-Jan-22 11:29 PM">23:29</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Slippage</strong>
+
+Slippage is basically when a trade settles for a different price than expected or requested. To put it another way it is the  price difference that occurs between the token’s quoted price and the paid price.
+
+High slippage is present in markets with high volatility and/or low liquidity.
+
+Let’s reuse the the initial pool from the example above. If you were to put in an order for a 20 ETH buy but someone else at the same time puts in another 20 ETH buy order both of you would expect to pay $125 / ETH for that order. But if the other transaction gets executed before yours that person pays the expected $125 / ETH and you will pay $208 / ETH. That’s a huge difference.
+
+Slippage could be both negative and positive but most likely it is gonna be negative thanks to how transactions work. 
+
+AMM’s let you set slippage  tolerance so you can protect yourself from much higher prices than you would expect.
+
+If the slippage tolerance is too low, your order may take longer to execute or not execute at all. If it is too high, another trader or a trading bot may see your pending transactions and front-run you.
+
+<strong>Front-running</strong>
+
+If another trader/bot sees your high slippage, by setting a higher gas fee than yours, will make his transaction execute first. After your transaction goes through as well, the front runner inputs another trade to sell it at a higher price that was made possible by you.
+
+Make sure you don’t set the slippage too high 0.5-1% should work well.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-934994612727210014" class="chatlog__message-container " data-message-id="934994612727210014">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">23-Jan-22 09:14 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Providing liquidity</strong>
+
+AMM’s can only work effectively if the liquidity pool is deep enough, so the swaps between two tokens will be executed with an acceptably low slippage.
+
+In our previous example the pool had 100 ETH and 10.000 USDC initial liquidity.
+
+Liquidity can be provided by adding the same value of both tokens based on the current state of the liquidity pool which means 1 ETH for every 100 USDC with the current state of the pool.
+
+Let’s add another 100 ETH (10.000 USDC value) and 10.000 USDC to the pool.
+
+The new constant invariant can now be calculated as:
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">(100 + 100) * (10.000 + 10.000) = 4.000.000</span>
+
+With this liquidity provided we have a deeper pool. Let’s try the 20 ETH buy swap again.
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">4.000.000 =  (200 - 20) * x</span>
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">x = 22.222</span>
+
+It costs <span class="chatlog__markdown-pre chatlog__markdown-pre--inline">22.222 - 20.000 = 2.222 USDC</span> to but 20 ETH. This translates to $111 / ETH price. As expected thanks to the deeper pool the price difference is smaller.
+
+By default liquidity providers get 0.3% after each trade. On top of that with liquidity mining programs those LP tokens can get additional yield but there is risks involved as well.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-935009210666741770" class="chatlog__message-container " data-message-id="935009210666741770">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">23-Jan-22 10:12 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Impermanent Loss (IL)</strong>
+
+There are some risks involved with LP’s. Besides the usual smart contract risk there is also impermanent loss.
+
+Impermanent loss occurs when you provide liquidity to a pool, and the price of your assets are different compared to when you deposited them. The bigger the change is, the more you are exposed to impermanent loss.
+
+We will use the previous numbers for the calculation. You added 100 ETH and 10.000 USDC to the pool. That represents 50% of the pool.
+
+In this example we assume while ETH goes up to $400, the liquidity remains constant in the pool (k = 4.000.000). While this is happening, arbitrageurs will add USDC to the pool and take ETH from it until the ratio reflects the current price. As we learned earlier the price of the assets in the pool is determined by their ratio.
+
+Let&#39;s calculate the number of ETH and USDC coins in the pool. 
+
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">4.000.000 = x * 400x</span>, where x is the number of ETH;s.
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">10.000 = x^2</span>
+<span class="chatlog__markdown-pre chatlog__markdown-pre--inline">x = 100</span> (number of ETH coins in the pool)
+
+Now we have 100 ETH and 40.000 USDC in the pool.
+
+If you take your money out (50% of the pool) you will get 50 ETH and 20.000 USDC. That’s worth 40.000 USDC at $400/ETH price. If you had decided just to hold onto those asset instead, you would have 100 ETH and 10.000 USDC which is 50.000 USDC.
+
+As you see you just lost 20% of your money thanks to IL.</span>
+
+                            <span class="chatlog__edited-timestamp" title="23-Jan-22 10:15 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-935009958729224232" class="chatlog__message-container " data-message-id="935009958729224232">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="23-Jan-22 10:15 PM">22:15</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/925880409210884196/935009957613559860/014aa2bcdf82454994ffda7ced798a3d_1.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/925880409210884196/935009957613559860/014aa2bcdf82454994ffda7ced798a3d_1.png" alt="Image attachment" title="Image: 014aa2bcdf82454994ffda7ced798a3d_1.png (120.44 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-935461921057026058" class="chatlog__message-container " data-message-id="935461921057026058">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">25-Jan-22 04:11 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">If you completed everything above, click on the moon emoji to progress to <span class="chatlog__markdown-mention">#&#128172;｜de-fi-chat</span></span>
+
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="waning_gibbous_moon">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127766;" src="https://twemoji.maxcdn.com/2/svg/1f316.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-949822319826702416" class="chatlog__message-container " data-message-id="949822319826702416">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">05-Mar-22 07:14 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>How to make money in DeFi</strong>
+
+- Being early in promising projects
+- Buying into great but more mature projects
+- Narratives
+- Yield farming
+
+<em><strong>Being early in promising projects</strong></em>
+
+Finding quality projects and researching them is pretty time consuming but rewards can be great. You will have to go through many discords, whitepapers, and twitter posts and quickly evaluate the projects to find a few good ones.
+
+Type of plays:
+
+- Copy of existing project on different chains. This is the easiest way. Every chain needs AMM’s, lending protocols, yield farming protocols, etc, so finding them early can be highly profitable.
+
+- Finding the next primitives of DeFi. Think of DeFi 2.0 projects in 2021 like SPELL, OHM. These projects are clearly different from the earlier DeFi protocols and either try to build on top of existing ones or they are a highly improved version of them. DeFi is still in its infancy and it’s changing quickly. Projects that were relevant just half a year ago are gone, and the newer improved versions took over their place.
+
+- Projects building on top of existing projects with a clear dependency and specific use case. You could argue every yield farming project is dependent on underlying protocols but this is more like a spectrum. In some cases the connection is very clear. A good example would be Convex and Curve. Convex just makes it much easier for users to interact with Curve. If Curve collapsed for some reason Convex would be gone as well.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-950299919938371604" class="chatlog__message-container " data-message-id="950299919938371604">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">07-Mar-22 02:52 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>How to make money in DeFi II</strong>
+
+<em><strong>Buying into great but more mature projects</strong></em>
+
+Some projects have already proved themselves and seem to stay here for the longer run. You could call these the last first movers. A good analogy would be Facebook 15 years ago when it emerged as the main social network. There were many social networks back in the day but Facebook could take the leader position and ruled for a long period of time. At that point the internet was more mature though than DeFi right now, so it&#39;s harder for a project to reach this status.
+
+You should think about the reasons why the projects would stay here. Many of them have the spotlight for a while but then quickly disappear.
+
+As examples you could mention $CRV again.
+
+<em><strong>Narratives</strong></em>
+
+Like most things in crypto DeFi works in cycles too. When a  new trend emerges many new projects try to ride the wave. If you catch the wave early there is serious money to be made.
+
+A good example is OHM forks. First few projects were great investments but then of course the market got saturated quickly.
+
+Another example is Avalanche rush in 2021 August. Avalanche projects got a huge liquidity injection to bring people over to avalanche. Thanks to the huge yields ppl started bridging and buying up tokens. Ppl who were early made a ton of money.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-951404564966420491" class="chatlog__message-container " data-message-id="951404564966420491">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">10-Mar-22 04:02 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>How to make money in DeFi III</strong>
+
+<em><strong>Yield farming</strong></em>
+
+There are several approaches for yield farming. If you have a ton of capital it’s easy to farm stables in mature protocols for small yield (10-15%) and chill.
+
+If you don’t have too much money or you wanna do riskier plays you gotta play it differently and join riskier pools and newer projects.
+
+Yields are usually high when a project launches as they need initial liquidity to make the project usable. As more money comes in the yields decline quickly.
+
+New projects have higher smart contract risk and also could be just straight scams. It’s usually a good idea not to join the farms immediately. Wait for a while or wait until there is at least a few million dollars in TVL.
+
+The pairs on one side usually have a stable or a chain gov token like ETH or FTM. On the other side it’s more volatile protocol tokens (FTM-SPELL on spiritswap) or the protocol gov token (FTM-SPIRIT on spiritswap). The uncorrelated pairs have higher yields but of course they are prone to impermanent loss. It’s a good idea to only join the volatile pools if you expect the token prices to go up or stay around the same value, so you won’t lose money on IL.
+
+If a pool has high APR you can expect more participants joining soon to get those yields. If you join the pools of a new protocol with the gov token on one side (the token you get the rewards in), you have to be super cautious as the token gets heavily diluted thanks to the high emissions.
+
+Some people like to play in the middle of the risk range with less volatile coins (but not stable) or older protocols with acceptably high APR’s. It’s usually not worth it. I would rather do just staking and miss out on a few percentages of extra yield.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-970029248247119922" class="chatlog__message-container " data-message-id="970029248247119922">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                        <div class="chatlog__reference-symbol"></div>
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                        <div class="chatlog__reference">
+                                <img class="chatlog__reference-avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+                                <div class="chatlog__reference-author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036">Silard - DeFi/NFTs</div>
+                                <div class="chatlog__reference-content">
+                                    <span class="chatlog__reference-link" onclick="scrollToMessage(event, &#39;935461921057026058&#39;)">
+If you completed everything above, click on the moon emoji to progress to <span class="chatlog__markdown-mention">#&#128172;｜de-fi-chat</span>                                    </span>
+
+                                </div>
+                        </div>
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">30-Apr-22 02:29 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Don&#39;t forget to click on this moon emoji in that message and then check <span class="chatlog__markdown-mention">#&#128273;unlock-defi-nft-access</span> channel to access other rooms.</span>
+
+                            <span class="chatlog__edited-timestamp" title="30-Apr-22 02:30 PM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="full_moon_with_face">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127773;" src="https://twemoji.maxcdn.com/2/svg/1f31d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-971213882511200287" class="chatlog__message-container " data-message-id="971213882511200287">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">03-May-22 08:57 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">We also created a web app for you guys where you can calculate the things you learned about above.
+
+You can access the app here: <a href="https://hustlers-university.herokuapp.com/">https://hustlers-university.herokuapp.com/</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://hustlers-university.herokuapp.com/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">HU2</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">HU2 app</div>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 25 message(s)</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1401 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - 4-&#128997;level-3-advanced</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / 4-&#128997;level-3-advanced</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-924662312332329001" class="chatlog__message-container " data-message-id="924662312332329001">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/402208522437394453/82f46e94d36063c18ab021f40dab6651.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="TJCunningham#1856" data-user-id="402208522437394453">TJ Cunningham - Amazon FBA</span>
+
+
+                        <span class="chatlog__timestamp">26-Dec-21 08:57 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="🟥" title="red_square" src="https://twemoji.maxcdn.com/2/svg/1f7e5.svg"> Level 3 - Advanced <img loading="lazy" class="chatlog__emoji " alt="🟥" title="red_square" src="https://twemoji.maxcdn.com/2/svg/1f7e5.svg">
+
+Creating Stores - 
+
+Creating a store on Amazon will solidify your brands presence and give your customers a chance to see the story behind your brand as well as the ability for them to check out your other products. 
+
+To create a store you will need; 
+- To have a professional seller account 
+- To enrol your brand into Amazon brand registry 
+- Lifestyle photos of your products 
+- A header image for your store
+
+Enrol in Amazon Brand Registry;</span>
+
+                            <span class="chatlog__edited-timestamp" title="26-Dec-21 08:58 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924662407668854784" class="chatlog__message-container " data-message-id="924662407668854784">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 08:58 AM">08:58</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924662406901301258/IMG_3202.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924662406901301258/IMG_3202.png" alt="Image attachment" title="Image: IMG_3202.png (581.43 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924662672123891742" class="chatlog__message-container " data-message-id="924662672123891742">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 08:59 AM">08:59</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Lifestyle photos 
+Your store should include lifestyle photos of your products, Lifestyle product photography is a great way to develop your brand identity and elevate the look and feel of your Amazon store.
+
+Simply put, lifestyle product photography is more interesting than standard white background product photography, which’s purpose is to show what your product looks like. 
+
+An example below;</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924662693254791229" class="chatlog__message-container " data-message-id="924662693254791229">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 08:59 AM">08:59</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924662692655022150/IMG_3208.jpg">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924662692655022150/IMG_3208.jpg" alt="Image attachment" title="Image: IMG_3208.jpg (35.32 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924662843880652810" class="chatlog__message-container " data-message-id="924662843880652810">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 09:00 AM">09:00</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Your photography and branding should be intrinsically linked to not only show the product &amp; functionality but to express your brand’s character.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924663059782434880" class="chatlog__message-container " data-message-id="924663059782434880">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 09:00 AM">09:00</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924663055374237726/IMG_3209.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924663055374237726/IMG_3209.png" alt="Image attachment" title="Image: IMG_3209.png (630.32 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924663055672029214/IMG_3210.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924663055672029214/IMG_3210.png" alt="Image attachment" title="Image: IMG_3210.png (665.04 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924663056871604264/IMG_3211.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924663056871604264/IMG_3211.png" alt="Image attachment" title="Image: IMG_3211.png (540.47 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/924663057244893194/IMG_3212.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/924663057244893194/IMG_3212.png" alt="Image attachment" title="Image: IMG_3212.png (722.3 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-924663679033683988" class="chatlog__message-container " data-message-id="924663679033683988">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="26-Dec-21 09:03 AM">09:03</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Optimise your Store for mobile
+Consumers are spending more and more time on their mobile devices and this is fuelling the growth in mobile retail. Mobile has changed the way people shop. In the first quarter of 2020, two-thirds of Store visits were made from a mobile device.1
+
+With such a large number of shoppers using mobile devices to access your Store, it makes sense to prioritise a mobile-friendly design.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-925040622061113344" class="chatlog__message-container " data-message-id="925040622061113344">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/402208522437394453/82f46e94d36063c18ab021f40dab6651.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="TJCunningham#1856" data-user-id="402208522437394453">TJ Cunningham - Amazon FBA</span>
+
+
+                        <span class="chatlog__timestamp">27-Dec-21 10:01 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Lesson 2 - A+ Content / Enhanced brand content 
+
+Customise your product detail pages with A+ Content 
+
+Once your brand is approved for Amazon Brand Registry, it’s time for the fun stuff. Brand Registry unlocks free tools that help you manage your brand products behind the scenes and manage your brand story as it appears for customers shopping the Amazon store.
+
+With A+ Content and Stores, you can build a beautiful brand experience on Amazon. A+ Content enhances your product listings, and Stores allows you to create a multi-page shopping experience within the Amazon store.
+
+Some examples <img loading="lazy" class="chatlog__emoji " alt="👇" title="point_down" src="https://twemoji.maxcdn.com/2/svg/1f447.svg"></span>
+
+                            <span class="chatlog__edited-timestamp" title="27-Dec-21 10:03 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925040997245792256" class="chatlog__message-container " data-message-id="925040997245792256">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="27-Dec-21 10:02 AM">10:02</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925040996306276372/IMG_3220.webp">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925040996306276372/IMG_3220.webp" alt="Image attachment" title="Image: IMG_3220.webp (650.09 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925041256361517147" class="chatlog__message-container " data-message-id="925041256361517147">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="27-Dec-21 10:03 AM">10:03</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925041255539437588/IMG_3221.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925041255539437588/IMG_3221.png" alt="Image attachment" title="Image: IMG_3221.png (1.17 MB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925041407301926962" class="chatlog__message-container " data-message-id="925041407301926962">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="27-Dec-21 10:04 AM">10:04</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Benefits to using A+ content;
+
+Increased conversion
+Modules can be used to address customer pain points or answer product related questions before they’re even asked 
+
+Brand awareness
+The added space on your products detail page can be used to tell your brands story which will give your customers a closer relation to your brand 
+
+Decreased product returns 
+The most common reason for returns is inaccurate or incomplete product information, with A+ content you have the ability to inform shoppers and empower their buying decisions. 
+
+Increased product visibility 
+Given the fact that A+ content will improve conversion rates, this will affect the Amazon algorithm which relies heavily on conversion rates therefore giving you more exposure. 
+
+Where to begin ?
+
+Start by selecting the best products and the ones with high page traffic</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925041691658969108" class="chatlog__message-container " data-message-id="925041691658969108">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="27-Dec-21 10:05 AM">10:05</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925041688039272529/IMG_3216.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925041688039272529/IMG_3216.png" alt="Image attachment" title="Image: IMG_3216.png (558.87 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925041688282533918/IMG_3217.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925041688282533918/IMG_3217.png" alt="Image attachment" title="Image: IMG_3217.png (508 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925041688576159774/IMG_3218.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925041688576159774/IMG_3218.png" alt="Image attachment" title="Image: IMG_3218.png (427.62 KB)" loading="lazy">
+                            </a>
+                    </div>
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925041689154965544/IMG_3219.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925041689154965544/IMG_3219.png" alt="Image attachment" title="Image: IMG_3219.png (356 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-925861017236430899" class="chatlog__message-container " data-message-id="925861017236430899">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/402208522437394453/82f46e94d36063c18ab021f40dab6651.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="TJCunningham#1856" data-user-id="402208522437394453">TJ Cunningham - Amazon FBA</span>
+
+
+                        <span class="chatlog__timestamp">29-Dec-21 04:21 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Lesson 3 - Global marketplaces 
+
+Once you have your marketplace as maxed out as possible and you have the experience of importing you will want to lol at some other marketplaces to advertise your products &amp; brand. 
+
+It is actually quite a simple process to begin, just log into the marketplace you want to be on &amp; repeat the steps laid out in Level 1
+
+You will now have access on your seller central app to the global marketplaces you’ve signed up to.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925861159373008937" class="chatlog__message-container " data-message-id="925861159373008937">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="29-Dec-21 04:21 PM">16:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925861158496403487/IMG_3234.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925861158496403487/IMG_3234.png" alt="Image attachment" title="Image: IMG_3234.png (293.12 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925861205954949190" class="chatlog__message-container " data-message-id="925861205954949190">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="29-Dec-21 04:21 PM">16:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/925861205145428019/IMG_3233.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/925861205145428019/IMG_3233.png" alt="Image attachment" title="Image: IMG_3233.png (246.19 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-925861285168545822" class="chatlog__message-container " data-message-id="925861285168545822">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="29-Dec-21 04:22 PM">16:22</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Once your account is set up, then you can select the products you want to add to the selected marketplace, I would advise you do some research into the hot selling products in that marketplace (no good sending winter jackets to the UAE <img loading="lazy" class="chatlog__emoji " alt="🇦🇪" title="flag_ae" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1ea.svg">) 
+
+I strongly recommend you send some units as a test to the new marketplace, if you send units that cannot be sold it will only harm your IPI score and it will be costly to have them destroyed. 
+
+Your best bet would be to either;
+
+Have your supplier send multiple cartons of 4/5 product lines on one pallet to the new marketplace as this will be most cost effective, alternatively you can send your own pallet of cartons to the new marketplace. 
+
+From this you will be given new data on what is doing well &amp; what will need tweaking but once you have it, that’s another big stream of revenue to your business….
+
+And the best part, your not even in that country !</span>
+
+                            <span class="chatlog__edited-timestamp" title="29-Dec-21 04:25 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-926141210349928539" class="chatlog__message-container " data-message-id="926141210349928539">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/402208522437394453/82f46e94d36063c18ab021f40dab6651.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="TJCunningham#1856" data-user-id="402208522437394453">TJ Cunningham - Amazon FBA</span>
+
+
+                        <span class="chatlog__timestamp">30-Dec-21 10:54 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Lesson 4 -Becoming a Supplier 
+
+Now the part where you can become a serious player, that will attract the attention of the investors 
+
+Amazon is a great platform to make a lot of autonomous money with a small investment and few obstacles. 
+However, if you choose the private label route you will now have a factory, a protected trademark and a proven sales track record from your success on Amazon 
+
+Create a website for your brand let’s call the brand Amahu (Amazon Hustlers University) 
+You now have a site called Amahu aimed at wholesalers, meaning other businesses will sell your products, you will supply them in pallets directly (or a dropship model if you prefer).</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-926141237373829120" class="chatlog__message-container " data-message-id="926141237373829120">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="30-Dec-21 10:54 AM">10:54</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/926141236660822036/IMG_3235.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/926141236660822036/IMG_3235.png" alt="Image attachment" title="Image: IMG_3235.png (221.02 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-926141324451782656" class="chatlog__message-container " data-message-id="926141324451782656">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="30-Dec-21 10:54 AM">10:54</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Now you may be asking, ‘how do I sell my products retail, if I’m only aimed at wholesalers, they won’t want to compete with their suppliers’ 
+
+And that is very true, so you will create a separate site that is geared towards selling your products to retail customers as if you were a buyer yourself. 
+
+You can use other competitor suppliers to list their products on your site to capture all business you can get, I would advocate a dropshipping model for this. 
+
+Now you have an example of another company to give to buyers on who you supply to (little do they know the store is owned by you<img loading="lazy" class="chatlog__emoji " alt="😉" title="wink" src="https://twemoji.maxcdn.com/2/svg/1f609.svg">) 
+
+This model works particularly well for B2B items as their is a continuous demand for those products. 
+
+Now that you have Amahu set up &amp; aimed at wholesale buyers you can then market yourself to the big players, the best way to do this is compile a list - you can use a method called ‘Web scraping’ which will give you many contacts to email/call</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-926141404739158056" class="chatlog__message-container " data-message-id="926141404739158056">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="30-Dec-21 10:55 AM">10:55</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/924662166601224282/926141403740897330/IMG_3243.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/924662166601224282/926141403740897330/IMG_3243.png" alt="Image attachment" title="Image: IMG_3243.png (494.42 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-926141497370345523" class="chatlog__message-container " data-message-id="926141497370345523">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="30-Dec-21 10:55 AM">10:55</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">The first ones you call should be the worst to best, meaning you call the worse ones first so that your salesperson has a lot of experience &amp; familiarity with any objections that may arise from the better ones as you move down the list, make sense ?
+
+Your only goal will be to have yourself added as a supplier, you may come up against some objections, here are some;
+
+Do you have any sales proof or data ? 
+A. Yes, we are currently No.4 best seller on Amazon - here is all sales sheets 
+We are not looking to buy any more stock at the moment 
+A. ‘No problem, would you like to add us as a dropship supplier? (refer back to MCF) once you have the sale, we send the item to your customer direct’ 
+How much profit can we expect to make ?
+Of course this is up to you, my suggestion would be;
+A. We can offer you 100% mark up, so we sell to you for 50, you sell for 100 (this is a generous mark up for them) 
+What platforms can we sell on ? 
+(Again, up to you - my suggestion) 
+A. You can operate on any platform you like, but on Amazon, you will be competing with other suppliers (which is you but don’t directly tell them) for the buy box 
+
+These are the most common objections you will come up against but after making some calls you will notice a pattern.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-933139659473694791" class="chatlog__message-container " data-message-id="933139659473694791">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/402208522437394453/82f46e94d36063c18ab021f40dab6651.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="TJCunningham#1856" data-user-id="402208522437394453">TJ Cunningham - Amazon FBA</span>
+
+
+                        <span class="chatlog__timestamp">18-Jan-22 06:23 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Finished reading? Good. Press the Red Box emoji below this message to unlock the next module <span class="chatlog__markdown-mention">#5-&#128997;-amazon-recap</span></span>
+
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="red_square">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128997;" src="https://twemoji.maxcdn.com/2/svg/1f7e5.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 22 message(s)</div>
+</div>
+
+</body>
+
+</html>

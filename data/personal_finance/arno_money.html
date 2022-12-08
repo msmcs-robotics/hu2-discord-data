@@ -1,0 +1,2358 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128176;｜arno-money</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">3- PERSONAL FINANCE / &#128176;｜arno-money</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-944288561283354666" class="chatlog__message-container " data-message-id="944288561283354666">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">18-Feb-22 12:45 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Money related Youtube video
+
+Spend Your Money On This To Grow Rich - <a href="https://youtu.be/5WwfV28KH7E">https://youtu.be/5WwfV28KH7E</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno W.</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=5WwfV28KH7E">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Spend Your Money On This To Grow Rich</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/5WwfV28KH7E" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">98</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">159</span>
+                            </div>
+                            <div class="chatlog__reaction" title="chess_pawn">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="♟️" src="https://twemoji.maxcdn.com/2/svg/265f.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="moneybag">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128176;" src="https://twemoji.maxcdn.com/2/svg/1f4b0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">22</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">12</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ok_hand">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128076;" src="https://twemoji.maxcdn.com/2/svg/1f44c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">17</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">17</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="mag">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128269;" src="https://twemoji.maxcdn.com/2/svg/1f50d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-945341626228822047" class="chatlog__message-container " data-message-id="945341626228822047">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">21-Feb-22 10:30 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/Bf5Ff2Yajbg">https://youtu.be/Bf5Ff2Yajbg</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=Bf5Ff2Yajbg">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Personal Finance 2 - Budgeting</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/Bf5Ff2Yajbg" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">130</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">16</span>
+                            </div>
+                            <div class="chatlog__reaction" title="punch_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128074;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44a-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">20</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">12</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">22</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">19</span>
+                            </div>
+                            <div class="chatlog__reaction" title="handshake">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129309;" src="https://twemoji.maxcdn.com/2/svg/1f91d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-945342300949729301" class="chatlog__message-container " data-message-id="945342300949729301">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="21-Feb-22 10:32 AM">10:32</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/Z_Ls9BB9eqs">https://youtu.be/Z_Ls9BB9eqs</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/shorts/Z_Ls9BB9eqs">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Want to become RICH in 2022? Invest in this! #shorts</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Everything you&#39;ve read about investments is wrong. There is ONE thing that you should be investing in right now. It&#39;s not BTC, it&#39;s not ETH, it&#39;s not some random shitcoin, it&#39;s not stocks, options or anything like that.
+
+Watch the video (it&#39;s 24 seconds, you&#39;re going to get through it, trust me) and make sure to like + subscribe for more moneyma...</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/kaC4dVgRur_w9OTLCp-a1sXyZ5NQHkX7uhSx4K434i8/https/i.ytimg.com/vi/Z_Ls9BB9eqs/maxresdefault.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/kaC4dVgRur_w9OTLCp-a1sXyZ5NQHkX7uhSx4K434i8/https/i.ytimg.com/vi/Z_Ls9BB9eqs/maxresdefault.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">140</span>
+                            </div>
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">54</span>
+                            </div>
+                            <div class="chatlog__reaction" title="punch_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128074;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44a-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">20</span>
+                            </div>
+                            <div class="chatlog__reaction" title="arnomashallah">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="arnomashallah" src="https://cdn.discordapp.com/emojis/934060474180452352.png" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">31</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup_tone2">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;&#127996;" src="https://twemoji.maxcdn.com/2/svg/1f44d-1f3fc.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_td">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127481;&#127465;" src="https://twemoji.maxcdn.com/2/svg/1f1f9-1f1e9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-945694947972104303" class="chatlog__message-container " data-message-id="945694947972104303">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">22-Feb-22 09:54 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><span class="chatlog__markdown-mention">@everyone</span> New HU2.0 exclusive video. How the blank page problem is making you lose money
+<a href="https://www.youtube.com/watch?v=bzpZZQzlueQ">https://www.youtube.com/watch?v=bzpZZQzlueQ</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=bzpZZQzlueQ">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">The Blank Page Problem Is Making You Lose Money (HU2.0 Exclusive)</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/bzpZZQzlueQ" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">197</span>
+                            </div>
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">49</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="rocket">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128640;" src="https://twemoji.maxcdn.com/2/svg/1f680.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">21</span>
+                            </div>
+                            <div class="chatlog__reaction" title="arnomashallah">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="arnomashallah" src="https://cdn.discordapp.com/emojis/934060474180452352.png" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_td">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127481;&#127465;" src="https://twemoji.maxcdn.com/2/svg/1f1f9-1f1e9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="exploding_head">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129327;" src="https://twemoji.maxcdn.com/2/svg/1f92f.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">15</span>
+                            </div>
+                            <div class="chatlog__reaction" title="regional_indicator_g">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_pt">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127477;&#127481;" src="https://twemoji.maxcdn.com/2/svg/1f1f5-1f1f9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-946338465312821259" class="chatlog__message-container " data-message-id="946338465312821259">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">24-Feb-22 04:31 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/bcT7-aP_FKA">https://youtu.be/bcT7-aP_FKA</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/shorts/bcT7-aP_FKA">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">The Best Way To Make Money From The Russia / Ukraine Conflict #shorts</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">In this video I show you a foolproof way of making money in times of international crisis. 
+
+I&#39;ve used this trick during every war, every pandemic and every other looming crisis or disaster. 
+
+I  suggest you use it for yourself. It&#39;s a real lifehack. 
+
+Also - if you like money I suggest you join Husters University. It&#39;s the greatest hub of money...</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/wQIgPKZQjd3OfTR0WjCkfswXqZTmpVTgmZVl7ajKRXQ/https/i.ytimg.com/vi/bcT7-aP_FKA/maxresdefault.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/wQIgPKZQjd3OfTR0WjCkfswXqZTmpVTgmZVl7ajKRXQ/https/i.ytimg.com/vi/bcT7-aP_FKA/maxresdefault.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">313</span>
+                            </div>
+                            <div class="chatlog__reaction" title="handshake">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129309;" src="https://twemoji.maxcdn.com/2/svg/1f91d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">53</span>
+                            </div>
+                            <div class="chatlog__reaction" title="bulb">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128161;" src="https://twemoji.maxcdn.com/2/svg/1f4a1.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">25</span>
+                            </div>
+                            <div class="chatlog__reaction" title="yawning_face">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129393;" src="https://twemoji.maxcdn.com/2/svg/1f971.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">12</span>
+                            </div>
+                            <div class="chatlog__reaction" title="brain">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129504;" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">26</span>
+                            </div>
+                            <div class="chatlog__reaction" title="clapper">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127916;" src="https://twemoji.maxcdn.com/2/svg/1f3ac.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_de">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127465;&#127466;" src="https://twemoji.maxcdn.com/2/svg/1f1e9-1f1ea.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="chess_pawn">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="♟️" src="https://twemoji.maxcdn.com/2/svg/265f.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">34</span>
+                            </div>
+                            <div class="chatlog__reaction" title="clap">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128079;" src="https://twemoji.maxcdn.com/2/svg/1f44f.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">16</span>
+                            </div>
+                            <div class="chatlog__reaction" title="PES_Clown">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="PES_Clown" src="https://cdn.discordapp.com/emojis/619847304756592653.png" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="gorilla">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129421;" src="https://twemoji.maxcdn.com/2/svg/1f98d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">12</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_ge">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127468;&#127466;" src="https://twemoji.maxcdn.com/2/svg/1f1ec-1f1ea.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="moneybag">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128176;" src="https://twemoji.maxcdn.com/2/svg/1f4b0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="weary">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128553;" src="https://twemoji.maxcdn.com/2/svg/1f629.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-946439540065845339" class="chatlog__message-container " data-message-id="946439540065845339">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">24-Feb-22 11:12 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">How do you handle getting rejected or ghosted? This video covers that exact topic and how I learned a valuable lesson from Zig Ziglar&#39;s brother.
+
+<a href="https://www.youtube.com/watch?v=NjGEkwoMAVE&amp;feature=youtu.be">https://www.youtube.com/watch?v=NjGEkwoMAVE&amp;feature=youtu.be</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=NjGEkwoMAVE">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How to handle ghosting and rejection</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/NjGEkwoMAVE" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">169</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">14</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone5">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127999;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">41</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ninja">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129399;" src="https://twemoji.maxcdn.com/2/svg/1f977.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="arnomashallah">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="arnomashallah" src="https://cdn.discordapp.com/emojis/934060474180452352.png" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="man_walking">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128694;‍♂️" src="https://twemoji.maxcdn.com/2/svg/1f6b6-200d-2642.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_pt">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127477;&#127481;" src="https://twemoji.maxcdn.com/2/svg/1f1f5-1f1f9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-951244403597508638" class="chatlog__message-container " data-message-id="951244403597508638">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">09-Mar-22 05:25 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://www.youtube.com/watch?v=Dxd_yYfkNAs">https://www.youtube.com/watch?v=Dxd_yYfkNAs</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=Dxd_yYfkNAs">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Is Money The Ultimate Cheatcode To Unlimited Women?</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/Dxd_yYfkNAs" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">63</span>
+                            </div>
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">71</span>
+                            </div>
+                            <div class="chatlog__reaction" title="arnomashallah">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="arnomashallah" src="https://cdn.discordapp.com/emojis/934060474180452352.png" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ghost">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128123;" src="https://twemoji.maxcdn.com/2/svg/1f47b.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="rofl">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129315;" src="https://twemoji.maxcdn.com/2/svg/1f923.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">23</span>
+                            </div>
+                            <div class="chatlog__reaction" title="magic_wand">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129668;" src="https://twemoji.maxcdn.com/2/svg/1fa84.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">8</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-953587678543241236" class="chatlog__message-container " data-message-id="953587678543241236">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">16-Mar-22 05:36 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/XEZV7HsucUE">https://youtu.be/XEZV7HsucUE</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=XEZV7HsucUE">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How To Overcome Rejection And Crush Sales Anxiety</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/XEZV7HsucUE" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">108</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="brain">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129504;" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">20</span>
+                            </div>
+                            <div class="chatlog__reaction" title="dart">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127919;" src="https://twemoji.maxcdn.com/2/svg/1f3af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-955105910768930816" class="chatlog__message-container " data-message-id="955105910768930816">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">20-Mar-22 10:09 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/OjbCutIzsmo">https://youtu.be/OjbCutIzsmo</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=OjbCutIzsmo">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">A Sneaky Trick To  Getting Money From Prospects</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/OjbCutIzsmo" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="punch_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128074;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44a-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">58</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">35</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ok_hand">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128076;" src="https://twemoji.maxcdn.com/2/svg/1f44c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-955799381720838165" class="chatlog__message-container " data-message-id="955799381720838165">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">22-Mar-22 08:05 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/LfmdnRwxeqU">https://youtu.be/LfmdnRwxeqU</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=LfmdnRwxeqU">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How To Start Closing More Sales Immediately</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/LfmdnRwxeqU" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">61</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">30</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thooooghts">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="thooooghts" src="https://cdn.discordapp.com/emojis/952850409515524106.png" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-957604971845664838" class="chatlog__message-container " data-message-id="957604971845664838">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">27-Mar-22 07:40 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://www.youtube.com/watch?v=AQ3GNu9ruLM&amp;t=130s">https://www.youtube.com/watch?v=AQ3GNu9ruLM&amp;t=130s</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=AQ3GNu9ruLM&amp;start=130">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How To Find A Mentor</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/AQ3GNu9ruLM" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">57</span>
+                            </div>
+                            <div class="chatlog__reaction" title="hamster">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128057;" src="https://twemoji.maxcdn.com/2/svg/1f439.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">15</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="first_place">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129351;" src="https://twemoji.maxcdn.com/2/svg/1f947.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-958022459439853608" class="chatlog__message-container " data-message-id="958022459439853608">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">28-Mar-22 11:19 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/r77gLi9Mh-8">https://youtu.be/r77gLi9Mh-8</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=r77gLi9Mh-8">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Quick And Easy Way To Win The Respect And Attention Of Rich People</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/r77gLi9Mh-8" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">74</span>
+                            </div>
+                            <div class="chatlog__reaction" title="hamster">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128057;" src="https://twemoji.maxcdn.com/2/svg/1f439.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44d-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="brain">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129504;" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f4aa-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_ae">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127462;&#127466;" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1ea.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-959104362372812850" class="chatlog__message-container " data-message-id="959104362372812850">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">31-Mar-22 10:58 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/Mj-oJFiGS7M">https://youtu.be/Mj-oJFiGS7M</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=Mj-oJFiGS7M">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How To Get <em>Paid</em></div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/Mj-oJFiGS7M" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="moneybag">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128176;" src="https://twemoji.maxcdn.com/2/svg/1f4b0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">73</span>
+                            </div>
+                            <div class="chatlog__reaction" title="white_check_mark">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✅" src="https://twemoji.maxcdn.com/2/svg/2705.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">27</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="hamster">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128057;" src="https://twemoji.maxcdn.com/2/svg/1f439.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="heart_on_fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="❤️‍&#128293;" src="https://twemoji.maxcdn.com/2/svg/2764-200d-1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">10</span>
+                            </div>
+                            <div class="chatlog__reaction" title="ok_hand">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128076;" src="https://twemoji.maxcdn.com/2/svg/1f44c.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="pencil">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128221;" src="https://twemoji.maxcdn.com/2/svg/1f4dd.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                            <div class="chatlog__reaction" title="regional_indicator_g">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="Tateashenko">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="Tateashenko" src="https://cdn.discordapp.com/emojis/889078479025487882.png" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_az">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127462;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961329612560924743" class="chatlog__message-container " data-message-id="961329612560924743">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/797874041784238120/4142922f644f4b72eb050e1c000a788f.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="basedbrickpusher#2597" data-user-id="797874041784238120">Arno W. - Pers. Fin. - Misc</span>
+
+
+                        <span class="chatlog__timestamp">06-Apr-22 02:20 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://youtu.be/2cyv6XJFcKc">https://youtu.be/2cyv6XJFcKc</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCplZax33WSDgJur9nuehWnQ">
+                                                            <div class="chatlog__embed-author">Arno About</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=2cyv6XJFcKc">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How To Deal With Difficult Clients</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/2cyv6XJFcKc" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">78</span>
+                            </div>
+                            <div class="chatlog__reaction" title="face_with_monocle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129488;" src="https://twemoji.maxcdn.com/2/svg/1f9d0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="writing_hand">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="✍️" src="https://twemoji.maxcdn.com/2/svg/270d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">12</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_bg">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127463;&#127468;" src="https://twemoji.maxcdn.com/2/svg/1f1e7-1f1ec.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">13</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_md">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127474;&#127465;" src="https://twemoji.maxcdn.com/2/svg/1f1f2-1f1e9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">7</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_ph">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127477;&#127469;" src="https://twemoji.maxcdn.com/2/svg/1f1f5-1f1ed.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_hr">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127469;&#127479;" src="https://twemoji.maxcdn.com/2/svg/1f1ed-1f1f7.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_am">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127462;&#127474;" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1f2.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="handshake">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129309;" src="https://twemoji.maxcdn.com/2/svg/1f91d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="Tateashenko">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="Tateashenko" src="https://cdn.discordapp.com/emojis/889078479025487882.png" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_az">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127462;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_sk">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127480;&#127472;" src="https://twemoji.maxcdn.com/2/svg/1f1f8-1f1f0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_za">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127487;&#127462;" src="https://twemoji.maxcdn.com/2/svg/1f1ff-1f1e6.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_lt">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127473;&#127481;" src="https://twemoji.maxcdn.com/2/svg/1f1f1-1f1f9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_rs">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127479;&#127480;" src="https://twemoji.maxcdn.com/2/svg/1f1f7-1f1f8.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="goat">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128016;" src="https://twemoji.maxcdn.com/2/svg/1f410.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="muscle">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128170;" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_al">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127462;&#127473;" src="https://twemoji.maxcdn.com/2/svg/1f1e6-1f1f1.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 14 message(s)</div>
+</div>
+
+</body>
+
+</html>

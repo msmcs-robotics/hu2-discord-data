@@ -1,0 +1,1490 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - 3-❓｜novice-faq</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / 3-❓｜novice-faq</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948117023030915072" class="chatlog__message-container " data-message-id="948117023030915072">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Mar-22 02:18 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong><u>Crypto FAQ</u></strong>
+
+Reading the FAQ is mandatory and what unlocks access to the Crypto chatrooms:
+
+<span class="chatlog__markdown-mention">#&#128172;｜crypto-general-chat</span> - For everything Crypto. News / Announcements / Investment plans etc.
+
+<span class="chatlog__markdown-mention">#❓｜ask-the-professors</span> - High level questions for the Professors. Read the pins.
+<span class="chatlog__markdown-mention">#❓｜how-to-ask-questions</span> Read first before you post in #ask-professors.
+
+<span class="chatlog__markdown-mention">#♻｜off-topic-chat</span> - Everything about crypto which isn&#39;t making you money - memes, jokes etc.
+
+<span class="chatlog__markdown-mention">#&#129370;｜cr-newb-questions</span>  - Questions from new members. Read the pins.
+
+<span class="chatlog__markdown-mention">#⭐｜crypto-signals</span>  - This is where the professors will share trades and portfolio ideas (you can find scalping plays in <span class="chatlog__markdown-mention">#⚡｜short-term-scalping</span>)
+
+<em>Note: New members won&#39;t be able to post anything in general chat for a full week from joining.</em></span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:44 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948117748163153960" class="chatlog__message-container " data-message-id="948117748163153960">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 02:21 AM">02:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+
+<u><em><strong>Where can I learn more?</strong></em></u>
+The profs have spent months curating and expanding the <em><strong>tutorials </strong></em>and notes regarding each of their styles for investing. Go through them all.
+
+
+<u><em><strong>Where do I start? / I don&#39;t understand anything</strong></em></u>
+We can give you the material, but only you can learn it... 
+
+If you&#39;re new here, drink a shitload of coffee, go back and re-read the <em>tutorials</em>, all <em>FAQ&#39;s</em>, and read the <em>pinned messages</em> in <em>all channels.</em>
+
+
+<u><em><strong>How do I access channels?  or  “channels are missing??&quot;</strong></em></u>
+Channel map&#39;s are shown at the top of each FAQ, make sure you&#39;re familiar with how the tutorials unlock all the channels.
+
+Use <span class="chatlog__markdown-mention">#&#128273;unlock-novice-rooms</span> &amp; <span class="chatlog__markdown-mention">#&#128273;-unlock-expert-rooms</span> channels.
+
+If you keep having technical problems go to the &#39;reset crypto category&#39; channel.
+.</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:50 AM">(edited)</span>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/946586800305090610/948117747290750996/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/946586800305090610/948117747290750996/unknown.png" alt="Image attachment" title="Image: unknown.png (119.55 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948174582391660575" class="chatlog__message-container " data-message-id="948174582391660575">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Mar-22 06:07 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<em><strong><u>What is KYC?</u></strong></em>
+<em>“Know your customer”</em>
+This is the identity verification process that exchanges use to comply with Government regulations. If you&#39;re trading crypto, you&#39;ll need to disclose your identity at some point.
+
+
+<em><strong><u>Do I need to show my identity to trade?</u></strong></em>
+Yes. For most exchanges, you will have to comply with KYC requirement in order to use their trading services.
+
+
+<em><strong><u>How Much $ Should I have to start?</u></strong></em>
+If you choose any professors’ style and start with any amount of capital, $1,000 - $100 million, you will be successful just by listening to them, reading, absorbing what they say. 
+
+However, if you NEED money to pay bills and living expenses (cashflow), Crypto is not for you. You need either a job or a side hustle to make you money while you invest.
+
+<em>Cashflow generation</em> is handled by the non-investing parts of this university.</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:52 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948185057732993034" class="chatlog__message-container " data-message-id="948185057732993034">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Mar-22 06:48 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><em><strong><u>Can I be a full-time day trader?</u></strong></em>
+<em>“$50k start-up capital, 6-12 months living expenses saved, 24/7 availability”</em> - <span class="chatlog__markdown-mention" title="Michael G - Crypto#9253">@Michael G - Crypto</span> 
+
+That’s the bare minimum for entry to be a full-time day trader. If you believe it can be achieved with less you are welcome to prove that rule wrong but the chances are very high you will be a whale’s exit liquidity (net-loser).
+
+If you meet the above requirements, take Michael&#39;s <em><strong>scalping masterclass</strong></em> to accelerate you to full time trading.
+
+
+<em><strong><u>My Friend(s), The media (Twitter), Other students, say I should “XYZ”</u></strong></em>
+Your friend is probably trash at trading/investing, Twitter and the media ALWAYS want to sell you out, and other students are STUDENTS; always be skeptical.
+
+
+<em><strong><u>Should I use a VPN?</u></strong></em>
+Yes, its the safest method of accessing the internet. If you feel safe not using a VPN that is entirely up to you.
+
+
+<em><strong><u>My Country isn’t Crypto-Friendly / How do I avoid taxes?</u></strong></em>
+Move country. HU2.0 does not condone lying to Government authorities, Financial institutions, or the evasion of taxes.
+.</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 02:51 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948185115056541707" class="chatlog__message-container " data-message-id="948185115056541707">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 06:49 AM">06:49</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<em><strong><u>I don&#39;t understand something the professor said?</u></strong></em>
+
+The professors will use advanced financial language to communicate their ideas, review the <u>Common Crypto terms Cheat Sheet</u> before asking for clarification: <a href="https://docs.google.com/document/d/1MFc2bitIWV9FzhnIdIdpzVwPlD3CKKpsx1ciWX8T_9k/edit?usp=sharing">https://docs.google.com/document/d/1MFc2bitIWV9FzhnIdIdpzVwPlD3CKKpsx1ciWX8T_9k/edit?usp=sharing</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:58 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://docs.google.com/document/d/1MFc2bitIWV9FzhnIdIdpzVwPlD3CKKpsx1ciWX8T_9k/edit?usp=sharing">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Crypto Cheat Sheet - Terminology</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Before you begin your journey into crypto - you’ll want to learn these key terms and concepts as they’ll appear over and over again.							  					 Accumulation The process by which one builds a position in a coin.  Altcoin Any cryptocurrency that isn’t Bitcoin.  Arbitrage Profiting from the pric...</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/Dxi_qcliije7VVemvbjeqJ3AC699uYG05-kjHjQXeeg/https/lh5.googleusercontent.com/5id9Aph7vEH_1BnmUjNl5S1Sq3gUCN3bpM-GDkHLmmm3WRPVsBM0aOUZ9QiI-bncwqpLTFAzorNnzQ%3Dw1200-h630-p">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/Dxi_qcliije7VVemvbjeqJ3AC699uYG05-kjHjQXeeg/https/lh5.googleusercontent.com/5id9Aph7vEH_1BnmUjNl5S1Sq3gUCN3bpM-GDkHLmmm3WRPVsBM0aOUZ9QiI-bncwqpLTFAzorNnzQ%3Dw1200-h630-p" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948185174330445865" class="chatlog__message-container " data-message-id="948185174330445865">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 06:49 AM">06:49</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<strong><u><em>What is the difference between &quot;Spot&quot; &amp; &quot;Derivatives/Futures&quot;?</em></u></strong>
+<a href="https://www.loom.com/share/8271cf5172904b1e966f960b88e3254d">https://www.loom.com/share/8271cf5172904b1e966f960b88e3254d</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:58 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.loom.com/share/8271cf5172904b1e966f960b88e3254d">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">FTX — Spot &amp; Futures</div>
+                                                    </a>
+                                            </div>
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/cAc3wm_Lg7fFNXlkAVF-oPlbyA9olK7q-UxM4DxaFIQ/https/cdn.loom.com/sessions/thumbnails/8271cf5172904b1e966f960b88e3254d-00001.gif">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/cAc3wm_Lg7fFNXlkAVF-oPlbyA9olK7q-UxM4DxaFIQ/https/cdn.loom.com/sessions/thumbnails/8271cf5172904b1e966f960b88e3254d-00001.gif" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948185237727367179" class="chatlog__message-container " data-message-id="948185237727367179">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 06:49 AM">06:49</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<em><strong><u>How to find coins? / Where do I find &#39;xyz&#39; token? / What is a token contract or contract address?</u></strong></em>
+
+If the token isn&#39;t available on the exchange you&#39;re using... <strong>1st</strong>, search for, and identify the token you&#39;re trying to buy at <a href="https://www.coingecko.com/">https://www.coingecko.com/</a>
+
+<strong>2nd</strong>, identify which &#39;market&#39; the token has the most liquidity in (it will be at the top of the list).
+
+The &#39;market&#39; where you buy the token will either be a CEX (centralized exchange) or a DEX (decentralized exchange).
+
+CEX&#39;s are ones like Binance and Coinbase.
+DEX&#39;s are ones like Uniswap or Sushiswap.
+
+<strong>Pros for CEX:</strong>
+
+- It&#39;s easy to buy coins as you don&#39;t have to have your custodial wallet like Metamask
+- Fiat on-ramp is simple
+- Markets tend to be very liquid
+- No gas fee
+
+<strong>Cons for CEX:</strong>
+
+- You can&#39;t connect to decentralized applications (dAPPs) like Aave or OpenSea
+- You have to be ID&#39;d
+- You can&#39;t access some CEX&#39;s from certain countries
+- Since you don&#39;t need custodial wallet you don&#39;t own your private keys
+- New coins are not listed
+
+<strong>Pros for DEX:</strong>
+
+- Since you access DEX&#39;s with custodial wallets like Metamask, you can also access other dApps with the same wallet
+- No ID needed
+- You can access DEX&#39;s from anywhere
+- You own your private key
+- New coins are usually listed on DEX&#39;s first
+
+<strong>Cons for DEX:</strong>
+
+- More complex to buy a coin as you have to maintain your wallet and connect to dAPPs
+- Not always easy to find liquid markets
+- Some coins are only available on certain chains so money has to be bridged
+- Fiat on-ramp usually happens through CEX
+- On ethereum chain the gas price is super expensive
+
+Please take into consideration all of the above before deciding where to buy.</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:58 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.coingecko.com/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Cryptocurrency Prices, Charts, and Crypto Market Cap | CoinGecko</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">View top cryptocurrency prices live, crypto charts, market cap, and trading volume. Discover today’s new and trending coins, top crypto gainers and losers in the market.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/09DExVdANXFVb9XS2ODaA_isVilDw3Er7f0SxDB4Xf0/https/static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/09DExVdANXFVb9XS2ODaA_isVilDw3Er7f0SxDB4Xf0/https/static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948185291850653726" class="chatlog__message-container " data-message-id="948185291850653726">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 06:49 AM">06:49</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<u><strong>How to find coins: Part II</strong></u>
+
+You need to learn how to use <em><strong>CoinGecko</strong></em> and <em><strong>CoinMarketCap</strong></em>.
+
+You will find information about 99% of the coins you wanna buy. Only the newest ones are not available here.
+
+<strong>DEX list</strong>
+
+These are the main DEX&#39;s for the main crypto blockchains. You will be able to buy most of the coins of the corresponding chain on these.
+
+- Ethereum: Uniswap, SushiSwap
+- BSC: PancakeSwap
+- Avalanche: TraderJoe
+- Fantom: SpookySwap, SpiritSwap
+- Solana: Raydium, Orca
+- Polygon: QuickSwap, SushiSwap
+
+<a href="https://vimeo.com/680767662">https://vimeo.com/680767662</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:57 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680767662">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Finding_Coins</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Finding_Coins&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/CdzgudT_IaipCqWd1X-aedO4xgFRv82oDuffX6UPW3A/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379911295-c73d596c8e57428d013827868d162f0f8d1241d7fbbf26e86c13973f929af661-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/CdzgudT_IaipCqWd1X-aedO4xgFRv82oDuffX6UPW3A/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379911295-c73d596c8e57428d013827868d162f0f8d1241d7fbbf26e86c13973f929af661-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948185358150041631" class="chatlog__message-container " data-message-id="948185358150041631">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Mar-22 06:50 AM">06:50</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 01:58 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948396372799918080" class="chatlog__message-container " data-message-id="948396372799918080">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Mar-22 08:48 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><u><strong>Why we don&#39;t provide FOREX training?</strong></u>
+
+⬇️ <a href="https://vimeo.com/683239082/fbc14e63ef">https://vimeo.com/683239082/fbc14e63ef</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Mar-22 09:35 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/683239082/fbc14e63ef">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">HU2 FOREX.mp4</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;HU2 FOREX.mp4&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/DjRFDVoxqFZRbqJBRdQPF2eBbIYyMlugF8GBCjjFato/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1385181288-9aad6821cd3923523adb3da1203f73f0e26273e091dc7532b3c64e81b609d0cb-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/DjRFDVoxqFZRbqJBRdQPF2eBbIYyMlugF8GBCjjFato/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1385181288-9aad6821cd3923523adb3da1203f73f0e26273e091dc7532b3c64e81b609d0cb-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-951746697053212692" class="chatlog__message-container " data-message-id="951746697053212692">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">11-Mar-22 02:41 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Congrats on completing the FAQ! </strong>
+
+If you&#39;re ready to jump head first into a wealth of knowledge, hit the BRAIN <img loading="lazy" class="chatlog__emoji " alt="🧠" title="brain" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg"> , and welcome to HU2!</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 02:42 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="brain">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#129504;" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">9</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-975286903635054614" class="chatlog__message-container " data-message-id="975286903635054614">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">15-May-22 02:41 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong><u>What channels do I get access to?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072" onclick="scrollToMessage(event, '948117023030915072')">https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072</a>
+
+<u><strong>I&#39;m feeling lost!</strong></u>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072" onclick="scrollToMessage(event, '948117023030915072')">https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072</a>
+
+<strong><u>Why can&#39;t I speak in the general chat?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072" onclick="scrollToMessage(event, '948117023030915072')">https://discord.com/channels/867524957021011988/946586800305090610/948117023030915072</a>
+
+<u><strong>Where can I learn more? / I don&#39;t understand anything! / Channels are missing!</strong></u>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948117748163153960" onclick="scrollToMessage(event, '948117748163153960')">https://discord.com/channels/867524957021011988/946586800305090610/948117748163153960</a>
+
+<u><strong>What is KYC? / Do I need to show my identity to trade??</strong></u>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948174582391660575" onclick="scrollToMessage(event, '948174582391660575')">https://discord.com/channels/867524957021011988/946586800305090610/948174582391660575</a>
+
+<u><strong>How much $ should I have to start? / Can I be a full-time day trader?</strong></u>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034" onclick="scrollToMessage(event, '948185057732993034')">https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034</a>
+
+<strong><u>Someone told me to buy something else. What do you think?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034" onclick="scrollToMessage(event, '948185057732993034')">https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034</a>
+
+<strong><u>Should I use a VPN?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034" onclick="scrollToMessage(event, '948185057732993034')">https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034</a>
+
+<strong><u>My Country isn’t Crypto-Friendly / How do I avoid taxes?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034" onclick="scrollToMessage(event, '948185057732993034')">https://discord.com/channels/867524957021011988/946586800305090610/948185057732993034</a>
+
+<strong><u>I don&#39;t understand something the professor said?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185115056541707" onclick="scrollToMessage(event, '948185115056541707')">https://discord.com/channels/867524957021011988/946586800305090610/948185115056541707</a>
+
+<strong><u>What is the difference between &quot;Spot&quot; &amp; &quot;Derivatives/Futures&quot;?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185174330445865" onclick="scrollToMessage(event, '948185174330445865')">https://discord.com/channels/867524957021011988/946586800305090610/948185174330445865</a>
+
+<strong><u>How to find coins? / Where do I find a token? / What is a token contract or contract address?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185237727367179" onclick="scrollToMessage(event, '948185237727367179')">https://discord.com/channels/867524957021011988/946586800305090610/948185237727367179</a>
+
+<strong><u>I want to know more about finding tokens?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948185291850653726" onclick="scrollToMessage(event, '948185291850653726')">https://discord.com/channels/867524957021011988/946586800305090610/948185291850653726</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 02:57 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-975286917463695360" class="chatlog__message-container " data-message-id="975286917463695360">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="15-May-22 02:42 AM">02:42</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<strong><u>Why don&#39;t we provide FOREX training?</u></strong>
+<a href="https://discord.com/channels/867524957021011988/946586800305090610/948396372799918080" onclick="scrollToMessage(event, '948396372799918080')">https://discord.com/channels/867524957021011988/946586800305090610/948396372799918080</a>
+
+⬆️ <strong>Read the questions above</strong> and <em>press the links</em> to get your answers!</span>
+
+                            <span class="chatlog__edited-timestamp" title="15-May-22 02:59 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-975290808725033010" class="chatlog__message-container " data-message-id="975290808725033010">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">15-May-22 02:57 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">-</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-975291181309239329" class="chatlog__message-container " data-message-id="975291181309239329">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="15-May-22 02:58 AM">02:58</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">The FAQ&#39;s are undergoing maintenance.
+
+✅ Please click this link to continue: <a href="https://discord.com/channels/867524957021011988/946586800305090610/951746697053212692" onclick="scrollToMessage(event, '951746697053212692')">https://discord.com/channels/867524957021011988/946586800305090610/951746697053212692</a></span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 15 message(s)</div>
+</div>
+
+</body>
+
+</html>

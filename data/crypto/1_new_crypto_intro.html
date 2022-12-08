@@ -1,0 +1,1211 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - 1-&#127769;｜new-crypto-intro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / 1-&#127769;｜new-crypto-intro</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-946592303093542942" class="chatlog__message-container " data-message-id="946592303093542942">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">24-Feb-22 09:19 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="🤩" title="star_struck" src="https://twemoji.maxcdn.com/2/svg/1f929.svg">  Welcome to HU2 Crypto section! <img loading="lazy" class="chatlog__emoji " alt="🤩" title="star_struck" src="https://twemoji.maxcdn.com/2/svg/1f929.svg"> 
+
+All the information to get you started is here in these tutorials. <strong>READ EVERYTHING</strong>.
+
+However if you do find yourself stuck, get some help from the <span class="chatlog__markdown-mention">#&#129370;｜cr-newb-questions</span> channel.
+
+<strong>WHEN YOU FIRST JOIN YOU WILL ONLY HAVE ACCESS TO <span class="chatlog__markdown-mention">#&#129370;｜cr-newb-questions</span>, THE OTHER CHANNELS ARE UNLOCKED BY COMPLETING THE <em>TUTORIALS</em></strong> (Also read the pinned messages <img loading="lazy" class="chatlog__emoji " alt="holyfuckdoesanyonereadthepins" title="holyfuckdoesanyonereadthepins" src="https://cdn.discordapp.com/emojis/928133096786755614.png"> )
+
+⬇️ To make sure you don&#39;t get lost, take this map to guide you on your journey! <img loading="lazy" class="chatlog__emoji " alt="🗺" title="🗺" src="https://twemoji.maxcdn.com/2/svg/1f5fa.svg">️</span>
+
+                            <span class="chatlog__edited-timestamp" title="05-Apr-22 07:33 PM">(edited)</span>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/943998376201060463/946592302409863198/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/943998376201060463/946592302409863198/unknown.png" alt="Image attachment" title="Image: unknown.png (83.13 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946592578806104064" class="chatlog__message-container " data-message-id="946592578806104064">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Feb-22 09:20 PM">21:20</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+Now you know where you&#39;re going, please watch this introduction video
+
+⬇️ This video will help you understand what the crypto category is about, what you can expect to learn, and what you&#39;ll be allowed to access once you finish the tutorial!
+
+<a href="https://vimeo.com/680000514">https://vimeo.com/680000514</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Mar-22 08:46 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680000514">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">HU2 Crypto - Introduction</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;HU2 Crypto - Introduction&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/unLwDtpUmIWUm0PynmjsrAUK3byi47LlMN9KIp8o-uU/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1378467692-63cfda054242cb78a6509bc8a62065d996e6f3d7338c6dd2ae9a5fc5fa320064-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/unLwDtpUmIWUm0PynmjsrAUK3byi47LlMN9KIp8o-uU/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1378467692-63cfda054242cb78a6509bc8a62065d996e6f3d7338c6dd2ae9a5fc5fa320064-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946592921161965619" class="chatlog__message-container " data-message-id="946592921161965619">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Feb-22 09:22 PM">21:22</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+After watching that you&#39;ll understand how powerful our methods are <img loading="lazy" class="chatlog__emoji " alt="🛠" title="🛠" src="https://twemoji.maxcdn.com/2/svg/1f6e0.svg">️ <img loading="lazy" class="chatlog__emoji " alt="🔬" title="microscope" src="https://twemoji.maxcdn.com/2/svg/1f52c.svg"> 
+
+We also have <strong>powerful professors</strong> who are all <u>self-made millionaires</u>!  <img loading="lazy" class="chatlog__emoji " alt="🧠" title="brain" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg"> 
+
+Get to know them on a more personal level by watching their brief introductions:
+
+<strong><u>Professor Daniel</u></strong> is a master of many talents: Funding analysis, long term investing, swing trading and NFT research.
+
+ -&gt; <a href="https://vimeo.com/681672395">https://vimeo.com/681672395</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="05-Apr-22 07:37 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681672395">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Professor Introduction - Dan</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Professor Introduction - Dan&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/UN6Is29Yk8mm-YJM9YqcVFLJHNfhgawwbYAA_EVaIHs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381627133-89bf544b3fa116863f3c422953e7a787b7f1e9d9f3bbc30d12517a0d22f88f9c-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/UN6Is29Yk8mm-YJM9YqcVFLJHNfhgawwbYAA_EVaIHs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381627133-89bf544b3fa116863f3c422953e7a787b7f1e9d9f3bbc30d12517a0d22f88f9c-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946593098891407390" class="chatlog__message-container " data-message-id="946593098891407390">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Feb-22 09:23 PM">21:23</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<strong><u>Professor Adam</u></strong> is a master of strategy design, swing trade systematization, economics and statistical analysis.
+
+-&gt; <a href="https://vimeo.com/680282166">https://vimeo.com/680282166</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680282166">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Adam Prof Introduction</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Adam Prof Introduction&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/GI5qCJ7H5lh9Uf7kt0TZCUNBxjll2XV0tKHfTu3w8es/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1378916792-c08aeb380dc267fda31ce07372270a0d10ffd21f892ac9f4330b9f9c06b16afb-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/GI5qCJ7H5lh9Uf7kt0TZCUNBxjll2XV0tKHfTu3w8es/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1378916792-c08aeb380dc267fda31ce07372270a0d10ffd21f892ac9f4330b9f9c06b16afb-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946593162481262662" class="chatlog__message-container " data-message-id="946593162481262662">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Feb-22 09:23 PM">21:23</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<strong><u>Professor Michael</u></strong> is the best short term trader any of us have ever encountered. A true wizard of market depth and order flow, he can summon profits from the smallest moves.
+
+-&gt; <a href="https://vimeo.com/686769002/299d00630d">https://vimeo.com/686769002/299d00630d</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="10-Mar-22 09:14 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/686769002/299d00630d">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Professor Introduction- Michael G</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Professor Introduction- Michael G&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/QauSmBud_bDtbvSAvEe4kDVwXhWdYb1ciGWch6ZgF_Q/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1391399487-296ce67a64e4dd3f381ad4d132703f33889b6cc5dc7f0075ff77093f57f6af2d-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/QauSmBud_bDtbvSAvEe4kDVwXhWdYb1ciGWch6ZgF_Q/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1391399487-296ce67a64e4dd3f381ad4d132703f33889b6cc5dc7f0075ff77093f57f6af2d-d_1280x800%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946593336704258058" class="chatlog__message-container " data-message-id="946593336704258058">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="24-Feb-22 09:23 PM">21:23</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<strong><u>Professor Silard</u></strong> is a master of innovation, technology &amp; NFT research. In touch with the pulse of the market at a depth few could ever hope to achieve. He is consistently the first to discover new and genuinely promising tokens.
+
+-&gt; <a href="https://vimeo.com/681528087">https://vimeo.com/681528087</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681528087">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Silard_intro</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Silard_intro&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/7tT5V_bkCwxOYN_YkqK426mB1QBI7RGVSkBovdpKScY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381344658-156c4167f296017667fd82acb2398ee2fff435b7689c64e4c03cf8bd84c3d9b2-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/7tT5V_bkCwxOYN_YkqK426mB1QBI7RGVSkBovdpKScY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381344658-156c4167f296017667fd82acb2398ee2fff435b7689c64e4c03cf8bd84c3d9b2-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-946780458585325613" class="chatlog__message-container " data-message-id="946780458585325613">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">25-Feb-22 09:47 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong><u>Professor Luc</u></strong> follows all your other professors and De-Fi is his speciality. He mainly focuses on tokenomics and real world use-cases. He mainly trades ALTs. He longs ones that are real technologies, or very well crafted Ponzis. He shorts the ones that are overvalued and completely useless.</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/943998376201060463/946780458207813752/photo_2022-01-04_09-33-24.jpg">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/943998376201060463/946780458207813752/photo_2022-01-04_09-33-24.jpg" alt="Image attachment" title="Image: photo_2022-01-04_09-33-24.jpg (32.71 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-952549961780822016" class="chatlog__message-container " data-message-id="952549961780822016">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/867754740301168642/c261eb3c87122477ac88c4c5ea866412.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(46, 204, 113)" title="Hustler&#39;s University Bot#3826" data-user-id="867754740301168642">Hustler&#39;s University Bot</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">13-Mar-22 08:53 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="🤝" title="handshake" src="https://twemoji.maxcdn.com/2/svg/1f91d.svg"> Now we are well acquainted, let&#39;s move on...
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> Understand that to maximize your gains you should ﻿KNOW ﻿as much as possible. Even something as basic as copying trades requires ﻿knowledge ﻿so you maximize your gains and don&#39;t make critical mistakes!
+﻿
+However, we do understand that many of you aren’t interested in actually becoming crypto professionals, and you’re just after professors&#39; signals and NFT calls. For you, we have designed the Fast Track.
+﻿
+The tutorial will now split into 2 paths, each one has a different purpose.
+
+Remember, just like a real university we have minimum standards we encourage you to reach with quizzes that will come by the end of each training level!
+﻿
+
+
+<img loading="lazy" class="chatlog__emoji " alt="🛤️" title="railway_track" src="https://twemoji.maxcdn.com/2/svg/1f6e4.svg"> <strong>Choose Your Path</strong> <img loading="lazy" class="chatlog__emoji " alt="🛤️" title="railway_track" src="https://twemoji.maxcdn.com/2/svg/1f6e4.svg">
+
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> <strong>You can only choose ONE</strong> <img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg">
+
+<img loading="lazy" class="chatlog__emoji " alt="🐵" title="monkey_face" src="https://twemoji.maxcdn.com/2/svg/1f435.svg"> - <strong>The Fast Track </strong> - This path will take you to the signals the fastest way possible. You will learn the fundamentals of executing proper trades and that&#39;s it. This is where we &quot;give you fish&quot;.
+After pressing the emoji, begin the training here:
+<a href="https://discord.com/channels/867524957021011988/946596236310487100/951747687919796254" onclick="scrollToMessage(event, '951747687919796254')">https://discord.com/channels/867524957021011988/946596236310487100/951747687919796254</a>
+
+<img loading="lazy" class="chatlog__emoji " alt="🐳" title="whale" src="https://twemoji.maxcdn.com/2/svg/1f433.svg"> - <strong>Crypto Mastery Track</strong> -  This track is for the people who want to become crypto professionals and acquire the secrets of the professors. In this route, you will be learning from scratch everything to turn yourself into a crypto master within the coming years.
+It involves technical training, mindset training, and strategy development at Novice, Intermediate, and Expert levels.
+After pressing the emoji, begin the training here:
+<a href="https://discord.com/channels/867524957021011988/947360223000150096/947364665208475758" onclick="scrollToMessage(event, '947364665208475758')">https://discord.com/channels/867524957021011988/947360223000150096/947364665208475758</a>
+
+To keep your Discord feed organized, you can only choose one path.
+
+However, should you be interested in switching up in the future, it is easily doable by reacting to the <img loading="lazy" class="chatlog__emoji " alt="🐳" title="whale" src="https://twemoji.maxcdn.com/2/svg/1f433.svg"> emoji!</span>
+
+                            <span class="chatlog__edited-timestamp" title="13-Mar-22 09:00 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="monkey_face">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128053;" src="https://twemoji.maxcdn.com/2/svg/1f435.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5967</span>
+                            </div>
+                            <div class="chatlog__reaction" title="whale">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128051;" src="https://twemoji.maxcdn.com/2/svg/1f433.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4200</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 8 message(s)</div>
+</div>
+
+</body>
+
+</html>

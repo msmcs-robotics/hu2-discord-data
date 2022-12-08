@@ -1,0 +1,1505 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128185;｜2-stocks-tutorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">&#128185;Stocks&#128185; / &#128185;｜2-stocks-tutorial</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-954753873560616990" class="chatlog__message-container " data-message-id="954753873560616990">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">19-Mar-22 10:51 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Know the Professor</strong>
+
+Before we begin the novice tutorials, I believe it&#39;s important to know your professor and what expectations he has of you.  Hence, let&#39;s start with the following Intro video:</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-954755077787222077" class="chatlog__message-container " data-message-id="954755077787222077">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="19-Mar-22 10:55 AM">10:55</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><a href="https://vimeo.com/680810478">https://vimeo.com/680810478</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680810478">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Prof Intro</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Prof Intro&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/e5PbtE1EfSWAfim5GFWNRjRCeE65knSrMtGpGKBxYFM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1380000836-d06cbc01058a06f1c5673a2f717b881ce6dba351725f4aa80b45a3722a562a20-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/e5PbtE1EfSWAfim5GFWNRjRCeE65knSrMtGpGKBxYFM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1380000836-d06cbc01058a06f1c5673a2f717b881ce6dba351725f4aa80b45a3722a562a20-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-954757018663665734" class="chatlog__message-container " data-message-id="954757018663665734">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">19-Mar-22 11:03 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="📕" title="closed_book" src="https://twemoji.maxcdn.com/2/svg/1f4d5.svg"> <strong>Tutorials</strong> <img loading="lazy" class="chatlog__emoji " alt="📕" title="closed_book" src="https://twemoji.maxcdn.com/2/svg/1f4d5.svg"> 
+
+Now that we have met each other, let&#39;s get to learning <img loading="lazy" class="chatlog__emoji " alt="🏁" title="checkered_flag" src="https://twemoji.maxcdn.com/2/svg/1f3c1.svg"> 
+
+1️⃣  <strong>Basic terminology</strong> 
+
+As mentioned in the video, you&#39;re expected to familiarize yourself with the language of this world. For this your best asset will be:
+
+<a href="https://www.investopedia.com/financial-term-dictionary-4769738">https://www.investopedia.com/financial-term-dictionary-4769738</a>
+
+The aforementioned link will take you to an extremely comprehensive dictionary that explains financial terms in the simplest way possible.
+
+Start with understanding what stocks are. 
+
+<a href="https://www.investopedia.com/articles/investing/082614/how-stock-market-works.asp">https://www.investopedia.com/articles/investing/082614/how-stock-market-works.asp</a> 
+
+Once you have an understanding of stocks, you want to familiarize yourself with derivatives. 
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> If you&#39;re new or starting with a small account, derivatives provide the best avenue to grow your account quickly. They&#39;re inherently risky however and if you don&#39;t have extensive experience in them, I would suggest you to stick with the trades done by me. <img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> 
+
+But first it&#39;s important to know the basic terminology to follow the information.
+
+The two most common derivatives are futures and options. Familiarize yourself with them through the following links:
+
+<a href="https://www.investopedia.com/terms/f/futures.asp">https://www.investopedia.com/terms/f/futures.asp</a>
+<a href="https://www.investopedia.com/terms/o/option.asp">https://www.investopedia.com/terms/o/option.asp</a>
+
+The two types of options that you need to familiarize yourself with are calls and puts.
+
+<a href="https://www.investopedia.com/terms/c/calloption.asp">https://www.investopedia.com/terms/c/calloption.asp</a>
+<a href="https://www.investopedia.com/terms/p/putoption.asp">https://www.investopedia.com/terms/p/putoption.asp</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="19-Mar-22 11:11 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/financial-term-dictionary-4769738">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Financial Terms Dictionary</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Investopedia&#39;s comprehensive financial terms dictionary with over 13,000 finance and investment definitions</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/qHHQT_17VK0jvaYhxglCrjjFU9Vh5iCfXXpIyAmEPtw/https/www.investopedia.com/thmb/_pLPstWPtVSw8VOM6xp2Rr4eMhQ%3D/1000x1000/filters%3Afill%28auto%2C1%29/investopedia-social-share-default-ab113c8afd9a439dbc4c68b1926292f4.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/qHHQT_17VK0jvaYhxglCrjjFU9Vh5iCfXXpIyAmEPtw/https/www.investopedia.com/thmb/_pLPstWPtVSw8VOM6xp2Rr4eMhQ%3D/1000x1000/filters%3Afill%28auto%2C1%29/investopedia-social-share-default-ab113c8afd9a439dbc4c68b1926292f4.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/articles/investing/082614/how-stock-market-works.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">A Breakdown on How the Stock Market Works</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Learn how the stock market works, what it means to own stocks, why companies issue stock, and the pros and cons of an exchange listing.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/dzMSUYgEVtTnJI8d88BlsmvE2KiyzYeYR3pRG474Qtc/https/www.investopedia.com/thmb/kO9HiLTzMifSMPj2gt7h94qFuxk%3D/680x440/filters%3Afill%28auto%2C1%29/thinkstockphotos-487491909-5bfc3a7846e0fb00265fe441.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/dzMSUYgEVtTnJI8d88BlsmvE2KiyzYeYR3pRG474Qtc/https/www.investopedia.com/thmb/kO9HiLTzMifSMPj2gt7h94qFuxk%3D/680x440/filters%3Afill%28auto%2C1%29/thinkstockphotos-487491909-5bfc3a7846e0fb00265fe441.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/f/futures.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">What Are Futures in Investing?</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Futures are financial contracts obligating the buyer to purchase an asset or the seller to sell an asset at a predetermined future date and price.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/ukwAelZuLt99O5MRgpXxFtwW4kXDhbVqMmNESIWwo0U/https/www.investopedia.com/thmb/V1775hpyirQyHPm_1Flv02U30hI%3D/2296x1305/filters%3Afill%28auto%2C1%29/GettyImages-463245219-1386a0acc6554fc2ada149dfdf8125bb.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/ukwAelZuLt99O5MRgpXxFtwW4kXDhbVqMmNESIWwo0U/https/www.investopedia.com/thmb/V1775hpyirQyHPm_1Flv02U30hI%3D/2296x1305/filters%3Afill%28auto%2C1%29/GettyImages-463245219-1386a0acc6554fc2ada149dfdf8125bb.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/o/option.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How Options Work for Buyers and Sellers</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Options are financial derivatives that give the buyer the right to buy or sell the underlying asset at a stated price within a specified period.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/-H7nx3J3yMvYCwAtvKPxqQHa7ECCn8tFEEpfFtXUTAg/https/www.investopedia.com/thmb/jkG5q_wNtaFq9Q212_yhxjWS3KE%3D/2440x1373/filters%3Afill%28auto%2C1%29/bigstock-Stock-Market-Chart-Big-Data--259733245_2440-ab2b367709b1466a9a064ba3ac693e53.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/-H7nx3J3yMvYCwAtvKPxqQHa7ECCn8tFEEpfFtXUTAg/https/www.investopedia.com/thmb/jkG5q_wNtaFq9Q212_yhxjWS3KE%3D/2440x1373/filters%3Afill%28auto%2C1%29/bigstock-Stock-Market-Chart-Big-Data--259733245_2440-ab2b367709b1466a9a064ba3ac693e53.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/c/calloption.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">What Is a Call Option?</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">A call option is a contract that gives the option buyer the right to buy an underlying asset at a specified price within a specific time period.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/omtAOPlUu_UvyYNaSCQKoO5xLGuQd3OODp89KOS3tiA/https/www.investopedia.com/thmb/hZwHaLHPXbE1sJJMzZb95856TQg%3D/1200x800/filters%3Afill%28auto%2C1%29/stock-options-5854288e5f9b586e02c75ffe.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/omtAOPlUu_UvyYNaSCQKoO5xLGuQd3OODp89KOS3tiA/https/www.investopedia.com/thmb/hZwHaLHPXbE1sJJMzZb95856TQg%3D/1200x800/filters%3Afill%28auto%2C1%29/stock-options-5854288e5f9b586e02c75ffe.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-954758471876755517" class="chatlog__message-container " data-message-id="954758471876755517">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="19-Mar-22 11:09 AM">11:09</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">------------------------------------
+
+2️⃣  <strong>Choosing a broker</strong> 
+
+The broker best suited for you will be highly dependent on your location. 
+
+Hence, use the following link to compare the top brokers for your region:
+
+<a href="https://brokerchooser.com/">https://brokerchooser.com/</a>
+
+Search for brokers with options when looking at brokerchooser.
+
+These are the most preferred brokers by location:
+
+US: E-Trade, Think or swim, Webull
+Canada: Interactive brokers, TD Ameritrade
+UK: Interactive Brokers, Saxo Bank
+Australia: Tastyworks
+Anywhere else: Interactive Brokers, Webull
+
+Note: You need to be 21+ years of age to use IBKR in some locations.  If you don&#39;t meet that condition, either choose another broker or get a custodian to open an account for you.
+
+You can sign up to your preferred brokers here:
+
+- Interactive Brokers: <a href="https://ibkr.com/referral/rolland642">https://ibkr.com/referral/rolland642</a>
+
+- Webull: <a href="https://a.webull.com/FvOa1FdBzAYnSWkrxH">https://a.webull.com/FvOa1FdBzAYnSWkrxH</a>
+
+- Saxo Bank: <a href="https://www.home.saxo/en-gb/accounts?cmpid=web_gb_ref&amp;refid=1abfe122-250e-4ceb-81e0-4701d88b4c28">https://www.home.saxo/en-gb/accounts?cmpid=web_gb_ref&amp;refid=1abfe122-250e-4ceb-81e0-4701d88b4c28</a>
+
+- E-Trade: <a href="https://bit.ly/HU2Etrade">https://bit.ly/HU2Etrade</a>
+
+- Tastyworks: <a href="https://start.tastyworks.com/#/login?referralCode=TGKMW4ZMTA">https://start.tastyworks.com/#/login?referralCode=TGKMW4ZMTA</a>
+
+My firm is based in the US and the brokers I use are as follows:
+
+Stocks and options: E-trade
+Futures: Interactive brokers
+Backup broker: Tradestation
+
+I have used tradestation for futures in the past and I have found it to be the best futures trading platform. However, Interactive brokers is more versatile which is why I currently use it.</span>
+
+                            <span class="chatlog__edited-timestamp" title="04-May-22 04:53 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://brokerchooser.com/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Choose your online broker in 3 easy steps.</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Compare. Choose. Trade. A credible source to simplify your investing.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/JhF3BzrJlBGhsC6cQqAkwVu17evnM96NQ6aHwGGCd4Y/http/brokerchooser.com/uploads/images/brokerchooser-og-image.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/JhF3BzrJlBGhsC6cQqAkwVu17evnM96NQ6aHwGGCd4Y/http/brokerchooser.com/uploads/images/brokerchooser-og-image.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://a.webull.com/FvOa1FdBzAYnSWkrxH">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Don&#39;t miss the chance to get your free stock(s)!</div>
+                                                    </a>
+                                            </div>
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/-NHYyGm868-Rj-qOGiD9wjHvxWpXaUlhUppIyT9SsIo/https/u1sweb.webullfinance.com/us/office/7778d170108b4a4fbe554458bc2b8546.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/-NHYyGm868-Rj-qOGiD9wjHvxWpXaUlhUppIyT9SsIo/https/u1sweb.webullfinance.com/us/office/7778d170108b4a4fbe554458bc2b8546.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(40, 40, 40, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.home.saxo/en-gb/accounts?cmpid=web_gb_ref&amp;refid=1abfe122-250e-4ceb-81e0-4701d88b4c28">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Online Trading Accounts - Forex, CFDs &amp; Stocks</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Open an online trading account today with Saxo Capital Markets to access 35,000+ financial instruments across all asset classes, via world&#39;s most intuitive trading platform and execute trades at competitive rates. Compare our trading plans with other popular brokers.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/uj6t_zWKSV6TjbefWQVS2k5UUdUxyBIfjHLsNZh5NKo/https/www.home.saxo/-/media/images/seo/meta-frontpage-saxotraderpro.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/uj6t_zWKSV6TjbefWQVS2k5UUdUxyBIfjHLsNZh5NKo/https/www.home.saxo/-/media/images/seo/meta-frontpage-saxotraderpro.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-954759106621743114" class="chatlog__message-container " data-message-id="954759106621743114">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="19-Mar-22 11:11 AM">11:11</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------------------------
+
+3️⃣  <strong>Order Types</strong> 
+
+The two types of order you need to concern yourself with are <strong>market orders and limit orders</strong>. When taking the trades from <span class="chatlog__markdown-mention">#&#128176;professors-plays&#128176;</span> , always place a market order unless I specifically mention that an option is illiquid.
+
+I will be uploading a video soon on the different types of orders.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-954761933171597352" class="chatlog__message-container " data-message-id="954761933171597352">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">19-Mar-22 11:23 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------------------------
+
+4️⃣  <strong>Account Type</strong>
+
+Most of you will likely begin trading with an account that&#39;s less than $25k. If that&#39;s the case, make sure to change your account from <strong>margin account to cash account.</strong> That way you don&#39;t get flagged for Pattern Day Trading.
+
+Almost every broker allows you to day trade options when on a cash account except Robinhood. Hence, 
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> <strong> If you&#39;re on robinhood, get off of it at once and move to a better brokerage</strong> <img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> 
+
+I will have no patience for your PDT issues when trading. Trading decisions need to be based on the market and not random restrictions.</span>
+
+                            <span class="chatlog__edited-timestamp" title="20-Mar-22 07:36 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-954762436299358219" class="chatlog__message-container " data-message-id="954762436299358219">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="19-Mar-22 11:25 AM">11:25</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------------------------
+
+5️⃣ <strong>Charting Basics</strong> 
+
+If you have never seen a price chart for a security before and want to start from the basics, read here:
+
+<a href="https://www.investopedia.com/trading/candlestick-charting-what-is-it/">https://www.investopedia.com/trading/candlestick-charting-what-is-it/</a>
+
+Candlesticks charts are one of the easiest ways to understand price movement.
+
+The easiest charting platform is tradingview. If you&#39;re not already on it, make a free account here:
+
+<a href="https://www.tradingview.com/">https://www.tradingview.com/</a>
+
+You can decide to upgrade later based on the functionality you require. However, the free package is more than enough for beginners.
+
+Get familiar with the platform and learn how to draw horizontal lines and rectangles on the chart. Those would be our most used tools for making trading decisions.</span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/trading/candlestick-charting-what-is-it/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Understanding a Candlestick Chart</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Learn how to read a candlestick chart, as well as spot candlestick patterns that aid in analyzing price direction and previous price movements.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/4hSgQEzlWfgnkHaNWVYrg2wcO-aWOLkcjl9sDa7nzQA/https/www.investopedia.com/thmb/ST8qUP19iKZ318eazSjHWN9LYuQ%3D/680x454/filters%3Afill%28auto%2C1%29/candlestick_chart_board_shutterstock_551178529-5bfc307446e0fb00511a9404.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/4hSgQEzlWfgnkHaNWVYrg2wcO-aWOLkcjl9sDa7nzQA/https/www.investopedia.com/thmb/ST8qUP19iKZ318eazSjHWN9LYuQ%3D/680x454/filters%3Afill%28auto%2C1%29/candlestick_chart_board_shutterstock_551178529-5bfc307446e0fb00511a9404.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(30, 34, 45, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.tradingview.com/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">TradingView – Track All Markets</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Where the world charts, chats and trades markets. We&#39;re a supercharged super-charting platform and social network for traders and investors. Free to sign up.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/fHJdh9hcsnu9P0mRPPYN1gQyarr6a1VDAEsIttmWvDI/https/s3.tradingview.com/pub/main-page.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/fHJdh9hcsnu9P0mRPPYN1gQyarr6a1VDAEsIttmWvDI/https/s3.tradingview.com/pub/main-page.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-954766100053250068" class="chatlog__message-container " data-message-id="954766100053250068">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">19-Mar-22 11:39 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">6️⃣ <strong>Taking trades</strong>
+
+The Novice Tutorials are for people who want to start copying professors trades as quickly as possible without caring about the mechanics behind the trades. Hence, the mechanics will be discussed in the Intermediate Tutorials.
+
+Most trades in <span class="chatlog__markdown-mention">#&#128176;professors-plays&#128176;</span> are options trades. Ask any questions you have about options in <span class="chatlog__markdown-mention">#&#129370;s-newb-chat</span>. 
+
+To understand the structure of professors-plays, check Q6 in <span class="chatlog__markdown-mention">#fast-track-faq</span> 
+
+Before you start taking trades, let&#39;s discuss the best way to follow along based on your account size.
+
+<strong>1. $1k - $5k:</strong>
+
+You should <strong>only trade in options</strong> since that will provide the fastest capital growth potential. At the same time, options can be extremely risky so I suggest you simply stick with the trades I take in <span class="chatlog__markdown-mention">#&#128176;professors-plays&#128176;</span>  . Enter when I do, exit when I do and try to learn as much as you can at all times. 
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> <strong>Do not enter if the price has increased more than 20% than when I got in.</strong> <img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> 
+
+If your account is in the $1k-2k range, your average position size will be around $200. Hence, you will only take the plays that are cheaper than $2. If that means there are certain plays you can&#39;t take, so be it. 
+
+If your account size is $3k-$5k, you average position size will be around $400. Do not buy any option that&#39;s more than $5. If that means there are certain plays you can&#39;t take, so be it. Once your account grows, you can take more plays.
+
+Never have positions worth more than 20-30% of your account at any one point.
+
+<strong>2. $5k - $20k:</strong>
+
+You can choose to dabble in options or stick to equities for slower but more stable growth. You don&#39;t have to limit yourself to the trades I take. Feel free to take any trade mentioned in price-alerts. Check the stocks-faq to understand how to best trade a price-alert.
+
+<strong>3. Above $20k:</strong>
+
+Feel free to trade equities or options similar to what I mentioned for $5k-$20k category. If you trade futures, you will find my trades in <span class="chatlog__markdown-mention">#&#128176;futures-plays&#128176;</span></span>
+
+                            <span class="chatlog__edited-timestamp" title="17-Apr-22 01:07 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961751848052744272" class="chatlog__message-container " data-message-id="961751848052744272">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/470723667303727125/1a872c8232349c050c48b7a59d025bd2.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(46, 204, 113)" title="Dyno#9026" data-user-id="470723667303727125">Dyno</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">07-Apr-22 06:18 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Congratulations</strong>
+
+You have just finished the Novice tutorial. And now you have to select your desired path.
+
+<img loading="lazy" class="chatlog__emoji " alt="🏇" title="horse_racing" src="https://twemoji.maxcdn.com/2/svg/1f3c7.svg"> - <strong>The Fast Track</strong> - For those who are only interested in following Trading Signals.
+We assume you have a broker account, know how to execute trades, and have a general understanding of the Stocks market to be able to execute those signals properly.
+If you choose this path- you will be redirected to the FAQ to read, and then get access to the signals.
+
+<img loading="lazy" class="chatlog__emoji " alt="🥼" title="lab_coat" src="https://twemoji.maxcdn.com/2/svg/1f97c.svg"> - <strong>Professional Trader</strong> - The pro track is meant for people who desire to be Stocks Professionals and want to learn the secrets of the professor. 
+The track aims for you to be a master of stock trading in a few years. 
+It involves technical analysis, strategy development, and professional mindset creation.
+
+You can always come back here later to change your track to Pro if you wish!</span>
+
+                            <span class="chatlog__edited-timestamp" title="07-Apr-22 06:37 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961751973902811197" class="chatlog__message-container " data-message-id="961751973902811197">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/308361063290634252/0c93ae6dd53d51d7939832ae94710af8.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(173, 20, 87)" title="Ace_HU2#0550" data-user-id="308361063290634252">Ace - NOT CUSTOMER SUPPORT</span>
+
+
+                        <span class="chatlog__timestamp">07-Apr-22 06:18 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Once you have selected your track, click the link that fits your path:
+
+<img loading="lazy" class="chatlog__emoji " alt="🏇" title="horse_racing" src="https://twemoji.maxcdn.com/2/svg/1f3c7.svg"> Fast Track FAQ:
+<a href="https://discord.com/channels/867524957021011988/955773819811934218/955775092690935878" onclick="scrollToMessage(event, '955775092690935878')">https://discord.com/channels/867524957021011988/955773819811934218/955775092690935878</a>
+
+<img loading="lazy" class="chatlog__emoji " alt="🥼" title="lab_coat" src="https://twemoji.maxcdn.com/2/svg/1f97c.svg"> <strong>Pro Track Tutorial</strong>:
+<a href="https://discord.com/channels/867524957021011988/948316396671078401/955069404159311872" onclick="scrollToMessage(event, '955069404159311872')">https://discord.com/channels/867524957021011988/948316396671078401/955069404159311872</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="04-May-22 08:29 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 10 message(s)</div>
+</div>
+
+</body>
+
+</html>

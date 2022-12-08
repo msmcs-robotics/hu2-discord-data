@@ -1,0 +1,1188 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - 5-&#127769;｜expert-tutorial</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / 5-&#127769;｜expert-tutorial</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-971577029449367602" class="chatlog__message-container " data-message-id="971577029449367602">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">04-May-22 09:00 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong><u>Level 3: Expert</u></strong>
+
+To reach the highest levels of performance you need to unlock advanced technical knowledge, but even here we are just scraping the surface of what professional traders/investors use to extract maximum value from the markets.
+
+You&#39;re going to find some of this material difficult, but I encourage you to rise to the challenge. This is what separates the casuals from the serious money makers...
+
+Do not just &#39;watch&#39; it and &#39;read&#39; it passively. Think about these situations and then memorize it all.
+
+There are many lessons you will use here in the <strong>Professors Masterclasses</strong>, so learn well.
+
+Make sure you come back after a month and re-learn everything to bulletproof your understanding.</span>
+
+                            <span class="chatlog__edited-timestamp" title="13-May-22 09:43 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971577088807161877" class="chatlog__message-container " data-message-id="971577088807161877">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 09:00 PM">21:00</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.</span>
+
+                            <span class="chatlog__edited-timestamp" title="04-May-22 09:59 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-971586033026224198" class="chatlog__message-container " data-message-id="971586033026224198">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">04-May-22 09:36 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="📕" title="closed_book" src="https://twemoji.maxcdn.com/2/svg/1f4d5.svg"> <strong>Correlation Refresher</strong>
+
+<em>THE ENTIRE MARKET IS BETWEEN 70%-90% CORRELATED TO $BTC</em>
+
+This means 70%-90% of the discussion should be dedicated to the price trend in $BTC...
+
+The other 15% then can be used to discuss why you believe you can harness the extra volatility and randomness in $altcoins by going down in market-cap size...
+
+The remaining 5% is the $altcoins &#39;story&#39; or &#39;narrative&#39; which can drive its value...
+
+When people seek tokens to invest in, it&#39;s presented as 100% talk of the &#39;narrative&#39; and 0% talk of the statistical correlation... (Completely backwards)
+
+Anyone holding big bags of $altcoins, take a look at this correlation matrix and have a think about whether you&#39;re actually holding a diversified portfolio, or just a giant bag of leveraged bitcoin bets?
+
+If you want to know what I think about $XYZ token, <em>calculate its correlation to $BTC first</em> and then tell me how its superior to simply applying mild 2x leverage to $BTC? (Not recommended in the absence of good trading skills).</span>
+
+                            <span class="chatlog__edited-timestamp" title="13-May-22 10:38 PM">(edited)</span>
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/971575806960762960/971586031981850664/unknown.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/971575806960762960/971586031981850664/unknown.png" alt="Image attachment" title="Image: unknown.png (310.02 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971587508242628718" class="chatlog__message-container " data-message-id="971587508242628718">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 09:41 PM">21:41</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.
+<img loading="lazy" class="chatlog__emoji " alt="🚷" title="no_pedestrians" src="https://twemoji.maxcdn.com/2/svg/1f6b7.svg"> <img loading="lazy" class="chatlog__emoji " alt="🛂" title="passport_control" src="https://twemoji.maxcdn.com/2/svg/1f6c2.svg">  <strong><u>Token Obsession Mindset</u></strong> <img loading="lazy" class="chatlog__emoji " alt="🚷" title="no_pedestrians" src="https://twemoji.maxcdn.com/2/svg/1f6b7.svg"> <img loading="lazy" class="chatlog__emoji " alt="🛂" title="passport_control" src="https://twemoji.maxcdn.com/2/svg/1f6c2.svg">
+
+There is an old saying in finance: <em>&quot;Don&#39;t tell me what you think, <u>show me your portfolio</u>&quot;</em>
+
+All the profs tell you what we hold in <span class="chatlog__markdown-mention">#⭐｜crypto-signals</span>, that is <strong>THE HIGHEST</strong> promotion of the token there is. There quite literally is no higher standing for a token than to actually have your money invested in it.
+
+This is logical, correct? For if there were any other preferences then we wouldn&#39;t buy the ones we have bought.
+
+Comparisons, thoughts, or any other questions about any token selection is only like 10% of the game anyway. Even then its wrong because it should be through the lens of &#39;market beta&#39;.
+
+Portfolio construction/management is 2 considerations only.
+
+1. What direction is the market going? (90% importance)
+2. How much beta do I want to expose the portfolio to? (10% importance)
+
+Everyone wants to know what the right token is, everyone therefore focuses on the wrong things.
+
+The right question is <em>&quot;Where the fuck is the market going?&quot;</em></span>
+
+                            <span class="chatlog__edited-timestamp" title="04-May-22 09:42 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-971591832557477948" class="chatlog__message-container " data-message-id="971591832557477948">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/691999995167113339/435bde7e77cc67f14100a799826a16dc.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Adam - Crypto/Stocks#3051" data-user-id="691999995167113339">Adam - Crypto/Stocks</span>
+
+
+                        <span class="chatlog__timestamp">04-May-22 09:59 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="💎" title="gem" src="https://twemoji.maxcdn.com/2/svg/1f48e.svg">  <strong><u>Statistical Validity of &#39;Altseason&#39;</u></strong> <img loading="lazy" class="chatlog__emoji " alt="💎" title="gem" src="https://twemoji.maxcdn.com/2/svg/1f48e.svg">
+
+You are required to read and understand this research paper.
+
+Significant out-performance can be obtained from taking advantage of Ethereum seasonality and it doesn&#39;t require the memorization of any bizarre date patterns. January-May ETH&#39;s performance exceeds BTC&#39;s by a significant margin, enough that a rotational strategy between ETH and BTC, not even controlling for bear markets, out-performs raw BTC by 500x.
+
+Rewire you brain to be excited for gems like this, as they add bullets to your sniper rifle when it comes to setting up yourself for massive portfolio gains.
+
+<u>Practical implication:</u> Run your portfolio mostly as normal, except intentionally apply less leverage during &quot;BTC season&quot; and applying more leverage during &quot;ETH / altseason&quot;.  Additionally aim to hold smaller proportions of alts during &quot;BTC season&quot; and more alts during &quot;ETH / altseason&quot;.
+
+The exact proportions of these will be unique to you. However this is big alpha for long-term investors.</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <div class="chatlog__attachment-generic">
+                                <svg class="chatlog__attachment-generic-icon">
+                                    <use href="#attachment-icon"/>
+                                </svg>
+                                <div class="chatlog__attachment-generic-name">
+                                    <a href="https://cdn.discordapp.com/attachments/971575806960762960/971591832259674172/Proof_of_Altseason_Research_Paper.pdf">
+                                        Proof_of_Altseason_Research_Paper.pdf
+                                    </a>
+                                </div>
+                                <div class="chatlog__attachment-generic-size">
+                                    485.29 KB
+                                </div>
+                            </div>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971591899536293950" class="chatlog__message-container " data-message-id="971591899536293950">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 09:59 PM">21:59</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-971595721352552488" class="chatlog__message-container " data-message-id="971595721352552488">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/802222651924807750/e18d1ff354b5466a94ed9af105e5a500.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Michael G - Crypto#9253" data-user-id="802222651924807750">Michael G - Crypto</span>
+
+
+                        <span class="chatlog__timestamp">04-May-22 10:14 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="🍊" title="tangerine" src="https://twemoji.maxcdn.com/2/svg/1f34a.svg"> <strong>SHORT SQUEEZES - THE JUICY DETAILS</strong> <img loading="lazy" class="chatlog__emoji " alt="🐻" title="bear" src="https://twemoji.maxcdn.com/2/svg/1f43b.svg">
+
+First, let&#39;s define what is a short squeeze:
+
+A &quot;short squeeze&quot; is a trading term used to describe price action pattern of a stock/ token that&#39;s price goes on a sudden and sharp uptrend despite the fact it is being heavily shorted by market participants.
+
+<strong>Next, let&#39;s break down the mechanics of exactly how this happens using the attached chart ⬇️</strong>
+
+Short squeezes push price up so they must be bullish, right? Not necessarily. In fact, most short squeezes happen in bear markets, and they tend to fully retrace.
+
+<strong>Why do Short Squeezes often retrace?</strong>
+1. Heavy Shorting is usually conducted by smart money (hedge funds, market makers in crypto). They tend to be short the asset for good reason, meaning fundamentals are on their side (weak company/ bearish market conditions) - so after the temporary push to squeeze them, there is little buy demand left and price reverts.
+
+2. Heavy shorting generally occurs in a bear market, and just because a squeeze takes place it does not mean the market is suddenly bullish. Investors are still fearful and risk averse. Think of it this way, if they didn&#39;t want to buy the asset when it was low in a bear market, why would they want to buy it when it&#39;s just been pumped higher and made more expensive?
+
+Finally, how can you spot a short squeeze about to happen? Here are 3 key factors to be aware of:
+
+1. Declining downside momentum 
+2. Funding
+3. Open Interest</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/971575806960762960/971595720501100574/Screenshot_2021-08-03_at_21.31.43.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/971575806960762960/971595720501100574/Screenshot_2021-08-03_at_21.31.43.png" alt="Image attachment" title="Image: Screenshot_2021-08-03_at_21.31.43.png (291.9 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971596177147588618" class="chatlog__message-container " data-message-id="971596177147588618">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 10:16 PM">22:16</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971597517827481600" class="chatlog__message-container " data-message-id="971597517827481600">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 10:21 PM">22:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="📈" title="chart_with_upwards_trend" src="https://twemoji.maxcdn.com/2/svg/1f4c8.svg"> PRICE MANIPULATION &amp; DODGY CANDLES <img loading="lazy" class="chatlog__emoji " alt="📉" title="chart_with_downwards_trend" src="https://twemoji.maxcdn.com/2/svg/1f4c9.svg">
+
+This lesson relates to manipulation of price action in the lead up to events that the average trader deems as important. I talk about market makers &quot;painting&quot; the charts quite a bit. This isn&#39;t a joke or conspiracy, it&#39;s well known that price is manipulated at certain times.
+
+<strong>What are examples of such events? </strong>
+- 4hr close
+- Daily close
+- Weekly close
+
+<strong>Why would they do this?</strong>
+There are many reasons why, here are a few that I believe are most valid (in order of importance):
+
+<strong><u>1.  To trap retail traders.</u></strong>
+Most traders make decisions based on candlestick charts. For example, the price action below from today, is designed to make impatient traders go long into a weekly close (terrible idea).
+
+<strong><u>2. To trigger algorithms.</u></strong>
+Algorithms are used to place trades when certain criteria are met (not unlike your manual trading system rules). For example &quot;IF BTC prints a +10% weekly candle THEN execute market buy order). 
+
+<strong>But what value is there in doing this?</strong>
+In my opinion, it&#39;s all done for one reason - Liquidity. But How?
+
+1. Traders who go long into a weekly close provide BUYSIDE liquidity to fill the SELL orders of the smart money who know price will 90% of the time trade lower at the start of each new week. This not only gives them the liquidity they need to sell higher, but also buy back lower as the retail traders SELL STOPS and/or liquidation SELL ORDERS become liquidity for whale BUYS
+
+2. If you know an algo will trigger a BUY order once a certain set of criteria are met (e.g. daily candle closes green 3 times in a row), you can time your SELL order and guarantee liquidity for a fill.
+
+<strong>How can you profit?</strong>
+By being aware of the times you are trading, and setting yourself up for success. Watch the price in the lead up to close on key candles, such as the daily. When the next candle opens, if you see a sudden impulse move immediately after open, you know it&#39;s likely a momentum trigger by algos. These often present perfect opportunity to fade (counter trade) the move, and play mean reversion of the impulse.
+
+<strong>EXTRA NOTE:</strong>
+This type of price movement also happens around the weekly, monthly and quarterly options expiration. This is less about discrete manipulation in my opinion and more a function of large traders and funds pushing price to a level where the max number of options contracts expire worthless.</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/971575806960762960/971597517160579133/Screenshot_2021-08-08_at_23.28.41.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/971575806960762960/971597517160579133/Screenshot_2021-08-08_at_23.28.41.png" alt="Image attachment" title="Image: Screenshot_2021-08-08_at_23.28.41.png (131.32 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971597571741061160" class="chatlog__message-container " data-message-id="971597571741061160">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 10:21 PM">22:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-971598199255089202" class="chatlog__message-container " data-message-id="971598199255089202">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="04-May-22 10:24 PM">22:24</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><img loading="lazy" class="chatlog__emoji " alt="LucPepe" title="LucPepe" src="https://cdn.discordapp.com/emojis/963001014653448223.png">  <strong>Dummies guide to Risk ON &amp; Risk OFF</strong> <img loading="lazy" class="chatlog__emoji " alt="🧠" title="brain" src="https://twemoji.maxcdn.com/2/svg/1f9e0.svg"> 
+
+The chart above shows $DXY (US Dollar Currency Index)
+
+Risk ON = good for crypto
+Risk OFF = bad for crypto
+
+<strong>Therefore:</strong>
+
+DXY go up = people want dollars (so they sell their assets including crypto)
+DXY go down = people don&#39;t want dollars (so they buy assets including crypto)
+
+You can see we&#39;re at a key point here for the Dollar. 
+
+<strong>3 scenarios:</strong>
+A) If it breaks higher and trends upwards, we are essentially looking at the reverse of 2020 (Down Only). 
+
+B) If it rejects here and goes back down to 90, we&#39;re looking at a continuation of Up Only (short term - prob until EOY). 
+
+C) If it rejects here and breaks the low into the 80&#39;s, we&#39;re looking at generational wealth and UpOnly for every asset that ever existed and we&#39;re all gmi. 
+
+From this point, you can do your own analysis to decide what phase of the market cycle we are likely in.</span>
+
+                    </div>
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <a href="https://cdn.discordapp.com/attachments/971575806960762960/971598198491738192/Screenshot_2021-09-23_at_16.51.02.png">
+                                <img class="chatlog__attachment-media" src="https://cdn.discordapp.com/attachments/971575806960762960/971598198491738192/Screenshot_2021-09-23_at_16.51.02.png" alt="Image attachment" title="Image: Screenshot_2021-09-23_at_16.51.02.png (199.93 KB)" loading="lazy">
+                            </a>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 11 message(s)</div>
+</div>
+
+</body>
+
+</html>

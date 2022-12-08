@@ -1,0 +1,1320 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128177;｜nft-tutorials</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">5- &#128221;Tutorials Section&#128221; / &#128177;｜nft-tutorials</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-946868042959314984" class="chatlog__message-container " data-message-id="946868042959314984">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">25-Feb-22 03:35 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>NFT intro</strong>
+
+<em><strong>Definition</strong></em>
+
+A non-fungible token (NFT) is a crypto token that represents a unique asset. Most importantly they are publicly verifiable proofs of ownership and authenticity on the blockchain. Simply put everyone can publicly verify that a particular asset is the original and it belongs to a certain person.
+
+Put it simply the main features of an NFT are publicly verifiable:
+
+- non-fungible (unique)
+- Proof of originality
+- Proof of ownership
+
+Non-fungible means that every token is unique and not interchangeable with any other token of the same kind.
+
+A non-fungible example from real world would be a piece of real estate or a basketball card. Individual units of fungible assets on the other hand are interchangeable as all of them are worth the same.
+
+A good fungible example would be the USD. It doesn’t matter which $100 bill you own, one is not better than the other.
+
+<em><strong>Token protocols</strong></em>
+
+Just like fungible tokens, the non-fungible tokens also have protocols to standardize NFT’s and provide interoperability. This helps with transferring the assets between decentralized applications.
+
+The main non-fungible token protocol on ethereum chain is ERC-721. All you have to know is that the new NFT’s you look at always should use the currently mainstream protocol to be able to interact with other applications on chain.
+
+<em><strong>Main use cases</strong></em>
+
+- PFP/Brand - Bored Ape Yacht Club (BAYC)
+- Art - Fidenza
+- Gaming - Axie Infinity
+- Utility for dApps - Genesys Go
+
+Other use cases will be showing up soon as the industry is getting mainstream. Everything that needs a proof of ownership and uniqueness make a good use case for NFT’s.</span>
+
+                            <span class="chatlog__edited-timestamp" title="25-Feb-22 03:37 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-946869019561037965" class="chatlog__message-container " data-message-id="946869019561037965">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="25-Feb-22 03:39 PM">15:39</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>NFT Intro II</strong>
+
+<em><strong>Value of NFT&#39;s</strong></em>
+
+An NFT like everything else that has value in this world has to have desirability (symbol, utility) and be scarce. NFT&#39;s can give you status like other brands by reaching a symbol state. Everyone knows Gucci or Ferrari. We desire it to gain more status.
+
+Uniqueness is one form of scarcity. Uniqueness comes from limited numbers. 
+
+Limited numbers come from capping the collection (10,000 BAYC) and/or adding different tiers/traits to the collection (laser eyed BAYC). Same can be said for in-game assets. Not everyone can have the best ones. We can also take this to the next level. BAYC has a collection limit of 10,000. There is never gonna be more original BAYC unlike new Rolex’s.
+
+Another example with no cap on the collection is Rarity on fantom chain. There are endless heroes (pieces within the collection) you can play with but a hero is only valuable if it’s upgraded which gives it a tier/trait. The game doesn’t have to cap the number of heroes as the value comes from the effort to reach higher levels with the heroes and there is a limited number of upgraded heroes.
+
+<em><strong>PFP (Brand/Status symbol )</strong></em>
+
+It’s the same like with anything else like clothes or art pieces. It’s valuable because it’s a flex. A Gucci bag is a flex. You can signal to the world that you can afford it hence you are higher value. Why can you flex with a Gucci bag? Because it became a symbol and everyone recognizes the brand. Symbols rule the world.
+
+There is no bigger flex than buying something totally useless for a ton of money. This is why celebrities are buying BAYC.
+
+<em><strong>Gaming</strong></em>
+
+Gaming is one of the biggest industries.
+
+In the gaming industry you can’t really own an asset as it’s the property of the game makers and they could take it from you if they decide so.
+
+With NFT’s and blockchain users can own their gaming assets and with the development of the metaverse they will be able to transport their assets between games.
+
+<a href="https://vimeo.com/680767069">https://vimeo.com/680767069</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680767069">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">NFT_intro</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;NFT_intro&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/fr51lem6_rx4fklgJm3YtS8bxfi-3nmF_6bdGhm2HOU/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909017-18648d05a3a780484b274bf201c7b6c0e3397df6d064b39dddb4a87fdbfb8da0-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/fr51lem6_rx4fklgJm3YtS8bxfi-3nmF_6bdGhm2HOU/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909017-18648d05a3a780484b274bf201c7b6c0e3397df6d064b39dddb4a87fdbfb8da0-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-947752785770844181" class="chatlog__message-container " data-message-id="947752785770844181">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">28-Feb-22 02:11 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>NFT collections</strong>
+
+Always make sure you interact with the correct token contract before you do anything with NFT’s. Ethereum uses  ERC721 Non-Fungible Token Standard. All the important details of a collection is coded in the smart contract.
+
+You will have to learn a few words to get started:
+
+Contract Vocabulary:
+
+<em><strong>ID</strong></em>: Unique identifier for the item. There is only one item with one ID like 1347 within one collection. Every NFT can be identified by contract number + token ID. You can also use this to look up the NFT.
+
+<em><strong>Owner</strong></em>: The ethereum address the actual item of the collection belongs to. There can be only one owner of an NFT.
+
+<em><strong>Mint/Claim</strong></em>: The first owner of the item. Initially the owner is blank for the collection. Once the it’s first claimed there is always gonna be an owner. Usually you have to go on the project&#39;s site and claim/mint it for a certain amount of crypto.
+
+<em><strong>Approval</strong></em>: Owner of the NFT approves certain actions to be taken with the particular item. Before you trade your NFT&#39;s on marketplaces you will have to provide authorization to those marketplaces so your item can be traded. Be careful to only authorize the entities you want otherwise you will get scammed.
+
+<em><strong>Transfer</strong></em>: When the NFT’s owner changes. Must be done by owner or authorized third party.
+
+<em><strong>Sale</strong></em>: Transfer for a given amount of cryptocurrency.
+
+<em><strong>Marketplace</strong></em>: Where you can trade your NFT&#39;s. Most of NFT’s can be traded on several different marketplaces.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-947753089971130388" class="chatlog__message-container " data-message-id="947753089971130388">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="28-Feb-22 02:12 AM">02:12</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>NFT collections II</strong>
+
+You also gotta learn market related words:
+
+<em><strong>Rarity</strong></em>: Traits of the item which makes the more scarce traits highly collectible. This is coded in the smart contract but it&#39;s more important for valuation.
+
+<em><strong>Floor price</strong></em>: Cheapest item in the collection. Usually items with lowest rarity score are the cheapest. Important metric to understand how a certain collection is doing.
+
+<em><strong>Bid</strong></em>: Offer for an item on a marketplace that can be accepted by the owner and other authorized addresses. Be careful not to accept low bids.
+
+<em><strong>Unique holders</strong></em>: Unique addresses that hold at least one item from the collection. The more unique holders the better. In general it&#39;s good not to have whales in a project who would slowly dump on you and manipulate the price.
+
+<em><strong>Volume</strong></em>: Sum of the price of traded items in given time frame. Good indicator of how much interest the project is getting.
+
+<em><strong>Listed/Delisted</strong></em>: Number of items that are up for sale. The less item is listed the more ppl wanna hold to their items.
+
+Some basic market calculations:
+
+<em><strong>Cap</strong></em> (max num of items): It is usually between 500 and 20,000. If it is fewer it’s hard to reach network effect, if it’s higher the value is diluted.
+
+<em><strong>Market cap</strong></em>: The sum of the prices of all the items. This is usually an estimated number as not all items are for sale and rare items can reach much higher value than floor ones. Floor price * number of items will give you the minimum estimation. For BAYC as of now this would be 100ETH * 10,000 = 1 million ETH which is around 3 billion USD. The actual number with the considering rarities would be higher.
+
+<em><strong>Mint price</strong></em>: This can vary based on the status of the market and the collection. As of Feb 2022 on ethereum chain it’s usually somewhere between 0.05 and 1 ETH. More expensive mints than that should justify the price.
+
+<a href="https://vimeo.com/680767286">https://vimeo.com/680767286</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="28-Feb-22 02:15 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680767286">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">NFT_collections</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;NFT_collections&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/0b1EKW-nThtaomI4EanCCXXw8vLGhPbah9SaGuThRCk/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909453-26feba243f6c76d484160766d97d6dfdbc9f6d3dda7770fcf8f89f2476c2d2ca-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/0b1EKW-nThtaomI4EanCCXXw8vLGhPbah9SaGuThRCk/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909453-26feba243f6c76d484160766d97d6dfdbc9f6d3dda7770fcf8f89f2476c2d2ca-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-947975012122509322" class="chatlog__message-container " data-message-id="947975012122509322">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">28-Feb-22 04:54 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>NFT marketplaces</strong>
+
+Before NFT&#39;s are tradable they have to be minted/claimed first.
+
+Mint/claim between creator and collector is usually conducted on the creator’s site. You could say this is a primary market for claiming.
+
+Minting is usually limited by wallets to make it harder for whales to buy too many. Most of the hyped projects have whitelists besides minting limits to be able to have fair launch.
+
+Once collections are sold out (all of them are claimed/minted), ppl can trade amongst each other on marketplaces. This usually happens on secondary marketplaces like OpenSea. Only a few collections can be traded on the creator&#39;s site.
+
+Every chain has its marketplaces. As of now the main chain for NFT’s is ethereum. Other chain that has significant NFT’s too is solana.
+
+NFT marketplaces can be general purpose or focusing on some aspects of trading. The largest general purpose marketplaces on ethereum are OpenSea and LooksRare. On solana it is Magic Eden.
+
+There are other very useful marketplaces for sweeping floors, finding rarities, or OTC trades.
+
+<em><strong>OpenSea</strong></em>
+
+Generic purpose marketplace where basically all the NFT’s on ethereum are listed. Currently by far the largest. Opensea take 2.5% after every trade.
+
+You can’t buy several NFT’s at the same time which makes it expensive and slow to trade if you wanna buy multiple items of the same collection.
+
+<em><strong>Gem.xyz</strong></em>
+
+Makes it easy to buy several items of the same collection with optimized gas. This makes it much faster and cheaper to trade and gives the opportunity to whales to buy into smaller collections.
+
+Also very useful for sweeping floors and filtering based on rarity traits.
+
+<em><strong>Magic Eden</strong></em>
+
+Main marketplace on solana chain.
+
+Solana chain gas fees are dirt cheap which makes it easy for people with little money to get NFT’s.
+
+<em><strong>Centralized exchanges</strong></em>
+
+Centralized crypto exchanges make NFT’s more accessible to the crowd but you shouldn&#39;t be using these.
+
+<a href="https://vimeo.com/680767392">https://vimeo.com/680767392</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="28-Feb-22 04:54 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/680767392">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">NFT_marketplaces</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;NFT_marketplaces&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/57CfIuEjf_xsYQyxV8ALYKZtoEuqmyv_ZWWetQG_Xro/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909924-19d4ff1126932719144f6d76c93d30e4b8926aa4c0b54e9dd684c28bf71c6dba-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/57CfIuEjf_xsYQyxV8ALYKZtoEuqmyv_ZWWetQG_Xro/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1379909924-19d4ff1126932719144f6d76c93d30e4b8926aa4c0b54e9dd684c28bf71c6dba-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948782396323553300" class="chatlog__message-container " data-message-id="948782396323553300">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/403808498271649794/3262eaa98c9080626a1dbdc221105880.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Silard - DeFi/NFTs#7036" data-user-id="403808498271649794">Silard - DeFi/NFTs</span>
+
+
+                        <span class="chatlog__timestamp">02-Mar-22 10:22 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><em><strong> NFT tools</strong></em>
+
+Tools include everything that you use to obtain/trade NFT’s.
+
+- News/updates for new and ongoing projects
+- Researching information about NFT’s
+- Interacting with user interfaces and smart contracts
+- Analytics
+- Marketplaces
+
+<em><strong>News and updates</strong></em>
+
+To gather info about projects twitter is the best place to start. Follow everyone from @hunether’s NFT list (<a href="https://twitter.com/i/lists/1487911091845808129)">https://twitter.com/i/lists/1487911091845808129)</a> to get frequent updates from the best of the industry.
+
+Every good project should maintain their socials which includes project site, twitter, and discord. Follow them.
+
+Discord should be active and mods should be approachable.
+
+<em><strong>Research basic information</strong></em>
+
+If you can’t seem to find something ask questions in discords. See what some of the bigger NFT accounts have to say about the project. If nothing else works reach out the project creators directly. Don’t get discouraged if your research is slow. If it was easy to find many ppl would have jumped on it already.
+
+<em><strong>Interacting with smart contracts and UI</strong></em>
+
+You should utilize smart contracts as it is a direct way to interact with the project without having to use any UI’s.
+
+If you use some UI always make sure you are on the right project page and don’t connect to shady sites with metamask.
+
+Try to look for links on verified social accounts so you don&#39;t end up on the wrong page.
+
+<em><strong>Analytics</strong></em>
+
+Currently these are the main tools for checking important numbers over time that we talked about earlier (floor price, listings, uniq holders, volume, mints)
+
+- <a href="https://www.flips.finance/">https://www.flips.finance/</a>
+- <a href="https://etherscan.io/">https://etherscan.io/</a>
+- <a href="https://icy.tools/">https://icy.tools/</a>
+- <a href="https://flashnft.io/#/unclaimed">https://flashnft.io/#/unclaimed</a>
+- <a href="https://www.nansen.ai/">https://www.nansen.ai/</a> ($150 a month)</span>
+
+                            <span class="chatlog__edited-timestamp" title="05-May-22 07:14 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.flips.finance/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Flips.Finance</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">See the biggest NFT trades from the past 24 hours, find rising or falling collections</div>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://etherscan.io/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Ethereum (ETH) Blockchain Explorer</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Etherscan allows you to explore and search the Ethereum blockchain for transactions, addresses, tokens, prices and other activities taking place on Ethereum (ETH)</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/yb0yJz7aqReY--I7sy9Zq6aONpdRRTzCDLDKetTIQhw/https/etherscan.io/images/brandassets/etherscan-logo-circle.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/yb0yJz7aqReY--I7sy9Zq6aONpdRRTzCDLDKetTIQhw/https/etherscan.io/images/brandassets/etherscan-logo-circle.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://icy.tools/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">icy.tools | Track and discover trending NFTs with real-time insights</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Discover, track, and analyze trending NFTs with real time floor and volume data. Deep dive with historical charts, trend data, and full transaction history.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/pZi3JNXl_CYgpXoACWRsn0eAD4bhnYr6QLQi0zNOHfE/%3Fcachebust%3D0.20853821012057083/https/cdn.icy.tools/static/twitter_card.png">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/pZi3JNXl_CYgpXoACWRsn0eAD4bhnYr6QLQi0zNOHfE/%3Fcachebust%3D0.20853821012057083/https/cdn.icy.tools/static/twitter_card.png" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://flashnft.io/">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">FlashNFT</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">establish a fair, open and simple NFT tool platform</div>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 6 message(s)</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1239 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - stocks-faq</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">&#128185;Stocks&#128185; / stocks-faq</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-918224659474960454" class="chatlog__message-container " data-message-id="918224659474960454">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">08-Dec-21 02:36 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Welcome to the Stocks Category <img loading="lazy" class="chatlog__emoji " alt="🥼" title="lab_coat" src="https://twemoji.maxcdn.com/2/svg/1f97c.svg"> Pro Track FAQs</strong>
+
+You might be new here but your problems aren&#39;t. Most stock traders struggle through similar stuff which is why I have listed a few commonly asked questions and the answers to them.
+
+<strong>Read through these before you ask something in <span class="chatlog__markdown-mention">#❓ask-the-professor</span></strong>
+
+Let&#39;s begin <img loading="lazy" class="chatlog__emoji " alt="💪" title="muscle" src="https://twemoji.maxcdn.com/2/svg/1f4aa.svg"></span>
+
+                            <span class="chatlog__edited-timestamp" title="22-Mar-22 07:10 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-918225541121835051" class="chatlog__message-container " data-message-id="918225541121835051">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="08-Dec-21 02:40 PM">14:40</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+
+<strong>1. Where should I start?</strong>
+ 
+Begin with the tutorials. Read them a couple times, they have a lot of carefully assessed information to get you up to speed. 
+ 
+----------------
+
+<strong>2. What kind of trades should I enter?</strong>
+ 
+Once you&#39;re with us, you should forget about putting a trade on because some influencer touted it on twitter or because WSB says it&#39;s the next Gamestop. 
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"><strong>The only trades you should enter are with boxes.</strong><img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg">
+ 
+If you have gone through the tutorials, you understand the importance of boxes. They help you decide your entry point, your stop, and exact risk per trade.</span>
+
+                            <span class="chatlog__edited-timestamp" title="08-Dec-21 02:48 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-918226728185389117" class="chatlog__message-container " data-message-id="918226728185389117">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="08-Dec-21 02:45 PM">14:45</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+
+<strong>3. Why should I only stick with boxes?</strong>
+ 
+I will explain this with a baseball analogy. In baseball, you only swing when the ball is in your strike range. You don&#39;t care about the rest. For the most part, you&#39;re happy with singles. If you get a home run, that&#39;s even better. 
+ 
+Now, <strong>you can&#39;t control when you will get a home run.</strong> But markets provide you with unlimited pitches. So, there is no rush. Boxes are your strike zone. You take those trades to keep hitting singles. Once in a while you will get a home run and that&#39;s great. However, you shouldn&#39;t care about anything that&#39;s not in the stike zone. 
+
+<strong>Don&#39;t waste your energy. Be focused.</strong> 
+
+----------------
+ 
+<strong>4. I struggle with stop losses. What should I do?</strong>
+ 
+If you are trading stocks, put an order where the initial stop should be and forget about it. Have a strategy for a trailing stop once your position is profitable. This is covered in the swing trading zoom call. 
+
+----------------
+
+<strong>5. How do I deal with greed? When markets are good, I keep increasing my risk and suffer huge drawdowns.</strong>
+ 
+Decide on a specific risk per trade. Ideally it should not be more than 1% of your portfolio when starting out. 
+ 
+Additionally 
+
+<img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> <strong>use 9ma on indexes as a filter </strong><img loading="lazy" class="chatlog__emoji " alt="🚨" title="rotating_light" src="https://twemoji.maxcdn.com/2/svg/1f6a8.svg"> 
+
+If you&#39;re a short term trader, stop taking new trades once $spy price falls below 9ma on the daily timeframe. If you&#39;re a swing trader with time horizon of a few weeks/months, stop taking any new trades once $spy price falls below 9ma on weekly timeframe. 
+
+Once price falls below 9ma, tighten your stops and cut most unprofitabe trades. 
+ 
+If you trade long options, expect to lose a big chunk of option value by the time the stop hits. This is why you should only buy options with the total amount you&#39;re willing to risk. If $spy is way above 9ma, reduce your option buying.</span>
+
+                            <span class="chatlog__edited-timestamp" title="08-Dec-21 02:52 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-918228172674318386" class="chatlog__message-container " data-message-id="918228172674318386">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="08-Dec-21 02:50 PM">14:50</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+ 
+<strong>6. I struggle with indecisiveness and fear. What can I do?</strong>
+ 
+This usually happens if you&#39;re risking too much trying to get rich quick. If you risk small amounts, this won&#39;t be an issue. <strong>Stop trying to go for home runs. They&#39;re a bonus not the standard.</strong> Take all box breakouts with a small amount of risk and over time you will be profitable. 
+ 
+Poker players don&#39;t aim for a full house every time. Most hands are won with a single pair. Small profits add up faster than you realize. 
+
+----------------
+
+<strong>7. I don&#39;t have enough money to make a living with stocks. What can I do?</strong>
+ 
+If you have a small account, a 200% return on a year is stellar. Going for more than that you will be taking excessive risk. If you&#39;re trading with anything less than $20k, don&#39;t have stocks as your only source of income. Work on building other avenues of cashflow while you learn to trade stocks on the side. 
+ 
+Learn sales, freelancing, whatever to have cash consistently coming in.  
+
+ ----------------
+
+<strong>8. When should I take profits?</strong>
+ 
+This depends heavily on your objectives and is discused in the swing trading zoom call.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-921013133286465616" class="chatlog__message-container " data-message-id="921013133286465616">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">16-Dec-21 07:17 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+
+<strong>9. Where should I find the watchlist for the week?</strong>
+
+The weekly watchlist will be uploaded as a thread in the <span class="chatlog__markdown-mention">#&#128176;professors-plays&#128176;</span> channel. You will also find all the trades being taken by the professor here.
+
+----------------
+
+<strong>10. Can you explain the structure of the price alert?</strong>
+
+The price alerts will be given in the <span class="chatlog__markdown-mention">#price-alerts</span> channel. The alert will be sent out for any stock from the watchlist that&#39;s about to breakout. The alert is placed a bit below the entry price so you guys can be alerted beforehand.
+
+The price alert includes the entry price,  the direction you should take the trade in, the stop to use, and the important price levels to be aware of during the trade.
+
+------------------
+
+<strong>11. Could you please explain the structure of the professors-plays?</strong>
+
+<strong>Bought $vxx may 6 $27 calls @ 1.06</strong> is one example of a trade I had put in the professors-plays channel.
+
+The trade can be broken down as such:
+<strong>Stock ticker:</strong> $vxx
+<strong>Expiration date:</strong> May 6
+<strong>Strike price:</strong> $27
+<strong>Option type:</strong> Call
+<strong>Option price:</strong> 1.06 
+
+Note: an option includes 100 of a stock so the price you pay will be 1.06 * 100 = $106</span>
+
+                            <span class="chatlog__edited-timestamp" title="01-May-22 08:02 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-932695427533402122" class="chatlog__message-container " data-message-id="932695427533402122">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">17-Jan-22 12:58 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+
+<strong>12. What should be my trading actions based on the price-alert?</strong>
+
+I will answer with the help of an example from the price-alert channel.
+
+&quot;RTX Crossing 91.51
+Break and hold above 91.8 can take RTX to 99.5, then 102. Be mindful of resistances at 93.5, 95.5, and 98&quot;
+
+Let&#39;s break down this alert
+
+- <strong>Break and hold above 91.8</strong> =&gt; That&#39;s your entry to go long. Let the price go above 91.8 and wait for a 5/15 min candle close above that price. If the price doesn&#39;t fall below 91.8 immediately, the trade is on.
+
+For <strong>short trades</strong>, it will say something like break and hold <strong>below</strong> xyz
+
+- <strong>can take RTX to 99.5</strong> =&gt; That&#39;s your final target
+
+-  <strong>resistances at 93.5, 95.5, and 98</strong> =&gt; These are the important price levels during the trade where you should pay attention. At these levels, I suggest <strong>taking partial profits and moving the stop higher</strong> to the previous important level.
+
+For example, if price reaches 93.5, I will move the stop to right below entry. If price reaches 95.5, I will move the stop to below 93.5. This will help you lock in profits in case of price reversals.
+
+The aforementioned example did not have an initial stop but I will add that for future alerts. I have also discussed this structure during the Jan 15 QnA. Go check out that video if you haven&#39;t already.</span>
+
+                            <span class="chatlog__edited-timestamp" title="17-Jan-22 01:06 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-948543185179775006" class="chatlog__message-container " data-message-id="948543185179775006">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">02-Mar-22 06:31 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">----------------
+
+<strong>13. How can I best use the <span class="chatlog__markdown-mention">#flow-data</span> room?</strong>
+
+A tool is only as good as the person wielding it. Data is simply information and an excess of it can lead to analysis paralysis. <strong>Remember my message of simplifying your trading decisions.</strong>
+
+Having a keen sense of what data to use and when is important if you will use the room. If you don&#39;t know how to use that data, then I would suggest to stay away from it. 
+
+<img loading="lazy" class="chatlog__emoji " alt="⚠" title="⚠" src="https://twemoji.maxcdn.com/2/svg/26a0.svg">️ <strong>More information does not always lead to good trading. Usually it&#39;s the opposite. </strong>
+
+Now that you know what I am expecting of you, let&#39;s dig into how to properly use this room. I will list out the most useful commands for you and I believe you should limit your research to them. Since we don&#39;t know what proprietary algo tradytics uses, I would stay away from reading too much into any of their projections or algo suggestions.</span>
+
+                            <span class="chatlog__edited-timestamp" title="02-Mar-22 06:37 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948544730784989214" class="chatlog__message-container " data-message-id="948544730784989214">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="02-Mar-22 06:38 AM">06:38</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>- Options flow commands</strong>
+
+What are option flows?
+
+Option flows simply tell you the time and sales of the option trades happening. If options flows are heavy to the call side, it means that most market participants are expecting the stock to rise and vice versa. Extremes in options flows usually lead to significant tops and bottoms.
+
+1) tr-bigflow SYMBOL
+
+It shows you the largest 10 option flow orders for the day. Usually shows the bias of the instiutional traders.
+
+
+2) tr-flowsum SYMBOL
+
+Shows you the summary statistics of option flow for the given ticker.
+
+
+3) tr-unusualflow SYMBOL 
+
+Lists top 10 orders where volume is unusually higher than open interest. If you see a lot of unusual flow from one institution, beware of getting into a position for that stock. That institution can singlehandedly move the market when it unloads its position. 
+
+4) tr-topflow 
+
+Shows the top 10 most bullish and bearish stocks of the day based on options flow.
+
+5) tr-flowheatmap SYMBOL d/w(Optional) 
+
+Creates a heatmap for top strikes and expirations with premium statistics. Second parameter is the whether you want to create the heatmap for today&#39;s data only (d), or for the last 5 days (w). Default is d.
+
+6) tr-whalewatch SYMBOL 
+
+Shows a visual summary of how &amp; where whales have been building options positions over the last 2-3 weeks.
+
+7) tr-oi SYMBOL EXPIRATION/ALL 
+
+Shows you open interest by strike and expiration.
+
+8) tr-iv SYMBOL 
+
+Draws the implied volatility and IV rank of the last 90 days.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-948544747126009856" class="chatlog__message-container " data-message-id="948544747126009856">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="02-Mar-22 06:38 AM">06:38</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">- Darkpool Commands
+
+What are Darkpools?
+
+Darkpools are private exchanges for trading securities that are not accessible to the public. You should care about them since institutions like to accumulate positions through darkpools in order to keep their exposure hidden from public.
+
+1) tr-dplevels SYMBOL 
+
+Shows you the darkpool levels from recent DP data. These levels should usually correspond with important price zones (support/resistances) on the chart. 
+
+2) tr-darkpool SYMBOL 
+
+Lists out the last several big darkpool trades.
+
+3) tr-largestdp 
+
+Shows you the largest darkpool orders across all stocks.
+
+4) tr-largestbt 
+
+Shows you the largest block trade orders across all stocks.
+
+- Stock Search Commands
+
+1) tr-srlevels SYMBOL PERIOD(d/m/h/w) 
+
+Draws out support and resistance levels on the price chart.
+
+2) tr-insider SYMBOL : Lists out the latest insider trades for the stock.
+
+Insider selling doesn&#39;t mean much. Insiders sell stocks to pay for all kinds of stuff. Significant insider buying, however, deserves your interest.
+
+3) tr-news SYMBOL 
+
+Shows you the latest news for the ticker.
+
+4) tr-analysts SYMBOL 
+
+Lists out the latest analyst upgrades and downgrades for the company. If a company is strong
+
+5) tr-chatter SUBREDDIT/TWITTER 
+
+Shows you the most discussed stocks across various subreddits and twitter.
+
+Those should be the commands you stick to. If you have questions about how to use any of them, feel free to ask in chat. To view all the other commands, use tr-help.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961772280814370837" class="chatlog__message-container " data-message-id="961772280814370837">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/470723667303727125/1a872c8232349c050c48b7a59d025bd2.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(46, 204, 113)" title="Dyno#9026" data-user-id="470723667303727125">Dyno</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">07-Apr-22 07:39 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>WELL DONE</strong>
+
+You made it all the way to the end! That means THE REAL LEARNING BEGINS NOW!
+
+The only way to actually learn trading is by using constant feedback from a pro! You will find here lots of recorded live sessions (we have regular lives here) as well as mindset tips. 
+Not just daily signals but tons of regular content released every day!
+
+Now just press the button below and enjoy your journey!</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 10 message(s)</div>
+</div>
+
+</body>
+
+</html>

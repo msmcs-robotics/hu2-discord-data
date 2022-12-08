@@ -1,0 +1,1560 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - &#128214;options-resources&#128214;</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">&#128185;Stocks&#128185; / &#128214;options-resources&#128214;</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-867805542063407104" class="chatlog__message-container chatlog__message-container--pinned" data-message-id="867805542063407104">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">22-Jul-21 12:29 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Welcome to the options-resources room!
+
+Before you continue here, read up all the material in the stocks-resources room since the mentality of trading and common beginner mistakes are the same. 
+
+Once you have gone through the material there and have understood it, you need to familiarize yourself with options.
+
+There are two types of them: call options and put options.
+
+Read up on them here:
+
+<a href="https://www.investopedia.com/terms/c/calloption.asp">https://www.investopedia.com/terms/c/calloption.asp</a>
+
+<a href="https://www.investopedia.com/terms/p/putoption.asp">https://www.investopedia.com/terms/p/putoption.asp</a>
+
+Go through these and understand what a call and put options are since all our discussions will be based on that. 
+
+Ask questions in the options-discussions chat if you don&#39;t understand something.
+
+Once you&#39;re familiar with the terms and understand them well, more resources will be shared as we continue on our options trading journey</span>
+
+                            <span class="chatlog__edited-timestamp" title="22-Jul-21 05:43 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/c/calloption.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Call Option</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">A call option is an agreement that gives the option buyer the right to buy the underlying asset at a specified price within a specific time period.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/omtAOPlUu_UvyYNaSCQKoO5xLGuQd3OODp89KOS3tiA/https/www.investopedia.com/thmb/hZwHaLHPXbE1sJJMzZb95856TQg%3D/1200x800/filters%3Afill%28auto%2C1%29/stock-options-5854288e5f9b586e02c75ffe.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/omtAOPlUu_UvyYNaSCQKoO5xLGuQd3OODp89KOS3tiA/https/www.investopedia.com/thmb/hZwHaLHPXbE1sJJMzZb95856TQg%3D/1200x800/filters%3Afill%28auto%2C1%29/stock-options-5854288e5f9b586e02c75ffe.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/p/putoption.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Put Option Definition</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">A put option grants the right to the owner to sell some amount of the underlying security at a specified price, on or before the option expires.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/kl7Kfmysqlrq4gLKiaDXARH2I1-4aGf0LYuCEWm_HKQ/https/www.investopedia.com/thmb/SBNCR9ydZbrGGk-83vkYeGQ6fiM%3D/680x440/filters%3Afill%28auto%2C1%29/78289438-5bfc2b8d46e0fb00260b2401.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/kl7Kfmysqlrq4gLKiaDXARH2I1-4aGf0LYuCEWm_HKQ/https/www.investopedia.com/thmb/SBNCR9ydZbrGGk-83vkYeGQ6fiM%3D/680x440/filters%3Afill%28auto%2C1%29/78289438-5bfc2b8d46e0fb00260b2401.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">26</span>
+                            </div>
+                            <div class="chatlog__reaction" title="punch_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128074;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44a-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="chart">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128185;" src="https://twemoji.maxcdn.com/2/svg/1f4b9.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup_tone2">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;&#127996;" src="https://twemoji.maxcdn.com/2/svg/1f44d-1f3fc.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_pl">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127477;&#127473;" src="https://twemoji.maxcdn.com/2/svg/1f1f5-1f1f1.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-867812356120641537" class="chatlog__message-container " data-message-id="867812356120641537">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                        <div class="chatlog__reference-symbol"></div>
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                        <div class="chatlog__reference">
+                                <div class="chatlog__reference-unknown">
+                                    Original message was deleted or could not be loaded.
+                                </div>
+                        </div>
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">22-Jul-21 12:56 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Pinned a message.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-868071934355718174" class="chatlog__message-container " data-message-id="868071934355718174">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">23-Jul-21 06:07 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Once you know what an option is, you have to understand the factors that affect its price. The main ones are:
+
+1) price of the underlying contract on which the option is
+
+2) Implied volatility in the price of the underlying
+
+3) Time till expiration of the option
+
+These factors are usually tracked as Delta, Theta and Vega. Read on them here:
+
+ <a href="https://www.investopedia.com/terms/g/greeks.asp">https://www.investopedia.com/terms/g/greeks.asp</a>
+
+You don&#39;t need to go too deep in the Greeks and you don&#39;t really have to know how to calculate them. 
+
+Simply develop an understanding for what time, stock price and the stock&#39;s implied volatility does to the option price</span>
+
+                            <span class="chatlog__edited-timestamp" title="23-Jul-21 06:08 AM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.investopedia.com/terms/g/greeks.asp">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Greeks Definition</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">The &quot;Greeks&quot; is a general term used to describe the different variables used for assessing risk in the options market.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/U7eIY5oGBPt-K4Ssh_oKyZNkTFg5gL_jFm_24SXp45g/https/www.investopedia.com/thmb/nuPsVYjeSh3jyj0CduFB57-By3M%3D/680x440/filters%3Afill%28auto%2C1%29/77005273-5bfc2b8d4cedfd0026c11921.jpg">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/U7eIY5oGBPt-K4Ssh_oKyZNkTFg5gL_jFm_24SXp45g/https/www.investopedia.com/thmb/nuPsVYjeSh3jyj0CduFB57-By3M%3D/680x440/filters%3Afill%28auto%2C1%29/77005273-5bfc2b8d4cedfd0026c11921.jpg" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">5</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_pl">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127477;&#127473;" src="https://twemoji.maxcdn.com/2/svg/1f1f5-1f1f1.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-871398374925041724" class="chatlog__message-container " data-message-id="871398374925041724">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Aug-21 10:26 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Alright guys, lesson time. If you have gone through the previous resources, you have a basic understanding of what options are and the factors that affect their price.
+
+For this lesson, I am assuming you know what call and put options are and when one should buy them.
+
+So, today we will talk about spreads. If you have been in the chat over the last week, you have probably heard me talk about spreads. Now, I will demystify them for you. 
+
+This lesson is going to be in simple language without much financial jargon. I will try to teach it in a way that you could explain it to your 5 year old without any problems. If you have doubts on anything, feel free to ask in the chat or in my DMs. Let&#39;s dig in.</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-871399447391764510" class="chatlog__message-container " data-message-id="871399447391764510">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Aug-21 10:30 AM">10:30</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">We begin with a basic breakout example in $TSLA last year
+
+<a href="https://www.tradingview.com/x/LecKGvUW/">https://www.tradingview.com/x/LecKGvUW/</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/oOUjdozzC32nFQrx5EM7YHgalg7CrWzkjjlvP9lQ4CQ/https/www.tradingview.com/x/LecKGvUW/">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/oOUjdozzC32nFQrx5EM7YHgalg7CrWzkjjlvP9lQ4CQ/https/www.tradingview.com/x/LecKGvUW/" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">3</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-871402575910555689" class="chatlog__message-container " data-message-id="871402575910555689">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Aug-21 10:42 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">When a breakout like this happens and it suggests that the price will go higher, there are two basics ways to capitalize on it through options:
+
+1) Buy calls
+2) Sell puts
+
+It should be obvious why someone would buy calls in this case given the nature of call options.
+
+However, why would someone sell puts instead? It is because we believe that the price will not go lower and the puts we sell will most likely expire worthless (or we buy them back later for cheaper) pocketing us the premium.
+
+The advantage of selling puts is that the put loses value if the price stalls for a bit above the box as the expiration date comes closer i.e. we are positive theta. In case of buying calls we are negative theta, thus losing value if the price stalls. You can see the price stalling in this AAPL breakout last year. 
+
+<a href="https://www.tradingview.com/x/6EvX3YHP/">https://www.tradingview.com/x/6EvX3YHP/</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/mFj3lf94IpfroxZHJBpgOVUEDgQYCf4VyzNApmz5z00/https/www.tradingview.com/x/6EvX3YHP/">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/mFj3lf94IpfroxZHJBpgOVUEDgQYCf4VyzNApmz5z00/https/www.tradingview.com/x/6EvX3YHP/" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-871405024700420106" class="chatlog__message-container " data-message-id="871405024700420106">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Aug-21 10:52 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">However, there is a big risk associated with simply selling puts like that. 
+
+In case of a negative shock to the stock, where the stock price drops massively below the strike of your put, you loss will be 
+
+(Strike price - Put price)*100 - Premium
+
+That loss can be substantial once you put some numbers into the equation. Try it on a stock of your choice and you will see.
+
+So, how do we mitigate that risk? We partially reduce it by buying a put option at a lower strike price.
+
+In the $TSLA example, for instance
+
+The breakout was at $466. My stop would have been $435. So, i believe that the new trend starting is valid until the price goes below $435. Based on this information, I am likely to bet that the price will stay above $435. 
+
+So if I sell some puts below that, let&#39;s say $420 puts, they will most likely expire worthless and I will pocket the money I got by selling them. We will assume I sold each put for $500 for ease</span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Aug-21 10:59 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-871406370010837083" class="chatlog__message-container " data-message-id="871406370010837083">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Aug-21 10:57 AM">10:57</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">The big risk is that if Elon Musk dies the next day and $TSLA stock drops to $200, each put option will be valued at around $23500. That will be the price I will have to buy back the put option at to close out the position.
+
+So my loss per put I sold will be around $23000. (I sold the put for $500 and I had to buy it back for $23500). 
+
+You see how selling puts have a big inherent risk?</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-871407567841165353" class="chatlog__message-container " data-message-id="871407567841165353">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="01-Aug-21 11:02 AM">11:02</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">So, to mitigate that risk, what I can do is when I sell the $420 put, I can buy a $410 put at the same time. Let&#39;s say I bought these $410 puts for $300 each. 
+
+So, the premium I pocket now per put pair (selling $420 put, buying $410 put) is $200.
+
+And the maximum loss per put pair I will take in case of an adverse shock like Mr. Musk dying would be:
+
+($420 - $410)*100 - premium = $1000 - $200 = $800</span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Aug-21 11:03 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">6</span>
+                            </div>
+                            <div class="chatlog__reaction" title="gem">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128142;" src="https://twemoji.maxcdn.com/2/svg/1f48e.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="goat">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128016;" src="https://twemoji.maxcdn.com/2/svg/1f410.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-871410470370807869" class="chatlog__message-container " data-message-id="871410470370807869">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/544557971129106433/bd749b6ab98f259e4922bf6bfa25c949.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="Aayush - Stocks#3550" data-user-id="544557971129106433">Aayush - Stocks</span>
+
+
+                        <span class="chatlog__timestamp">01-Aug-21 11:14 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">You can clearly see how we have reduced our risk by buying $410 put while selling a $420 put. 
+
+You have probably also noticed that our premium was lower. However, that is the cost of saving your ass in case something unexpected happens.
+
+This idea of a pair of puts is called a put spread and this is how I think about it. 
+
+Now you have to remember that we sold the more expensive put and bought the cheaper one because we believe that the price of $TSLA was going higher. So, the most likely scenario is that both the options will expire worthless. 
+
+It would be a nice exercise for you to think of this entire analysis in case you believed the price was going lower. In that case, you will be playing call spreads.
+
+Another exercise you should think about:
+
+In what case would I buy a higher strike put ($420) and sell the lower strike one ($410)
+
+Go through all this info. I don&#39;t expect you to get it at once. So, pull out a pen and paper. Once you do get it though, it will almost become second nature.
+
+Do these exercises. Try to get familiar with how spreads can be played in different situations. Ask questions, let&#39;s discuss them and then we can look to more option combinations.</span>
+
+                            <span class="chatlog__edited-timestamp" title="01-Aug-21 11:18 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">35</span>
+                            </div>
+                            <div class="chatlog__reaction" title="laughing">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128518;" src="https://twemoji.maxcdn.com/2/svg/1f606.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                            <div class="chatlog__reaction" title="punch_tone1">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128074;&#127995;" src="https://twemoji.maxcdn.com/2/svg/1f44a-1f3fb.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">2</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-873948113579176016" class="chatlog__message-container " data-message-id="873948113579176016">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/339974803236716544/417eaad4091ad6ada0469d4b1a1b669a.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(138, 84, 9)" title="Allan D#8460" data-user-id="339974803236716544">Allan D</span>
+
+
+                        <span class="chatlog__timestamp">08-Aug-21 11:17 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Why Liquidity is Important in Options
+
+I want to inform you all that if you are trading options it is best to do them in highly liquid underlyings. You need market participants to take the other side of your trade, whether it be Joe Shmoe or a Bank. There must be a supply and demand. Both sides of the market must be active. Otherwise, who are you buying and selling to? If you got a whole bunch of stuff to sell, but no one wants to buy your stuff, then you take the loss on what you spent on that stuff.</span>
+
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-873949251481268295" class="chatlog__message-container " data-message-id="873949251481268295">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="08-Aug-21 11:22 AM">11:22</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Reasons why you want an underlying to be highly liquid:
+
+- To minimize slippage: Look at the bid ask spread. The bid is what price people are willing to buy something. The ask is what price people willing to sell something. The space in between these two prices is the spread. You lose money if the bid ask spread is too wide. We want to minimize this as much as possible.
+
+- Fast entries and exits: You will have shorter order fill times in highly liquid underlyings. You want to be able to get your orders filled fast at a fair price. When the market is moving in your favor you need to be able to take your profit and leave when the time is right. When the market is moving against you, you don’t want to be a sitting duck taking tons of damage. You need to ensure you are an agile individual at all times, whether it be taking profit or evading damage. Speed is very important here.
+
+- To get your complex orders filled: If you are doing multi legged option strategies such as credit spreads, you need all the legs to be highly liquid. If one leg is illiquid it will prevent the entire order from being filled at a fair price.</span>
+
+                            <span class="chatlog__edited-timestamp" title="08-Aug-21 11:25 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="100">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128175;" src="https://twemoji.maxcdn.com/2/svg/1f4af.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">20</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-873950321414639646" class="chatlog__message-container " data-message-id="873950321414639646">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="08-Aug-21 11:26 AM">11:26</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Things I look for to determine if an underlying is highly liquid:
+
+- Narrow bid ask spreads on the strikes: There is some nuance to this because every underlying is different. Things I look for: The bid cannot be zero (0.00). Bid ask spreads must be cents wide, not dollars wide. Bid ask spreads around 10% of the stock price or better I consider to be optimal.
+
+- Availability of weekly options: There will be more market participants in an underlying with weekly options than there will be in one with just monthly options. 
+
+- Availability of 0.5 to 5 point strike prices: A highly liquid options market will have many strike prices available that are actively being traded.
+
+- Open Interest for a strike &gt;100: Open interest means number of contracts outstanding. If you got an order of 20 contracts at a particular strike but the open interest is at 5, chances are you won’t get filled. 
+
+You won’t have much problem with liquidity if it is a big household name stock, like Apple, Netflix, Microsoft. When you start to get more obscure and niche that’s when you start to run into liquidity problems. 
+
+The best example of an underlying with the best liquidity is the S&amp;P500 ETF. Ticker symbol: SPY
+
+An example of an underlying with poor liquidity, take a look at this obscure biotech stock called Beam therapeutics. Ticker symbol: BEAM</span>
+
+                            <span class="chatlog__edited-timestamp" title="08-Aug-21 11:28 AM">(edited)</span>
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">30</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">1</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-879174771600932937" class="chatlog__message-container " data-message-id="879174771600932937">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/339974803236716544/417eaad4091ad6ada0469d4b1a1b669a.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(138, 84, 9)" title="Allan D#8460" data-user-id="339974803236716544">Allan D</span>
+
+
+                        <span class="chatlog__timestamp">22-Aug-21 09:26 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Lessons I learned that could save you from losing money when selling options 
+
+-Be mindful of throwing on multiple trades on highly correlated underlyings: The risk of trading highly correlated underlyings is that if one goes down, they all go down, therefore multiple trades could go bust. Consider diversifying into different industries and sectors to reduce that correlation risk if possible.</span>
+
+                            <span class="chatlog__edited-timestamp" title="22-Aug-21 09:27 PM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-879174796951289897" class="chatlog__message-container " data-message-id="879174796951289897">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Aug-21 09:26 PM">21:26</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">-Ultra high IV doesn’t necessarily mean it’s good to trade: High IV comes with high premium but it also comes with high risk of a strike getting breached because the volatility is too high. Therefore it is like a trap for new option sellers. Be careful with stocks like GME, AMC, TSLA. Things may start out fine then one day it shoots in the wrong direction rather violently and now you are hemorrhaging money. I personally like IV 20-40%. But if the IV is 100%+ be careful.
+
+-Be careful trading when big tech earnings are approaching: I’m talking FB, AMZN, AAPL, MSFT, NFLX, GOOGL. I have observed when big tech earnings are approaching it introduces extra volatility in the entire market. The FANG stocks and correlated underlyings may rise up or fall rapidly weeks before earnings. Know this exists and adjust risk accordingly.
+
+-Do not throw iron condors on underlyings that don’t deserve iron condors: If a stock is ultra bullish, it may not be worth the risk to put a call side. Iron condors are most successful in rangebound steady grinding stocks with the spreads outside the expected move. 
+
+-Know when adding risk is worth it: When you are attempting to do iron condors, if the call side has little to no premium or the liquidity is too low, it may not be worth the risk to put a call side. 
+
+-Know when to cut a trade. If you got a credit spread trade on that moved against you but you still believe in your thesis for the trade, you can roll for more time to be right. However if you know you are dead wrong, you need to set a parameter in which you should exit the trade and stop the blood loss in your portfolio.</span>
+
+                    </div>
+
+
+
+
+                    <div class="chatlog__reactions">
+                            <div class="chatlog__reaction" title="fire">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128293;" src="https://twemoji.maxcdn.com/2/svg/1f525.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">110</span>
+                            </div>
+                            <div class="chatlog__reaction" title="flag_cz">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#127464;&#127487;" src="https://twemoji.maxcdn.com/2/svg/1f1e8-1f1ff.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">11</span>
+                            </div>
+                            <div class="chatlog__reaction" title="thumbsup">
+                                <img class="chatlog__emoji chatlog__emoji--small" alt="&#128077;" src="https://twemoji.maxcdn.com/2/svg/1f44d.svg" loading="lazy">
+                                <span class="chatlog__reaction-count">4</span>
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 15 message(s)</div>
+</div>
+
+</body>
+
+</html>

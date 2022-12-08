@@ -1,0 +1,2235 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hustler&#39;s University by Andrew Tate - ✍｜2-learning-copywriting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-family: Whitney;
+            font-weight: 300;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-family: Whitney;
+            font-weight: 400;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-family: Whitney;
+            font-weight: 500;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-family: Whitney;
+            font-weight: 600;
+        }
+
+        @font-face {
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-family: Whitney;
+            font-weight: 700;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .preamble {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 1rem;
+        }
+
+        .preamble__entry {
+            margin-bottom: 0.15rem;
+            color: #ffffff;
+            font-size: 1.4rem;
+        }
+
+        .preamble__entry--small {
+            font-size: 1rem;
+        }
+
+        .chatlog {
+            padding: 1rem 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatlog__message-group {
+            margin-bottom: 1rem;
+        }
+
+        .chatlog__message-container {
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message-container--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message-container--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__message {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 0.15rem 0;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message:hover {
+            background-color: #32353b;
+        }
+
+        .chatlog__message:hover .chatlog__short-timestamp {
+            display: block;
+        }
+
+        .chatlog__message-aside {
+            grid-column: 1;
+            width: 72px;
+            padding: 0.15rem 0.15rem 0 0.15rem;
+            text-align: center;
+        }
+
+        .chatlog__reference-symbol {
+            height: 10px;
+            margin: 6px 4px 4px 36px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .chatlog__short-timestamp {
+            display: none;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__message-primary {
+            grid-column: 2;
+            min-width: 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            margin-bottom: 0.15rem;
+            align-items: center;
+            color: #b5b6b8;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-avatar {
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__reference-author {
+            margin-right: 0.3rem;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link .hljs {
+            display: inline;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.chatlog__markdown-spoiler) {
+            color: inherit;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__header {
+            margin-bottom: 0.1rem;
+        }
+
+        .chatlog__author {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__bot-label {
+            position: relative;
+            top: -0.1rem;
+            margin-left: 0.3rem;
+            padding: 0.05rem 0.3rem;
+            border-radius: 3px;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__content {
+            padding-right: 1rem;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15rem;
+            color: #a3a6aa;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__attachment {
+            position: relative;
+            width: fit-content;
+            margin-top: 0.3rem;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 999;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #dcddde;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05rem;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            max-width: 520px;
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            background-color: #2f3136;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3rem;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25rem;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0.6rem;
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background-color: rgba(46, 48, 54, 0.3);
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author-container {
+            display: flex;
+            margin-bottom: 0.5rem;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author {
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+
+        .chatlog__embed-author-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-description {
+            color: #dcddde;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5rem;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6rem;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 50px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .chatlog__embed-field-value {
+            color: #dcddde;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            max-width: 80px;
+            max-height: 80px;
+            margin-left: 1.2rem;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6rem;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.2rem;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            max-width: 45vw;
+            max-height: 500px;
+            vertical-align: top;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6rem;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            margin: 0.35rem 0.1rem 0.1rem 0;
+            padding: 0.125rem 0.375rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background-color: #2f3136;
+            align-items: center;
+        }
+
+        .chatlog__reaction:hover {
+            border: 1px solid hsla(0,0%,100%,.2);
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35rem;
+            color: #b9bbbe;
+            font-size: 0.875rem;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .chatlog__markdown-preserve {
+            white-space: pre-wrap;
+        }
+
+        .chatlog__markdown-spoiler {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-spoiler--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-spoiler--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .chatlog__markdown-spoiler--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .chatlog__markdown-quote {
+            display: flex;
+            margin: 0.05rem 0;
+        }
+
+        .chatlog__markdown-quote-border {
+            margin-right: 0.5rem;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .chatlog__markdown-pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .chatlog__markdown-pre--multiline {
+            margin-top: 0.25rem;
+            padding: 0.5rem;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .chatlog__markdown-pre--multiline.hljs {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .chatlog__markdown-pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+
+        .chatlog__markdown-mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(88, 101, 242, .3);
+            color: #dee0fc;
+            font-weight: 500;
+        }
+
+        .chatlog__markdown-mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .chatlog__markdown-timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #a3a6aa;
+        }
+
+        .chatlog__emoji {
+            width: 1.325rem;
+            height: 1.325rem;
+            margin: 0 0.06rem;
+            vertical-align: -0.4rem;
+        }
+
+        .chatlog__emoji--small {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .chatlog__emoji--large {
+            width: 2.8rem;
+            height: 2.8rem;
+        }
+
+        .postamble {
+            padding: 1.25rem;
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__markdown-pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('chatlog__message-container-' + id);
+            if (!element)
+                return;
+
+            event.preventDefault();
+            element.classList.add('chatlog__message-container--highlighted');
+
+            window.scrollTo({
+                top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                behavior: 'smooth'
+            });
+
+            window.setTimeout(function() {
+                element.classList.remove('chatlog__message-container--highlighted');
+            }, 2000);
+        }
+
+        function showSpoiler(event, element) {
+            if (!element)
+                return;
+
+            if (element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+
+            if (element.classList.contains('chatlog__markdown-spoiler--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__markdown-spoiler--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="attachment-icon" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z"/>
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z"/>
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z"/>
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://thehustlers-university.com/wp-content/uploads/2022/07/6181b0b1a9ba758c6df1b5d9_Tate-Logo-Web3.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Hustler&#39;s University by Andrew Tate</div>
+        <div class="preamble__entry">&#128196;Copywriting&#128196; / ✍｜2-learning-copywriting</div>
+
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-955981883949322300" class="chatlog__message-container " data-message-id="955981883949322300">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/867547974627229696/a912d10e9cdc35788801463bb33d831c.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(241, 196, 15)" title="AndrewCopywriting#7509" data-user-id="867547974627229696">Andrew - Copywriting</span>
+
+
+                        <span class="chatlog__timestamp">22-Mar-22 08:10 PM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>How To Learn The Skill Of Copywriting In 14 Days</strong>
+
+New to the game?
+
+Not sure how to begin learning a skill as vast as copywriting?
+
+Want to learn as quickly as possible so you can start earning big $$$ as a copywriting freelancer?
+
+This guide will show you EXACTLY what you need to do each day to develop your skills as a copywriter and get PAID.
+
+It&#39;s broken down day-by-day to make it easy for you.
+
+Just follow along.
+
+<a href="https://vimeo.com/681647587">https://vimeo.com/681647587</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681647587">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Learn Short Form Copy Tutorial Intro</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Learn Short Form Copy Tutorial Intro&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/DrPUVlTjqGLc_tiv75ValkBm64Apo7HVE9ecCRRYuFw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573400-2d82467fb3dc884afc803a2ddafa61d91d18e6c078f9f01c997f8cc35ae2e49b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/DrPUVlTjqGLc_tiv75ValkBm64Apo7HVE9ecCRRYuFw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573400-2d82467fb3dc884afc803a2ddafa61d91d18e6c078f9f01c997f8cc35ae2e49b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955982498020614244" class="chatlog__message-container " data-message-id="955982498020614244">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:13 PM">20:13</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve">Day 1 -  What is Copywriting?
+
+Today you will start by learning what copywriting is all about and what it takes to be successful in the field.
+
+Watch this video
+
+<a href="https://www.youtube.com/watch?v=b6snVg2dETQ">https://www.youtube.com/watch?v=b6snVg2dETQ</a>
+
+And then answer the following questions:
+
+- What is copywriting?
+
+- Why is it so valuable?
+
+- What will I need to learn to be a good copywriter?
+ 
+- What mistakes should I try to avoid? 
+
+<a href="https://vimeo.com/681626266">https://vimeo.com/681626266</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCrSZEn-Mb3OVKN098Ah1tpw">
+                                                            <div class="chatlog__embed-author">JasonCapital</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=b6snVg2dETQ">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Evaldo Albuquerque Reveals His Secret To Writing Copy That Generate...</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/b6snVg2dETQ" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681626266">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 1</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 1&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/OjFZxEmNk0RjgucSAU1sU2w0FAMEHIuT1ok7rWivdAM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381530656-752b8364ff485ac573fd54eb1f6c2f4e48ea6a2dba8ade14418573f669e3d1a8-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/OjFZxEmNk0RjgucSAU1sU2w0FAMEHIuT1ok7rWivdAM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381530656-752b8364ff485ac573fd54eb1f6c2f4e48ea6a2dba8ade14418573f669e3d1a8-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955983830844600340" class="chatlog__message-container " data-message-id="955983830844600340">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:18 PM">20:18</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 2 - Steal from the best</strong>
+
+You have two options:
+
+1. You can try to figure out all the cool copywriting tricks by yourself...
+
+2. Or you can &quot;steal&quot; from the best and reach the top in record time.
+
+But WHERE do you go to find copy to steal?
+
+Your trusty “swipe file&quot;
+
+All serious copywriters build up their own collection of winning Sales Pages, Emails, Ads, etc that they can draw upon for inspiration and education.
+
+This is called a swipe file.
+
+Here is how you start your own swipe file::
+
+1. Every time you come across a piece of copy that works, take a screenshot or save a copy of the page and put it in your Google Drive Folder.
+
+2. Then during future assignments or anytime you need inspiration, browse through your swipe file and see what you can &quot;steal&quot; to improve what you&#39;re working on. 
+
+3. Subscribe to Ben Settle&#39;s  and Kyle Milligan&#39;s and as many other great writers&#39; newsletters TODAY. You will need these emails in a few days. (Enter your email address at <a href="https://www.bensettle.com/">https://www.bensettle.com/</a> and then scroll to the bottom of <a href="https://kylethewriter.com/">https://kylethewriter.com/</a> and do the same)
+
+A good swipe file can take years to build on your own.
+
+Save yourself some time and steal some of my swipe file collection (another name for a big file full of example copy) 
+
+<a href="https://drive.google.com/drive/folders/11bGJkOSOX6Z7jhkQja1hIGHK9iXeGrXS?usp=sharing">https://drive.google.com/drive/folders/11bGJkOSOX6Z7jhkQja1hIGHK9iXeGrXS?usp=sharing</a>
+
+Today&#39;s Assignment:
+
+- Create your Google Drive Folders and add in at least one piece of your own. 
+
+- Look over the swipe file contents I shared above,
+
+- Read through one of the pieces of copy inside and try to identify 3 things that make the copy effective.
+
+<a href="https://vimeo.com/681626477">https://vimeo.com/681626477</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="04-May-22 10:21 AM">(edited)</span>
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955984622976655390" class="chatlog__message-container " data-message-id="955984622976655390">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:21 PM">20:21</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 3 - The Secret To Becoming a World Class Copywriter</strong>
+
+There is a strange, little-know practice that separates the average from the top copywriters.
+
+It&#39;s called &quot;Deep Work.&quot; 
+
+Watch the video to learn how to start using deep work
+
+Your assignment for today:
+
+- Plan out how you’re going to implement your own “Deep Work” sessions. Ask yourself “What will make this work? What could stop this from working? How can I prevent those things and make Deep Work easier?”. 
+
+<a href="https://vimeo.com/681626400">https://vimeo.com/681626400</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681626400">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 3</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 3&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/zsyPUPDLd85LWmAJq61kGZUT8Jp-HkK-65Yc0O7b_vA/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381530988-77f18b388c0d7f6a5687f5b28494a4b96eb1a8dc1a9324054aa815144a37ddf9-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/zsyPUPDLd85LWmAJq61kGZUT8Jp-HkK-65Yc0O7b_vA/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381530988-77f18b388c0d7f6a5687f5b28494a4b96eb1a8dc1a9324054aa815144a37ddf9-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955984913562226708" class="chatlog__message-container " data-message-id="955984913562226708">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:22 PM">20:22</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 4 - Time to start writing</strong>
+
+You&#39;ve learned what It means to be a copywriter, you&#39;ve started your swipe file, and you&#39;ve learned how to use the superpower of Deep Work.
+
+Time to get started.
+
+Today&#39;s Assignment:
+
+- Turn your phone off, get rid of all distractions and set a timer for 30-45 mins.
+
+- Read the 21 Bullet Secrets guide attached below and learn about copywriting &quot;fascinations&quot;
+
+- Write 10 fascinations for Hustlers University 2 
+
+<a href="https://vimeo.com/681626545">https://vimeo.com/681626545</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681626545">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 4</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 4&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/HZOt7nU6VZX1Z6IR6ZkDW6qNVR3kKHvCYMXCMhgLWjQ/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381533313-fc48dc4d65a054038d1c89aad867af5cd17ebc3618c18c05a8d7da24253b3c6f-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/HZOt7nU6VZX1Z6IR6ZkDW6qNVR3kKHvCYMXCMhgLWjQ/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381533313-fc48dc4d65a054038d1c89aad867af5cd17ebc3618c18c05a8d7da24253b3c6f-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955985169674797106" class="chatlog__message-container " data-message-id="955985169674797106">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:23 PM">20:23</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+
+                    <div class="chatlog__attachment " onclick="">
+
+                            <div class="chatlog__attachment-generic">
+                                <svg class="chatlog__attachment-generic-icon">
+                                    <use href="#attachment-icon"/>
+                                </svg>
+                                <div class="chatlog__attachment-generic-name">
+                                    <a href="https://cdn.discordapp.com/attachments/948312991714148443/955985169414766632/21-bullet-secrets.pdf">
+                                        21-bullet-secrets.pdf
+                                    </a>
+                                </div>
+                                <div class="chatlog__attachment-generic-size">
+                                    536.02 KB
+                                </div>
+                            </div>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955985369147535420" class="chatlog__message-container " data-message-id="955985369147535420">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:24 PM">20:24</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 5 - Perfect Practice</strong>
+
+Time to strengthen your copy and deep work muscles 
+
+-  Add 15 mins to your Deep Work session from yesterday
+
+- Pick a Sales page from your swipe file 
+
+- Write as many fascinations as possible about the product during your Deep Work Sessions 
+
+- Share your top 3 fascinations in <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review
+
+You will get access to <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review  4 days and 12 hours from starting this tutorial 
+
+<a href="https://vimeo.com/681626953">https://vimeo.com/681626953</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681626953">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 5</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 5&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/bxTjv-bps_Zp84cJpk1ADykDnFQ6moovazV4ETA-OlY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381532345-8ec9cf35058644e5afae98ad54abe7df9e49dc9e5341b4b586fb23667a4a0f7b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/bxTjv-bps_Zp84cJpk1ADykDnFQ6moovazV4ETA-OlY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381532345-8ec9cf35058644e5afae98ad54abe7df9e49dc9e5341b4b586fb23667a4a0f7b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955985791635554344" class="chatlog__message-container " data-message-id="955985791635554344">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:26 PM">20:26</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 6 - Short Form Copy</strong>
+
+Short form copy is your entry point into a solid deliverable that will get you paid.
+
+Some examples of Short Form Copy are Emails, FB ads, and smart social media posts.
+
+The purpose of 99% of short form copy is to grab the reader&#39;s attention, build their curiosity, and direct them to a dedicated sales page or other important step in the conversion process.
+
+You&#39;re not really trying to directly “sell” with short form copy.
+
+You don&#39;t buy a Rolex on the sidewalk, but you might see a window display and convince yourself to walk inside a store and get sold inside. 
+
+Think of the inbox or the social media feed as the sidewalk. 
+
+It&#39;s the point of the email or FB ad is to get them to &quot;step off the street&quot; and into your controlled selling environment (i.e. your sales page)
+
+The key components of successful short form copy are Disrupt, Intrigue, and Click (D-I-C)
+
+<u>Disrupt </u>
+
+This is the pattern interrupt,  You want to grab their attention. The brain is looking for something NEW. Dangle an opportunity in front of them or make them aware of a threat. 
+
+(Those fascinations you&#39;ve been working on work wonders here)
+
+For an email the Disrupt section happens in the Subject line and the first few lines of the email body.
+
+For a Facebook Ad, the Disrupt section happens mainly with the image, then the headline and then the first two lines of the ad body copy.
+
+<u>Intrigue</u>
+
+This is the heart of the short form copy.
+
+This where you need to tease either something about the unique problem your product solves or the unique way that it does it. 
+
+Again remember, you aren&#39;t telling all about the product or selling here. 
+
+You’re hinting and teasing.
+
+Little by little you reveal info about what you’re teasing but never quite enough that the reader can 100% guess what you’re talking about.
+
+It’s a lot like the game of 20 questions. 
+
+Line by line during the intrigue section you’re revealing just enough to give them a taste of what you’re talking about. 
+
+A good recipe to create curiosity in this section is
+
+Big benefit + specific detail
+
+Your fascinating work over the past few days should come in handy here.
+
+Reading your intrigue section should create a low-grade anxiety to come over your reader.
+
+You want to raise new questions in their brain that they can ONLY answer if they click the link below. 
+
+<u>Click</u>
+
+If you’ve done the first two sections correctly, the click should happen easily.
+
+During the Call to Action (CTA) you want to reiterate the angle you have been using for your tease.
+
+Then to drive someone over the edge and have them click your button or link, hit them with a little urgency, scarcity or dial up their pain again.
+
+Urgency is created when you let them know why time is running out to act. 
+
+Scarcity is created when you let them know that there is a limit to the supply and that they could miss out if they wait.
+
+
+Pain is amplified when you remind them of the consequences of not solving the problem you brought up. You can also create pain by reminding them of all the good benefits they are missing out on by not acting. 
+
+Ok, you now know the important theory behind effective short form copy.
+
+Now it’s time to see some concrete examples
+
+Today’s Assignment:
+
+- Open up your inbox and look over the last few Kyle Milligan and Ben Settle emails you’ve received. (Look in the swipe file if you need other examples)
+
+- Copy and paste them into an empty Google Doc
+
+- Now Highlight each section Disrupt, Intrigue and Click with a different color
+
+- Find specific language patterns they used to make each section work. 
+
+Bonus - <a href="https://drive.google.com/file/d/1RY3zp9omM_47MZ80yNfLZa1j_QlR9ujN/view?usp=sharing">https://drive.google.com/file/d/1RY3zp9omM_47MZ80yNfLZa1j_QlR9ujN/view?usp=sharing</a> 
+
+<a href="https://vimeo.com/681640036">https://vimeo.com/681640036</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://drive.google.com/file/d/1RY3zp9omM_47MZ80yNfLZa1j_QlR9ujN/view?usp=sharing">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How_To_Write_Short_Form_Copy.mp4</div>
+                                                    </a>
+                                            </div>
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/ZCL-5a0I9Q4gw4vJ3OchIPA29v6zQ7VZUL63rWh4y4w/https/lh4.googleusercontent.com/Q0LaBbYElw8YMY1iXrIAp8yqH4S1_kbsZ21vP1u-sVrIfCFRxMbmz9GMba7v0V2qpYY%3Dw1200-h630-p">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/ZCL-5a0I9Q4gw4vJ3OchIPA29v6zQ7VZUL63rWh4y4w/https/lh4.googleusercontent.com/Q0LaBbYElw8YMY1iXrIAp8yqH4S1_kbsZ21vP1u-sVrIfCFRxMbmz9GMba7v0V2qpYY%3Dw1200-h630-p" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640036">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 6</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 6&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/_E8IhX35lZlCmTAiElieCPwI94EVtiPNY8oXn3zHKDM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557303-42ee580a8c91e58852c16422dbf4e61d847805bb42ab1418a96a558e8df6650e-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/_E8IhX35lZlCmTAiElieCPwI94EVtiPNY8oXn3zHKDM/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557303-42ee580a8c91e58852c16422dbf4e61d847805bb42ab1418a96a558e8df6650e-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955986065917890570" class="chatlog__message-container " data-message-id="955986065917890570">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:27 PM">20:27</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 7 - Write your first Short Form Copy</strong>
+
+Yesterday you learned the basics of Short Form Copy
+
+Now it’s time to do it for yourself.
+
+Today’s Assignment:
+
+- Begin a Deep Work Session (should be at least 60 mins at this point)
+
+- Find a new Sales Page from your swipe file
+
+- Write 3 emails for the product following DIC
+
+- Submit your copy to <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review for feedback.
+
+If you get stuck, write 10 fascinations for the product and/or watch the bonus video from yesterday for inspiration
+
+<a href="https://vimeo.com/681640212">https://vimeo.com/681640212</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640212">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 7</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 7&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/pOn4gGSJm3kbTAP-tZjbxwTECFGXUTXtdzi1JCLSCIw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381559292-355b4f7db22499df8c3871eaa2d1d6625a4c5ad5dec2275635f463fd23e03e5b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/pOn4gGSJm3kbTAP-tZjbxwTECFGXUTXtdzi1JCLSCIw/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381559292-355b4f7db22499df8c3871eaa2d1d6625a4c5ad5dec2275635f463fd23e03e5b-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955986303126741052" class="chatlog__message-container " data-message-id="955986303126741052">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:28 PM">20:28</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 8 - Get Better at Short Form Copy</strong>
+
+Yesterday you wrote your first Short Form Copy
+
+Now it’s time to learn by review.
+
+One of the FASTEST ways you can get wicked good at short form copy is to review OTHER people’s copy.
+
+And that’s what you’re going to do today.
+
+Today’s Assignment:
+
+- Begin a Deep Work Session (should be at least 60 mins at this point)
+ 
+- Go through <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review and analyze as many Short form copy submissions as you can
+
+- See what others are doing well
+
+- See what they are doing wrong
+
+- Leave comments accordingly 
+
+<a href="https://vimeo.com/681640289/4ba5033b9e">https://vimeo.com/681640289/4ba5033b9e</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640289/4ba5033b9e">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 8_Watermarked</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 8_Watermarked&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/lcdrN3xCJOWpKz009HWkZm9cqpYcnEoYeWYM86e9DRg/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381560363-12ee257fcf629135a792739dd9c1bf689a483b10891828e0daef0338b1743823-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/lcdrN3xCJOWpKz009HWkZm9cqpYcnEoYeWYM86e9DRg/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381560363-12ee257fcf629135a792739dd9c1bf689a483b10891828e0daef0338b1743823-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955986555745501254" class="chatlog__message-container " data-message-id="955986555745501254">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:29 PM">20:29</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 9 -  Weird way that sleep improves your copywriting </strong>
+
+Sleep does something strange to your copy.
+
+Prepare yourself for a somewhat surreal experience. 
+
+When you return to look at copy you wrote at least a day ago or more, you see that copy in a completely different light.
+
+And no it’s not because you all of a sudden know so much more.
+
+Sleep lets you “reset” your brain.
+
+Time to find out for yourself:
+
+- Go back and open up the 3 emails you wrote on Day 7
+
+- Read them again.
+
+- Spend the rest of your deep work session improving them based on what you’re noticing for the first time today
+
+- If you have left over time, write one more DIC email for the product.
+
+(PS if you read your copy out loud it&#39;s WAY easier to find ways to improve what you write) 
+
+<a href="https://vimeo.com/681640334">https://vimeo.com/681640334</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640334">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 9</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 9&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/FtF9TPNayBg7PqLKmUbtA2CmCYoAM8y3aVc6AnvyMIs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381558070-d3ee4f780c67a0fe9c9ac1d2bd96f583f5be3c3a2028193914b7ffa1901c9537-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/FtF9TPNayBg7PqLKmUbtA2CmCYoAM8y3aVc6AnvyMIs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381558070-d3ee4f780c67a0fe9c9ac1d2bd96f583f5be3c3a2028193914b7ffa1901c9537-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955986847903924244" class="chatlog__message-container " data-message-id="955986847903924244">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:30 PM">20:30</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 10 - Round 2</strong>
+
+Getting good at Short Form Copy is super important if you want to get paid fast as a copywriter. 
+
+It’s time for round 2 
+
+Today’s Assignment:
+
+- Begin a Deep Work Session (60 mins min.)
+
+- Find a completely new Sales Page from your swipe file
+
+- Write 3 emails for the product following DIC
+
+- Submit your copy to <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review for feedback. 
+
+<a href="https://vimeo.com/681640407">https://vimeo.com/681640407</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640407">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 10</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 10&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/-A_YCDhsoOYkq4lv8-hvT5gTh28qZjhKuHGPNL9l7ws/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557993-245480d2813bb509ea7b0843dbbe386fb95d893d5f38e5d37eef2b3a59689a51-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/-A_YCDhsoOYkq4lv8-hvT5gTh28qZjhKuHGPNL9l7ws/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557993-245480d2813bb509ea7b0843dbbe386fb95d893d5f38e5d37eef2b3a59689a51-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955987123553574982" class="chatlog__message-container " data-message-id="955987123553574982">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:31 PM">20:31</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 11 - Take a break (lol)</strong>
+
+Today is going to be focused on learning advanced techniques for D-I-C
+
+There is a specific set of emotions you can weave into your copy to make it perform better
+
+It’s time for you to start using them
+
+Today’s Assignment:
+
+- Watch this video <a href="https://www.youtube.com/watch?v=Dkxc59WeRLY&amp;t=206s">https://www.youtube.com/watch?v=Dkxc59WeRLY&amp;t=206s</a> 
+
+- Take notes on how you can improve your short form copy 
+
+<a href="https://vimeo.com/681640491">https://vimeo.com/681640491</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCyJMmLY2e-AsmYJUJXsJEpA">
+                                                            <div class="chatlog__embed-author">Kyle Milligan Copywriter</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=Dkxc59WeRLY&amp;start=206">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Email Marketing Copy Example | Email Copy Breakdown</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/Dkxc59WeRLY" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681640491">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 11</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 11&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/yNIf_jfytzNe8ijm7-SoYfhmLL68lIcLQmyimVW-AUs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557958-3b1ccc0c2072f9c0b6ef0c2d493cf98e5d6613406aa17059638b4cbdc014f523-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/yNIf_jfytzNe8ijm7-SoYfhmLL68lIcLQmyimVW-AUs/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381557958-3b1ccc0c2072f9c0b6ef0c2d493cf98e5d6613406aa17059638b4cbdc014f523-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955987331939172382" class="chatlog__message-container " data-message-id="955987331939172382">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:32 PM">20:32</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 12 - NESB emotions at play</strong>
+
+Yesterday you learned how to use NESB emotions in your short form copy.
+
+Let’s see how well they improve your writing.
+
+Today’s Assignment:
+
+- Begin a Deep Work Session 
+
+- Find a completely new Sales Page from your swipe file
+
+- Write 3 emails for the product following DIC
+
+- Weave in as many of the NESB emotions as you can
+
+- Submit your copy to <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review for feedback.
+
+<a href="https://vimeo.com/691193351/ead7e4bea1">https://vimeo.com/691193351/ead7e4bea1</a></span>
+
+                            <span class="chatlog__edited-timestamp" title="22-Mar-22 09:02 PM">(edited)</span>
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/691193351/ead7e4bea1">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 12</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 12&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/2In3QqqBI1RJDib_0eo625IYMuiNlgbEl230xlHc1b4/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1399302075-68617c61154946b99638fc0263d0b567e7f5623ee2d6456d3283e687211cf212-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/2In3QqqBI1RJDib_0eo625IYMuiNlgbEl230xlHc1b4/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1399302075-68617c61154946b99638fc0263d0b567e7f5623ee2d6456d3283e687211cf212-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955987552131752097" class="chatlog__message-container " data-message-id="955987552131752097">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:33 PM">20:33</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 13 -Writing Facebook Ads</strong>
+
+Facebook ads are a popular form of short form copy you will most likely end up writing as a copywriter.
+
+Good thing D-I-C works as good for Facebook Ads as it does for Emails
+
+Today you’re going to spend some time finding and breaking down good Facebook Ads. 
+
+Today’s Assignment:
+
+- Watch this video to learn how to find FB ads - <a href="https://youtu.be/3rK4KRhpca0">https://youtu.be/3rK4KRhpca0</a>
+
+- Find 5-6 FB ads from brands you like online
+
+- Put them in your swipe file
+
+- Analyze how well they use D-I-C
+
+- How are they different than emails?
+
+- How do they use images and videos in their ads?
+
+- Is there a way they could improve what they’re doing? 
+
+<a href="https://vimeo.com/681646768">https://vimeo.com/681646768</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(255, 0, 0, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://www.youtube.com/channel/UCF-uUxo43IPpnEwnR62WGlA">
+                                                            <div class="chatlog__embed-author">Learn with Whiteboard</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://www.youtube.com/watch?v=3rK4KRhpca0">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How to Find Competitor&#39;s Facebook Ads in 3 Steps | Spy FB Ads 2021</div>
+                                                    </a>
+                                            </div>
+
+                                        <div class="chatlog__embed-youtube-container">
+                                            <iframe class="chatlog__embed-youtube" src="https://www.youtube.com/embed/3rK4KRhpca0" width="400" height="225"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681646768">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 13</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 13&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/LG40SkrSLzTAq9iutcjmPsJ4q6iy_bnY36IyfymfVMY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573182-287ac2a70570875bde508396bd8137f418305ac9a6f8ca1054f0bf3d4183e0b6-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/LG40SkrSLzTAq9iutcjmPsJ4q6iy_bnY36IyfymfVMY/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573182-287ac2a70570875bde508396bd8137f418305ac9a6f8ca1054f0bf3d4183e0b6-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955987875852324874" class="chatlog__message-container " data-message-id="955987875852324874">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:34 PM">20:34</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Day 14 - Write your own FB ads</strong>
+
+Yesterday you spent some time analyzing FB ads
+
+Now it’s time to write your own.
+
+Today’s Assignment:
+
+- Begin a Deep Work Session 
+
+- Find one of the Sales Pages from your swipe file you’ve looked at before.
+
+- Write 3 FB ads for the product following DIC
+
+- Make sure your ads follow FB’s compliance guidelines - <a href="https://www.facebook.com/policies/ads/">https://www.facebook.com/policies/ads/</a>
+
+- Submit your copy to <img loading="lazy" class="chatlog__emoji " alt="📄" title="page_facing_up" src="https://twemoji.maxcdn.com/2/svg/1f4c4.svg">｜copywriting-review for feedback.
+
+<a href="https://vimeo.com/681647514">https://vimeo.com/681647514</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681647514">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Day 14</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Day 14&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/oSJiVI-TQLpUfEAde-KIPfm-d55bK45Jyj2pxAvCNN4/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573097-503c865f4acd10fc16da1e1c69e7e9b3af438bf87a201c365ebd3c6d35bb99fe-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/oSJiVI-TQLpUfEAde-KIPfm-d55bK45Jyj2pxAvCNN4/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381573097-503c865f4acd10fc16da1e1c69e7e9b3af438bf87a201c365ebd3c6d35bb99fe-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955988173299810375" class="chatlog__message-container " data-message-id="955988173299810375">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:35 PM">20:35</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Conclusion</strong>
+
+<a href="https://vimeo.com/681646867">https://vimeo.com/681646867</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <a class="chatlog__embed-author-link" href="https://vimeo.com/user165613278">
+                                                            <div class="chatlog__embed-author">Hustler&#39;s University</div>
+                                                        </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://vimeo.com/681646867">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">Conclusion _Watermarked</div>
+                                                    </a>
+                                            </div>
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">This is &quot;Conclusion _Watermarked&quot; by Hustler&#39;s University on Vimeo, the home for high quality videos and the people who love them.</div>
+                                            </div>
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-2.discordapp.net/external/noKD2_z1hFbBeNaTlVvipWMLYETPU-9Rkm4Ra7r_aVg/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381571819-ff6ad8aa544f7987cc4455dbee90504be8f4866abb6c983491ec874ee683e0da-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-2.discordapp.net/external/noKD2_z1hFbBeNaTlVvipWMLYETPU-9Rkm4Ra7r_aVg/%3Fsrc0%3Dhttps%253A%252F%252Fi.vimeocdn.com%252Fvideo%252F1381571819-ff6ad8aa544f7987cc4455dbee90504be8f4866abb6c983491ec874ee683e0da-d_1280x720%26src1%3Dhttps%253A%252F%252Ff.vimeocdn.com%252Fimages_v6%252Fshare%252Fplay_icon_overlay.png/https/i.vimeocdn.com/filter/overlay" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div id="chatlog__message-container-955988460257312768" class="chatlog__message-container " data-message-id="955988460257312768">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <div class="chatlog__short-timestamp" title="22-Mar-22 08:36 PM">20:36</div>
+            </div>
+
+            <div class="chatlog__message-primary">
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Bonus - How To Write A Sales Page Training</strong>
+<a href="https://drive.google.com/file/d/1KsVFt1kPnusCwWVP2uQkpxGaUJ-0BV1z/view?usp=sharing">https://drive.google.com/file/d/1KsVFt1kPnusCwWVP2uQkpxGaUJ-0BV1z/view?usp=sharing</a></span>
+
+                    </div>
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill chatlog__embed-color-pill--default"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+
+                                            <div class="chatlog__embed-title">
+                                                    <a class="chatlog__embed-title-link" href="https://drive.google.com/file/d/1KsVFt1kPnusCwWVP2uQkpxGaUJ-0BV1z/view?usp=sharing">
+                                                        <div class="chatlog__markdown chatlog__markdown-preserve">How_To_Write_A_Sales_Page.mp4</div>
+                                                    </a>
+                                            </div>
+
+
+                                    </div>
+
+                                        <div class="chatlog__embed-thumbnail-container">
+                                            <a class="chatlog__embed-thumbnail-link" href="https://images-ext-1.discordapp.net/external/qjdhV3iunulgPrGVO8xAy2S6p0MzjgGPDuzuZUhLxl8/https/lh4.googleusercontent.com/R1FbiS6dnXCS8bGf_tErQ6XMY-5DSUT7oZf4H3X_MLFHss_JvKaYzIDVbo72pwfTPrY%3Dw1200-h630-p">
+                                                <img class="chatlog__embed-thumbnail" src="https://images-ext-1.discordapp.net/external/qjdhV3iunulgPrGVO8xAy2S6p0MzjgGPDuzuZUhLxl8/https/lh4.googleusercontent.com/R1FbiS6dnXCS8bGf_tErQ6XMY-5DSUT7oZf4H3X_MLFHss_JvKaYzIDVbo72pwfTPrY%3Dw1200-h630-p" alt="Thumbnail" loading="lazy">
+                                            </a>
+                                        </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961186987451240458" class="chatlog__message-container " data-message-id="961186987451240458">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/904474982338424843/0dfd2214e90c7a25a3b96b5ba85d11b0.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="" title="Quiz Bot#0000" data-user-id="904474982338424843">Quiz Bot</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">06-Apr-22 04:53 AM</span>
+                    </div>
+
+                    <div class="chatlog__content chatlog__markdown">
+                        <span class="chatlog__markdown-preserve"><strong>Congratulations</strong>
+
+Before you get access to the entire Copywriting Category, you have to go through a short Quiz to test your knowledge.
+
+Once you complete the quiz with a perfect score of 100%, you will get access to a guide that will teach you exactly how to maximize your profits from Copywriting.
+
+Right after, you will be directed to the Copy FAQ to clear some beginner questions you might have after all of that learning.
+
+See you soon!</span>
+
+                    </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+    <div id="chatlog__message-container-961187014999408650" class="chatlog__message-container " data-message-id="961187014999408650">
+        <div class="chatlog__message">
+            <div class="chatlog__message-aside">
+                    <img class="chatlog__avatar" src="https://cdn.discordapp.com/avatars/907949921783652382/f3db017951ef581dae1ef4667dae9c75.png?size=512" alt="Avatar" loading="lazy">
+            </div>
+
+            <div class="chatlog__message-primary">
+                    <div class="chatlog__header">
+                        <span class="chatlog__author" style="color: rgb(250, 5, 248)" title="Get started copy#5526" data-user-id="907949921783652382">Get started copy</span>
+
+                            <span class="chatlog__bot-label">BOT</span>
+
+                        <span class="chatlog__timestamp">06-Apr-22 04:54 AM</span>
+                    </div>
+
+
+
+                        <div class="chatlog__embed">
+                                <div class="chatlog__embed-color-pill" style="background-color: rgba(100, 161, 72, 255)"></div>
+
+                            <div class="chatlog__embed-content-container">
+                                <div class="chatlog__embed-content">
+                                    <div class="chatlog__embed-text">
+                                            <div class="chatlog__embed-author-container">
+
+                                                        <div class="chatlog__embed-author">Getting started in Copywriting quiz!</div>
+                                            </div>
+
+
+                                            <div class="chatlog__embed-description">
+                                                <div class="chatlog__markdown chatlog__markdown-preserve">Click on the start button to start the quiz. 
+ <strong>To pass - You must answer correctly on ALL questions!</strong>  
+ If you want to reset anytime during the quiz, just press the reset button.</div>
+                                            </div>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div class="postamble">
+    <div class="postamble__entry">Exported 20 message(s)</div>
+</div>
+
+</body>
+
+</html>
